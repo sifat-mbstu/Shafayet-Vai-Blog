@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: বিটওয়াইজ্ সিভ(Bitwise sieve)</title>
+	<atom:link href="http://www.shafaetsplanet.com/planetcoding/?feed=rss2&#038;p=855" rel="self" type="application/rss+xml" />
+	<link>http://www.shafaetsplanet.com/planetcoding/?p=855</link>
+	<description>প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</description>
+	<lastBuildDate>Sun, 28 Aug 2016 10:10:28 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	
+	<item>
+		<title>By: light oj:1289 &#8211; LCM from 1 to n &#124; nlogn</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-58349</link>
+		<dc:creator><![CDATA[light oj:1289 &#8211; LCM from 1 to n &#124; nlogn]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-58349</guid>
+		<description><![CDATA[[&#8230;] the highest power(just think a bit you will get it).the limit of n here is a large one.we need  bitwise sieve to calculate the primes.so whats the solution?we will take n and we will see how many time a prime [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] the highest power(just think a bit you will get it).the limit of n here is a large one.we need  bitwise sieve to calculate the primes.so whats the solution?we will take n and we will see how many time a prime [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েত</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-57851</link>
+		<dc:creator><![CDATA[শাফায়েত]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-57851</guid>
+		<description><![CDATA[নিচের লাইনটা যোগ করে নাও ডিক্লারেশন এর পরে:
+memset(refr,0,sizeof refr); //need cstring header file
+লোকাল ভ‍্যারিয়েবল ০ দিয়ে initialize করা থাকেনা, গার্বেজ ভ‍্যালু থাকে, তাই সমস‍্যা হচ্ছে। 
+আরেকটা কথা, অ‍্য‍ারের সাইজ বেশি বড় হয়ে গেলে লোকাল ভ‍্যারিয়েবল রানটাইম ইরোর দিতে পারে, তবে লোকাল ভ‍্যারিয়েবলের এক্সেস টাইম গ্লোবালের থেকে কম।]]></description>
+		<content:encoded><![CDATA[<p>নিচের লাইনটা যোগ করে নাও ডিক্লারেশন এর পরে:<br />
+memset(refr,0,sizeof refr); //need cstring header file<br />
+লোকাল ভ‍্যারিয়েবল ০ দিয়ে initialize করা থাকেনা, গার্বেজ ভ‍্যালু থাকে, তাই সমস‍্যা হচ্ছে।<br />
+আরেকটা কথা, অ‍্য‍ারের সাইজ বেশি বড় হয়ে গেলে লোকাল ভ‍্যারিয়েবল রানটাইম ইরোর দিতে পারে, তবে লোকাল ভ‍্যারিয়েবলের এক্সেস টাইম গ্লোবালের থেকে কম।</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Mahmudul Hasan</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-57850</link>
+		<dc:creator><![CDATA[Mahmudul Hasan]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-57850</guid>
+		<description><![CDATA[একটা বিষয়ে সমস্যা হচ্ছে, আপনি এখানে status এরেকে গ্লোবাল ধরে নিয়েছেন, এবং N এর মানকেও গ্লোবালি ইনিশিয়ালাইজ করেছেন, আমি যদি status কে লোকাল ভ্যারিয়েবল(মনে করি, সীভ ফাংশনের ভেতর) হিসেবে ইনিশিয়ালাইজ করি, এবং N কে আর্গুমেন্ট আকারে মেইন ফাংশন থেকে পাস করে দেই, তাহলে কিছু প্রাইম জেনারেট হচ্ছে না। এই সমস্যা সমাধান জানালে উপকৃত হতাম :)
+
+কোডটার একটা রাফ ভার্সনঃ 
+http://paste.ubuntu.com/8506585/]]></description>
+		<content:encoded><![CDATA[<p>একটা বিষয়ে সমস্যা হচ্ছে, আপনি এখানে status এরেকে গ্লোবাল ধরে নিয়েছেন, এবং N এর মানকেও গ্লোবালি ইনিশিয়ালাইজ করেছেন, আমি যদি status কে লোকাল ভ্যারিয়েবল(মনে করি, সীভ ফাংশনের ভেতর) হিসেবে ইনিশিয়ালাইজ করি, এবং N কে আর্গুমেন্ট আকারে মেইন ফাংশন থেকে পাস করে দেই, তাহলে কিছু প্রাইম জেনারেট হচ্ছে না। এই সমস্যা সমাধান জানালে উপকৃত হতাম 🙂</p>
+<p>কোডটার একটা রাফ ভার্সনঃ<br />
+<a href="http://paste.ubuntu.com/8506585/" rel="nofollow">http://paste.ubuntu.com/8506585/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Maruf Tuhin</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-4947</link>
+		<dc:creator><![CDATA[Maruf Tuhin]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-4947</guid>
+		<description><![CDATA[583 - Prime Factors
+
+For this problem i got 0.912 runtime for normal sieve. http://ideone.com/CoWXez
+
+I converted the sieve portion to bitwise sieve, and got 2.485 runtime!!!! http://ideone.com/HH3LwY
+
+Why????????????????]]></description>
+		<content:encoded><![CDATA[<p>583 &#8211; Prime Factors</p>
+<p>For this problem i got 0.912 runtime for normal sieve. <a href="http://ideone.com/CoWXez" rel="nofollow">http://ideone.com/CoWXez</a></p>
+<p>I converted the sieve portion to bitwise sieve, and got 2.485 runtime!!!! <a href="http://ideone.com/HH3LwY" rel="nofollow">http://ideone.com/HH3LwY</a></p>
+<p>Why????????????????</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েত</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-3491</link>
+		<dc:creator><![CDATA[শাফায়েত]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-3491</guid>
+		<description><![CDATA[এটায় মনে হচ্ছে আরো অ্যাডভান্সড কিছু লাগবে, এই থ্রেডটা দেখো : &lt;a href=&quot;http://apps.topcoder.com/forums/?module=Thread&amp;threadID=698955&amp;start=0&amp;mc=5#1335192&quot; rel=&quot;nofollow&quot;&gt;http://apps.topcoder.com/forums/?module=Thread&amp;threadID=698955&amp;start=0&amp;mc=5#1335192&lt;/a&gt;]]></description>
+		<content:encoded><![CDATA[<p>এটায় মনে হচ্ছে আরো অ্যাডভান্সড কিছু লাগবে, এই থ্রেডটা দেখো : <a href="http://apps.topcoder.com/forums/?module=Thread&#038;threadID=698955&#038;start=0&#038;mc=5#1335192" rel="nofollow">http://apps.topcoder.com/forums/?module=Thread&#038;threadID=698955&#038;start=0&#038;mc=5#1335192</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: আলিম</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-3484</link>
+		<dc:creator><![CDATA[আলিম]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-3484</guid>
+		<description><![CDATA[ভাইয়া, এই প্রবলেম এর ক্ষেত্রে কিভাবে প্রাইম Generate করব? 
+http://www.spoj.com/problems/KPRIMES2/]]></description>
+		<content:encoded><![CDATA[<p>ভাইয়া, এই প্রবলেম এর ক্ষেত্রে কিভাবে প্রাইম Generate করব?<br />
+<a href="http://www.spoj.com/problems/KPRIMES2/" rel="nofollow">http://www.spoj.com/problems/KPRIMES2/</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েত</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-1029</link>
+		<dc:creator><![CDATA[শাফায়েত]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-1029</guid>
+		<description><![CDATA[টেকনিক্যাল কিছু সমস্যার জন্য কোড এডিট করতে পারছিনা, ঠিক হলে রিপ্লেস করে দিবো।
+i*i দিলেও কাজ হবে, &lt;a href=&quot;http://www.lightoj.com/article_show.php?article=100&quot; rel=&quot;nofollow&quot;&gt;http://www.lightoj.com/article_show.php?article=100&lt;/a&gt;1 এই লিংকটা দেখেন।]]></description>
+		<content:encoded><![CDATA[<p>টেকনিক্যাল কিছু সমস্যার জন্য কোড এডিট করতে পারছিনা, ঠিক হলে রিপ্লেস করে দিবো।<br />
+i*i দিলেও কাজ হবে, <a href="http://www.lightoj.com/article_show.php?article=100" rel="nofollow">http://www.lightoj.com/article_show.php?article=100</a>1 এই লিংকটা দেখেন।</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: কাইদুল</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-1013</link>
+		<dc:creator><![CDATA[কাইদুল]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-1013</guid>
+		<description><![CDATA[int(signed integer) এর left Most bit যেহেতু sign bit, তাই আমরা যখন একে left shifting করি তখন left most বিটে 1 পুশ করলে সংখ্যাটা নেগেটিভ হওয়ার সম্ভাবনা থাকে। তাই i&#060;&#060;1 ব্যবহার করা কি ঠিক হবে? 
+আমি ভুল হতে পারি, for( j = i*i; j &#060;= N; j += 2*i ) লাইনের মাধ্যমে কি সব মাল্টিপল বের হবে? for( j = 2*i; j &#060;= N; j += i ) দিলে হবার কথা ! 
+i%31 গুলোকে i%32 দিয়ে রিপ্লেস করলে ভাল হত। কিছুটা কনফিউজিং লাগছে :)]]></description>
+		<content:encoded><![CDATA[<p>int(signed integer) এর left Most bit যেহেতু sign bit, তাই আমরা যখন একে left shifting করি তখন left most বিটে 1 পুশ করলে সংখ্যাটা নেগেটিভ হওয়ার সম্ভাবনা থাকে। তাই i&lt;&lt;1 ব্যবহার করা কি ঠিক হবে?<br />
+আমি ভুল হতে পারি, for( j = i*i; j &lt;= N; j += 2*i ) লাইনের মাধ্যমে কি সব মাল্টিপল বের হবে? for( j = 2*i; j &lt;= N; j += i ) দিলে হবার কথা !<br />
+i%31 গুলোকে i%32 দিয়ে রিপ্লেস করলে ভাল হত। কিছুটা কনফিউজিং লাগছে 🙂</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েত</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-991</link>
+		<dc:creator><![CDATA[শাফায়েত]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-991</guid>
+		<description><![CDATA[হ্যা j%32 হবে, আমি ঠিক করে দিচ্ছি। যদিও j%31 লিখলেও কোডটা কাজ করে এজন্য হয়তো খেয়াল করিনি ঠিকমত তাই কনফিউশন তৈরি হয়েছে।]]></description>
+		<content:encoded><![CDATA[<p>হ্যা j%32 হবে, আমি ঠিক করে দিচ্ছি। যদিও j%31 লিখলেও কোডটা কাজ করে এজন্য হয়তো খেয়াল করিনি ঠিকমত তাই কনফিউশন তৈরি হয়েছে।</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: অনিন্দ্য</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=855#comment-987</link>
+		<dc:creator><![CDATA[অনিন্দ্য]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=855#comment-987</guid>
+		<description><![CDATA[ভাই, ১৫ তম লাইনে j%31 এর পরিবর্তে j%32 হবে না? j%32 এবং j&#038;31 একই হবার কথা। যদি P=2^x হয়, তাহলে n%p = n&#038;(p-1) হওয়ার কথা। এটা নিয়ে একটু confusion হচ্ছে।  :(]]></description>
+		<content:encoded><![CDATA[<p>ভাই, ১৫ তম লাইনে j%31 এর পরিবর্তে j%32 হবে না? j%32 এবং j&amp;31 একই হবার কথা। যদি P=2^x হয়, তাহলে n%p = n&amp;(p-1) হওয়ার কথা। এটা নিয়ে একটু confusion হচ্ছে।  🙁</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

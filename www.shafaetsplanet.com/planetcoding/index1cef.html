@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=600&replytocom=58006 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:55:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,302] -->
+<meta name="description" itemprop="description" content="কনটেস্ট প্রোগ্রামিং এর একটা দারুণ ব্যাপার হলো কনটেস্টেন্টদের শুধু ভালো প্রোগ্রামিং জানলেই হয়না, সাথে ভালো গণিতও জানা দরকার হয়। বিশেষ করে কম্বিনেটরিক্স আর" />
+
+<meta name="keywords" itemprop="keywords" content="ইনক্লুশন-এক্সক্লুশন,কম্বিনেটোরিক্স,ডি-রেঞ্জমেন্ট,অ্যালগোরিদম/প্রবলেম সলভিং" />
+
+<link rel="canonical" href="index2b8b.html?p=600" />
+<meta property="og:title" content="কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=600" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="কনটেস্ট প্রোগ্রামিং এর একটা দারুণ ব্যাপার হলো কনটেস্টেন্টদের শুধু ভালো প্রোগ্রামিং জানলেই হয়না, সাথে ভালো গণিতও জানা দরকার হয়। বিশেষ করে কম্বিনেটরিক্স আর প্রোবাবিলিটিতে ভালো ধারণা থাকলে অনেক ধরণের প্রবলেম সলভ করে ফেলা যায়। ৪টি টুপি পাশাপাশি সাজানো আছে, টুপিগুলোকে যথাক্রমে ১,২,৩,৪ সংখ্যাগুলো দিয়ে চিহ্ন দেয়া হয়েছে। এখন টুপিগুলোকে এলোমেলো করে কতভাবে সাজানো যাবে? আমরা কয়েকভাবে সাজিয়ে চেষ্টা করি:  ১,২,৩,৪ ১,৩,২,৪ ১,৪,২,৩ ১,৩,৪,২ ....... ...... ৪,৩,২,১  মোট কতভাবে সাজানো যাবে? কলেজে করে আসা অংক থেকে তুমি সহজেই বলতে পারবে $factorial(৪)=২৪$ ভাবে সাজানো যায়। এটাকে আমরা একটু প্রোগ্রামারের দৃষ্টিভঙ্গী থেকে দেখি। ৪টা জায়গা বা স্লট আছে, প্রতিটি স্লটে ১টি করে টুপি বসানো যায়। এখন প্রথম স্লটে ১,২,৩ বা ৪ এর যেকোনো একটা বসালে:  ১,_,_,_  প্রথম স্লটে টুপি কত ভাবে বসানো যায়? অবশ্যই ৪ ভাবে। এখন ২য় স্লটে কয়ভাবে বসানো যায়? একটা টুপি আমরা বসিয়ে ফেলেছি আগেরটায়, তাই ২য় স্লটে বসাতে পারবো ৪-১=৩ ভাবে। ঠিক এভাবে ৩য় স্লটে ২ভাবে এবং ২য় স্লটে ১ ভাবে। তাহলে মোট উপায় $৪ \times ৩ \times ২ \times ১" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="কনটেস্ট প্রোগ্রামিং এর একটা দারুণ ব্যাপার হলো কনটেস্টেন্টদের শুধু ভালো প্রোগ্রামিং জানলেই হয়না, সাথে ভালো গণিতও জানা দরকার হয়। বিশেষ করে কম্বিনেটরিক্স আর প্রোবাবিলিটিতে ভালো ধারণা থাকলে অনেক ধরণের প্রবলেম সলভ করে ফেলা যায়। ৪টি টুপি পাশাপাশি সাজানো আছে, টুপিগুলোকে যথাক্রমে ১,২,৩,৪ সংখ্যাগুলো দিয়ে চিহ্ন দেয়া হয়েছে। এখন টুপিগুলোকে এলোমেলো করে কতভাবে সাজানো যাবে? আমরা কয়েকভাবে সাজিয়ে চেষ্টা করি:  ১,২,৩,৪ ১,৩,২,৪ ১,৪,২,৩ ১,৩,৪,২ ....... ...... ৪,৩,২,১  মোট কতভাবে সাজানো যাবে? কলেজে করে আসা অংক থেকে তুমি সহজেই বলতে পারবে $factorial(৪)=২৪$ ভাবে সাজানো যায়। এটাকে আমরা একটু প্রোগ্রামারের দৃষ্টিভঙ্গী থেকে দেখি। ৪টা জায়গা বা স্লট আছে, প্রতিটি স্লটে ১টি করে টুপি বসানো যায়। এখন প্রথম স্লটে ১,২,৩ বা ৪ এর যেকোনো একটা বসালে:  ১,_,_,_  প্রথম স্লটে টুপি কত ভাবে বসানো যায়? অবশ্যই ৪ ভাবে। এখন ২য় স্লটে কয়ভাবে বসানো যায়? একটা টুপি আমরা বসিয়ে ফেলেছি আগেরটায়, তাই ২য় স্লটে বসাতে পারবো ৪-১=৩ ভাবে। ঠিক এভাবে ৩য় স্লটে ২ভাবে এবং ২য় স্লটে ১ ভাবে। তাহলে মোট উপায় $৪ \times ৩ \times ২ \times ১" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা Comments Feed" href="indexc511.html?feed=rss2&amp;p=600" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='গ্রাফ থিওরিতে হাতেখড়ি-৯ (ডায়াক্সট্রা)' href='index0f1e.html?p=1500' />
+<link rel='next' title='ডাটা স্ট্রাকচার: সেগমেন্ট ট্রি-১' href='indexd81c.html?p=1557' />
+
+<link rel='shortlink' href='index2b8b.html?p=600' />
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/json+oembed" href="index76c6.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D600" />
+<link rel="alternate" type="text/xml+oembed" href="indexc85b.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D600&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-600 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-600" class="post-600 post type-post status-publish format-standard hentry category-contest tag-94 tag-56 tag-93">
+	<header class="entry-header">
+		<h1 class="main-title"><span>কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="index2b8b.html?p=600" rel="bookmark"><time class="entry-date published" datetime="২০১৩-০৫-০৮T২০:৩৫:৪২+০০:০০">মে ৮, ২০১৩</time><time class="updated" datetime="2016-02-29T14:11:21+00:00">February 29, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=600'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%95%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%BF%E0%A6%A8%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B8%3A%20%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%8F%E0%A6%AC%E0%A6%82%20%E0%A6%A1%E0%A6%BF-%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%97%E0%A6%A3%E0%A6%A8%E0%A6%BE&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D600&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=600'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%95%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%BF%E0%A6%A8%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B8%3A%20%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%8F%E0%A6%AC%E0%A6%82%20%E0%A6%A1%E0%A6%BF-%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%97%E0%A6%A3%E0%A6%A8%E0%A6%BE&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=600&amp;summary=%e0%a6%95%e0%a6%a8%e0%a6%9f%e0%a7%87%e0%a6%b8%e0%a7%8d%e0%a6%9f%20%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%82%20%e0%a6%8f%e0%a6%b0%20%e0%a6%8f%e0%a6%95%e0%a6%9f%e0%a6%be%20%e0%a6%a6%e0%a6%be%e0%a6%b0%e0%a7%81%e0%a6%a3%20%e0%a6%ac%e0%a7...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p>কনটেস্ট প্রোগ্রামিং এর একটা দারুণ ব্যাপার হলো কনটেস্টেন্টদের শুধু ভালো প্রোগ্রামিং জানলেই হয়না, সাথে ভালো গণিতও জানা দরকার হয়। বিশেষ করে কম্বিনেটরিক্স আর প্রোবাবিলিটিতে ভালো ধারণা থাকলে অনেক ধরণের প্রবলেম সলভ করে ফেলা যায়। </p>
+<p>৪টি টুপি পাশাপাশি সাজানো আছে, টুপিগুলোকে যথাক্রমে ১,২,৩,৪ সংখ্যাগুলো দিয়ে চিহ্ন দেয়া হয়েছে। এখন টুপিগুলোকে এলোমেলো করে কতভাবে সাজানো যাবে? আমরা কয়েকভাবে সাজিয়ে চেষ্টা করি:</p>
+<blockquote><p>
+১,২,৩,৪<br />
+১,৩,২,৪<br />
+১,৪,২,৩<br />
+১,৩,৪,২<br />
+&#8230;&#8230;.<br />
+&#8230;&#8230;<br />
+৪,৩,২,১
+</p></blockquote>
+<p>মোট কতভাবে সাজানো যাবে? কলেজে করে আসা অংক থেকে তুমি সহজেই বলতে পারবে $factorial(৪)=২৪$ ভাবে সাজানো যায়। এটাকে আমরা একটু প্রোগ্রামারের দৃষ্টিভঙ্গী থেকে দেখি। ৪টা জায়গা বা স্লট আছে, প্রতিটি স্লটে ১টি করে টুপি বসানো যায়। এখন প্রথম স্লটে ১,২,৩ বা ৪ এর যেকোনো একটা বসালে:</p>
+<blockquote><p>
+১,_,_,_
+</p></blockquote>
+<p>প্রথম স্লটে টুপি কত ভাবে বসানো যায়? অবশ্যই ৪ ভাবে। এখন ২য় স্লটে কয়ভাবে বসানো যায়? একটা টুপি আমরা বসিয়ে ফেলেছি আগেরটায়, তাই ২য় স্লটে বসাতে পারবো ৪-১=৩ ভাবে। ঠিক এভাবে ৩য় স্লটে ২ভাবে এবং ২য় স্লটে ১ ভাবে। তাহলে মোট উপায় $৪ \times ৩ \times ২ \times ১=২৪$ টা। ৪টার জায়গায় $n$ টা টুপি থাকলে কি করতে? আমরা প্রোগ্রামার তাই বারবার কষ্ট করে হিসাব না করে ধুম করে একটা ফাংশন লিখে ফেলি। মনে করো ফাংশনটা হলো permutation(n)। $n=0$ হলে সাজানো যায় ১ ভাবে, তাহলে:</p>
+<blockquote><p>$permutation(0)=0$ </p></blockquote>
+<p>$n>0$ হলে প্রথম স্লটে বসানো যায় $n$ ভাবে, এরপরে সমস্যাটা ছোটো হয়ে দাড়ায় &#8220;$n-1$ টা টুপি $n-1$ টা স্লটে কতভাবে বসানো যায়?&#8221; অর্থাৎ সমস্যাটা $permutation(n-1)$ হয়ে যায়। সাথে গুণ হবে $n$ কারণ কারেন্ট স্লটে $n$ ভাবে বসিয়েছি। তাহলে লিখতে পারি:</p>
+<blockquote><p>$permutation(n)=n \times permutation(n-1)$</p></blockquote>
+<p>আশা করি ব্যাপারটা পরিষ্কার। সহজ ব্যাপারটা নিয়ে এত কথা বললাম যাতে রিকার্শনটা পরিষ্কার হয় যেটা কাজে লাগবে ডিরেঞ্জমেন্ট গোণার জন্য।</p>
+<p>এখন ধরো ১,২,৩,৪ এই ৪টা টুপির মালিক হলো যথাক্রমে সাকিব, নাসির, তামিম, রহিম। তারা খুবই ভালো বন্ধু বলে ঠিক করলো একজন আরেকজনের টুপি পড়ে ক্রিকেট খেলতে যাবে। কেও তার নিজের টুপি পড়তে পারবেনা, তাহলে বন্ধুত্ব থাকবেনা! এখন কতভাবে তারা টুপি পড়তে পারবে? </p>
+<p>গণিতের ভাষায় এর নাম ডিরেঞ্জমেন্ট, এমন কয়টি পারমুটেশন আছে যেখানে কেও তার নিজের জায়গায় নেই।</p>
+<p>১,৩,২,৪ ডি-রেঞ্জমেন্ট নয় কারন সাকিব আর রহিম তাদের নিজ নিজ টুপিই পড়ে আছে(১ ও ৪ নম্বর) ! ২,১,৪,৩ একটি ডি-রেঞ্জমেন্ট, সবাই তার বন্ধুর টুপি পড়েছে।</p>
+<p>আমরা একটা ফাংশন বানাবো $d(n)$ যেটা $n$ টা টুপি কতভাবে সাজানো যায় যাতে কেও তার নিজের টুপি না পায় সেটা বের করে দেয়।</p>
+<p>প্রথম মানুষ সাকিবের কাছে ৪-১=৩টা চয়েস আছে, সে ১ নম্বর বাদে যেকোনো টুপি নিতে পারে। মনে করলাম সে তামিমের টুপি নিলো। এখন ২টা ঘটনা ঘটতে পারে:</p>
+<blockquote><p>১. পরের বার তামিম নিলো সাকিবের টুপি। এখন ৪-২=২ জন মানুষ বাকি, টুপিও বাকি ঠিক ৪-২=২ টা।</p></blockquote>
+<blockquote><p>
+২. পরের বার তামিম সাকিব ছাড়া অন্য কারো টুপি নিলো। এখন মানুষ বাকি ৪-১=৩ জন। তামিম যেহেতু সাকিবের টুপি নিচ্ছেনা তাই ওটাকেই তার নিষিদ্ধ টুপি ধরতে হবে, আর বাকি সবার কাছে নিষিদ্ধ টুপি হলো তার নিজের টুপিটা। তাহলে এখন ৪-১=৩ জন মানুষের জন্য ৪-১=৩ টা করে চয়েস আছে। লক্ষ্য করো </p></blockquote>
+<p><a href="index07b8.html?attachment_id=1532" rel="attachment wp-att-1532"><img src="wp-content/uploads/2011/07/derange-1024x666.png" alt="derange" width="800" height="666" class="aligncenter size-large wp-image-1532" /></a></p>
+<p>দুই ক্ষেত্রেই মানুষ আর টুপির সংখ্যা সমান থাকছে। ৪ এর জায়গায় n ধরে ২টা কন্ডিশন মিলিয়ে সহজেই রিকার্সিভ রিলেশনটা লিখতে পারি:</p>
+<blockquote><p>
+$d(n)=(n-1)* (d(n-1)+d(n-2))$<br />
+বেস কেস: $d(1)=0,d(2)=1$
+</p></blockquote>
+<p>এই রিকার্সনটা কোড করার সময় মাথায় রাখতে হবে যে একই ফাংশন অনেকবার কল হচ্ছে,তাই ডিপি টেবিলে মানগুলো সেভ করে রাখতে হবে। তুমি ডাইনামিক প্রোগ্রামিং নিয়ে পড়ালেখা করতে পারো এ সম্পর্কে জানতে।</p>
+<p>এবার আরেকটা মজার উপায়ে প্রবলেমটা সলভ করি। $^nC_r$ বা $\binom{n}{r}$ এর সাথে তোমরা পরিচিত, $n$ টা জিনিস থেকে $r$ টি জিনিস কতভাবে নেয়া যায় সেটাই প্রকাশ করে $\binom{n}{r}$ । $n$ টা টুপিকে মোট সাজানো যায় $n$! উপায়। এর মধ্যে যেসব পারমুটেশনে <strong>অন্তত একটি টুপি</strong> নিজের জায়গায় আছে তাদের বাদ দিলে ডিরেঞ্জমেন্ট পাওয়া যায়। $n$ টি টুপি থেকে ১ টি টুপি নেয়া যায় $\binom{n}{1}$ উপায়ে, ১টি টুপিকে নিজের জায়গায় রেখে বাকি $n-1$ টা টুপিকে সাজানো যায় $(n-1)!$ উপায়ে। তাহলে $n!- \binom{n}{1} \times (n-1)!$ বের করলেই ডিরেঞ্জমেন্ট বের হয়ে যাচ্ছেনা? কারণ আমরা মোট উপায় থেকে যেসব পারমুটেশনকে <strong>অন্তত ১ জন</strong> নিজের জায়গায় আছে তাদের বাদ দিচ্ছি।  $\binom{n}{1}$ দিয়ে গুণ দিচ্ছি কারণ প্রতিবার ১জন কে ফিক্সড করে $n-1$ জনকে পারমুটেশন করতেসি। </p>
+<p>কিন্তু এখানে একটা বড় সমস্যা আছে। ধরো তুমি তামিমের টুপিকে তামিমের কাছেই রেখে বাকি টুপিগুলো কয়ভাবে সাজানো যায় বের করলে। আবার নতুন করে সাকিবেরটা সাকিবের কাছে রেখে বাকিগুলো কয়ভাবে সাজানো যায় বের করলে। ভালোমত চিন্তা করে দেখ যেসব পারমুটেশনে সাকিবেরটা সাকিবের কাছে আছে আর তামিমেরটা তামিমের কাছে আছে সেগুলো কি ২বার গণনা করা হয়ে গেলো না? $\binom{n}{1} \times (n-1)!$ এ এই কারণে কিছু পারমুটেশন একাধিক বার ক্যালকুলেট করা হয়ে যাবে। সেগুলো আমরা কিভাবে বাদ দিবো? আমরা ১টা সংখ্যা ফিক্সড করে যখন গুনেছি তখন যেসব পারমুটেশনে ২টা সংখ্যা ফিক্সড সেগুলো একাধিক বার গুণে ফেলেছি, সেগুলো আমরা বাদ দিয়ে দেই। $\binom{n}{1} \times (n-1)!$ থেকে বাদ দিয়ে দিবো $\binom{n}{2} \times (n-2)!$ । একটু চিন্তা করলে বুঝতে পারবে এখানেও সমস্যা আছে, যেখানে ৩টা ফিক্সড সেগুলোকেও আমরা বাদ দিয়ে দিচ্ছি!! তাহলে সেটা আবার যোগ করে দাও। মাথা গুলিয়ে গেলে ভ্যান ডায়াগ্রামের কথা চিন্তা করো:</p>
+<p><img src=../../2.bp.blogspot.com/-ejteg2WlkVA/Tc6YdPaJhpI/AAAAAAAAADs/KCNn4ZPUBfM/s1600/ConfusedVennDiagram.gif /></p>
+<p>ভ্যান ডায়াগ্রামে ৩টা অংশের কমন এরিয়া বের করতে আমরা সবগুলো অংশ যোগ করি, তারপর যেসব অংশ দুটি বুত্তে আছে সেগুলো বাদ দেই, যেগুলো ৩টি বৃত্তে আছে সেগুলো আবার যোগ করে দেই, বৃত্ত আরো বেশি থাকলে এভাবে যোগ বিয়োগ চলতেই থাকে। দুটি সেট $A,B$ হলে $|A∪B|=|A|+|B|-|A∩B|$। ঠিক এই কাজটি করবো এখানে। আমাদের ফর্মূলা হবে:</p>
+<p>$n!-\binom{n}{1} \times (n-1)!+ \binom{n}{2} \times (n-2)!-..…+ (-1)^k \times \binom{n}{k} \times (n-k)!+&#8230;.+(-1)n$</p>
+<p>আমরা একবার যোগ করছি, একবার বিয়োগ করছি, এভাবে অপ্রয়োজনীয় অংশ বাদ দিয়ে ফলাফল পেয়ে যাচ্ছি। এ জিনিসটারই রাশভারী নাম হলো ইনক্লুশন-এক্সক্লুশন প্রিন্সিপাল।</p>
+<p>আজ এ পর্যন্তই। সলভ করার জন্য প্রবলেম:<br />
+<a href="www.topcoder.com/stat8f4e.html?c=problem_statement&amp;pm=2013">www.topcoder.com/stat?c=problem_statement&#038;pm=2013</a><br />
+<a href="http://uva.onlinejudge.org/external/112/11282.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://uva.onlinejudge.org/external/112/11282.html', 'http://uva.onlinejudge.org/external/112/11282.html');">http://uva.onlinejudge.org/external/112/11282.html</a><br />
+<a href="http://www.lightoj.com/volume_showproblem.php?problem=1095" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.lightoj.com/volume_showproblem.php?problem=1095', 'http://www.lightoj.com/volume_showproblem.php?problem=1095');">http://www.lightoj.com/volume_showproblem.php?problem=1095</a></p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=index2b8b.html?p=600></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=600" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=600'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%95%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%BF%E0%A6%A8%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B8%3A%20%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%8F%E0%A6%AC%E0%A6%82%20%E0%A6%A1%E0%A6%BF-%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%97%E0%A6%A3%E0%A6%A8%E0%A6%BE&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D600&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=600'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%95%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%BF%E0%A6%A8%E0%A7%87%E0%A6%9F%E0%A7%87%E0%A6%BE%E0%A6%B0%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B8%3A%20%E0%A6%85%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%8F%E0%A6%AC%E0%A6%82%20%E0%A6%A1%E0%A6%BF-%E0%A6%B0%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9C%E0%A6%AE%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%97%E0%A6%A3%E0%A6%A8%E0%A6%BE&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=600&amp;summary=%e0%a6%95%e0%a6%a8%e0%a6%9f%e0%a7%87%e0%a6%b8%e0%a7%8d%e0%a6%9f%20%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%82%20%e0%a6%8f%e0%a6%b0%20%e0%a6%8f%e0%a6%95%e0%a6%9f%e0%a6%be%20%e0%a6%a6%e0%a6%be%e0%a6%b0%e0%a7%81%e0%a6%a3%20%e0%a6%ac%e0%a7...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="index9ad7.html?cat=35" rel="category">অ্যালগোরিদম/প্রবলেম সলভিং</a></span><span class="tags-links">Tagged <a href="index3944.html?tag=%e0%a6%87%e0%a6%a8%e0%a6%95%e0%a7%8d%e0%a6%b2%e0%a7%81%e0%a6%b6%e0%a6%a8-%e0%a6%8f%e0%a6%95%e0%a7%8d%e0%a6%b8%e0%a6%95%e0%a7%8d%e0%a6%b2%e0%a7%81%e0%a6%b6%e0%a6%a8" rel="tag">ইনক্লুশন-এক্সক্লুশন</a>, <a href="index704f.html?tag=%e0%a6%95%e0%a6%ae%e0%a7%8d%e0%a6%ac%e0%a6%bf%e0%a6%a8%e0%a7%87%e0%a6%9f%e0%a7%87%e0%a6%be%e0%a6%b0%e0%a6%bf%e0%a6%95%e0%a7%8d%e0%a6%b8" rel="tag">কম্বিনেটোরিক্স</a>, <a href="indexc27f.html?tag=%e0%a6%a1%e0%a6%bf-%e0%a6%b0%e0%a7%87%e0%a6%9e%e0%a7%8d%e0%a6%9c%e0%a6%ae%e0%a7%87%e0%a6%a8%e0%a7%8d%e0%a6%9f" rel="tag">ডি-রেঞ্জমেন্ট</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="index0f1e.html?p=1500" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;গ্রাফ থিওরিতে হাতেখড়ি-৯ (ডায়াক্সট্রা)</a></div><div class="nav-next"><a href="indexd81c.html?p=1557" rel="next">ডাটা স্ট্রাকচার: সেগমেন্ট ট্রি-১&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			8 thoughts on &ldquo;<span>কম্বিনেটোরিক্স: অ্যারেঞ্জমেন্ট এবং ডি-রেঞ্জমেন্ট গণনা</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-200" class="comment even thread-even depth-1">
+			<article id="div-comment-200" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/835851f25be3f1a841b1aef398172569?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/835851f25be3f1a841b1aef398172569?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://techtweets.com.bd/' rel='external nofollow' class='url'>?জাকির!</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-200">
+							<time datetime="২০১১-০৯-২৭T০১:২২:০৬+০০:০০">
+								সেপ্টেম্বর ২৭, ২০১১ at ১:২২ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>আপনার ব্লগের একজন নিয়মিত পাঠক। ধন্যবাদ প্রোগ্রামিং নিয়ে লেখার জন্য।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index4f18.html?p=600&amp;replytocom=200#respond' onclick='return addComment.moveForm( "div-comment-200", "200", "respond", "600" )' aria-label='Reply to ?জাকির!'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-202" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-202" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/905ce82bab272cfdeaeccbfa25464d2c?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/905ce82bab272cfdeaeccbfa25464d2c?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">imtiaz</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-202">
+							<time datetime="২০১১-০৯-২৯T১৫:৫২:২২+০০:০০">
+								সেপ্টেম্বর ২৯, ২০১১ at ৩:৫২ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>আপনি কি uva 12022 সোলভ এর কোনো easy formula জানেন?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexf77d.html?p=600&amp;replytocom=202#respond' onclick='return addComment.moveForm( "div-comment-202", "202", "respond", "600" )' aria-label='Reply to imtiaz'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-761" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-761" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/2343585338ff01372f6a862e0348149a?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/2343585338ff01372f6a862e0348149a?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">হাসান</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-761">
+							<time datetime="২০১২-০৮-২১T২০:০৫:৩১+০০:০০">
+								আগস্ট ২১, ২০১২ at ৮:০৫ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া, কয়েকটা প্রবলেমের আইডি বলেন সলভ করার জন্য।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index2bce.html?p=600&amp;replytocom=761#respond' onclick='return addComment.moveForm( "div-comment-761", "761", "respond", "600" )' aria-label='Reply to হাসান'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-765" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-765" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-765">
+							<time datetime="২০১২-০৮-২২T০১:৪১:০৮+০০:০০">
+								আগস্ট ২২, ২০১২ at ১:৪১ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p><a href="http://uva.onlinejudge.org/external/112/11282.html" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://uva.onlinejudge.org/external/112/11282.html', 'http://uva.onlinejudge.org/external/112/11282.html');" rel="nofollow">http://uva.onlinejudge.org/external/112/11282.html</a><br />
+<a href="http://www.lightoj.com/volume_showproblem.php?problem=1095" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://www.lightoj.com/volume_showproblem.php?problem=1095', 'http://www.lightoj.com/volume_showproblem.php?problem=1095');" rel="nofollow">http://www.lightoj.com/volume_showproblem.php?problem=1095</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index4c32.html?p=600&amp;replytocom=765#respond' onclick='return addComment.moveForm( "div-comment-765", "765", "respond", "600" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-780" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-780" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/9236eac271bbe5995e8d65317277f118?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/9236eac271bbe5995e8d65317277f118?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">মুন্না</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-780">
+							<time datetime="২০১২-০৯-০৬T০১:৫১:৪৮+০০:০০">
+								সেপ্টেম্বর ৬, ২০১২ at ১:৫১ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@ হাসান<br />
+এই প্রব্লেমটাও derangement নিয়ে  <a href="http://uva.onlinejudge.org/external/120/12024.html" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://uva.onlinejudge.org/external/120/12024.html', 'http://uva.onlinejudge.org/external/120/12024.html');" rel="nofollow">http://uva.onlinejudge.org/external/120/12024.html</a></p>
+<p>@শাফায়েত ভাই, আপনার নতুন নতুন লেখার জন্য সবসময় অপেক্ষায় থাকি &#8230;  আপনার এই ব্লগ আমার মত অসংখ্য সুবিধাবঞ্চিত আধা-প্রোগ্রামারদের অনেক-অনেক সাহায্য করছে , স্বপ্ন দেখাচ্ছে  । আশা করি আপনি এখানে লেখা চালিয়ে যাবেন।<br />
+অন্তরের গভীর থেকে আপনার জন্য শ্রদ্ধা&#8230;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index7dd9.html?p=600&amp;replytocom=780#respond' onclick='return addComment.moveForm( "div-comment-780", "780", "respond", "600" )' aria-label='Reply to মুন্না'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-782" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-782" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-782">
+							<time datetime="২০১২-০৯-০৬T১৫:১৫:৫৮+০০:০০">
+								সেপ্টেম্বর ৬, ২০১২ at ৩:১৫ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>অনেকেই জিজ্ঞেস করে ব্লগ লিখে আমার লাভটা হয় কি,টাকাপয়সা পাই নাকি, আমি তাদের সবসময় বলি ব্লগ লিখে আমি কিছু মানুষের ভালোবাসা পাই,এর থেকে বড় কিছু হতে পারেনা। সত্যিই খুবই ভালো লাগলো তোমার মন্তব্যটি দেখে,আমি আন্তরিকভাবে চেষ্টা করবো আমার স্বল্প জ্ঞান দিয়েই আরো বেশি করে লেখালেখি করতে।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index3b35.html?p=600&amp;replytocom=782#respond' onclick='return addComment.moveForm( "div-comment-782", "782", "respond", "600" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-58006" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-58006" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/067d4b2398ac7df2971c1c6bea805a51?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/067d4b2398ac7df2971c1c6bea805a51?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://basicjahid.blogspot.com/' rel='external nofollow' class='url'>জাহিদ</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-58006">
+							<time datetime="২০১৫-০১-২৯T০৯:৫৯:৩১+০০:০০">
+								জানুয়ারি ২৯, ২০১৫ at ৯:৫৯ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>প্রাইম নাম্বারের সিভ থেকে শুরু করে আমার এই পর্যন্ত শিখা বেশীরভাগ algorithm ই আপনার ব্লগ থেকে । বলা যায় প্রোগ্রামিং এর খানিক অংশটাই এখান থেকে শিখা । অসংখ্য ধন্যবাদ আপনাকে ভাইয়া। আল্লাহ্‌ রাব্বুল আলামিন আপনার মঙ্গল করুন। আমীন।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index1cef.html?p=600&amp;replytocom=58006#respond' onclick='return addComment.moveForm( "div-comment-58006", "58006", "respond", "600" )' aria-label='Reply to জাহিদ'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-58035" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-58035" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index2b8b.html?p=600#comment-58035">
+							<time datetime="২০১৫-০২-২১T২৩:৩৬:৫৯+০০:০০">
+								ফেব্রুয়ারি ২১, ২০১৫ at ১১:৩৬ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>শুনে ভালো লাগলো!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index464c.html?p=600&amp;replytocom=58035#respond' onclick='return addComment.moveForm( "div-comment-58035", "58035", "respond", "600" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply to <a href="#comment-58006">জাহিদ</a> <small><a rel="nofollow" id="cancel-comment-reply-link" href="index2b8b.html?p=600#respond">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_1530452"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_1530452', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_63");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_63" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span">4</span>
+					<span class="cptch_span">&nbsp;&minus;&nbsp;</span>
+					<span class="cptch_span"><input id="cptch_input_63" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span"><img class="cptch_img " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAMAAADDpiTIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF////mJiYAAAAampqvLy81tbWMTEx7e3ticy9cwAABRZJREFUeNrs3dtu2zgUBdCQFKn//+PabZoUhVuHkmKJPGsBAwzmYR6yt3hVlLc3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYI9al5RKKa21/O72r7f/kJalrn4+81qXJZWP0P+hlZSqn9V02dfn0f/pNhoYC+YZ81PJG5SkAzMM+5vC/z0f6EDg9N/HgcXPcVAHpG8YGPfhTy0fRwVGW/aVfDAVGGnsb/kbJD/YyPHf1wKWg5Hj/7kjMA+Em/sNAkOt/PO3sxgMOvp/DgIacNHHv+TXMA0Efvx/0YC4j78jgWsu/lvOGhBXyi+nAWGHfw0IvPqzEjT8f/LmaNjh34nQZfJv+URNAGdP//lcFoJRp3/LgCsop+dvGXDm4d8F8jcJnJh/y5dgEjgp/3wRRRYB938OBA0BDgOinwFYBTgFMASEPwcwBGiAjYCtgCTGOw26fxGs1nVd327/3D8atqdLjgOH2gq0sjyatXd8TMQcME4DWvrPhwDXrW+XuRIaYzPYnn7/b2MFnAaeuBD88sDdvvThv03vmJkDrr8VKF/erW9YV3gt4OoNKD2HNRv2Fs6CTt0MPo1/Ofh/aBEw0lZgw29zV4uAebYCm77okRRgLOXorzo1p8EzNGD7tzwWR0Fj7QQebgX2fNSt2AaMvhXY9ymfxTZg8K3A3m86uhAceyuw+5EsCjBwA1o9fERRgOuvBMuR2/LVQcB4DWhHrsiaAozZgHbQlqwowJBbgcO+6J4UYMQGHJeEAhhNFEABbAMVQAFiqgpgBFAABXAbqADeBwgpKYACeCcwsJ67AJ+JmVBzEBibXWBs1S7QLtAmwBrQJsASwBrQEsAaMBzngE4BLAHsASwB7AGcAkTU92tBPg4QewloBgg+AJgBYg8AZoDgA4AZYLr8+wYAp0Cz6ftMpJeBphsAiiVgaIsBwArQRWBcfROAvxQQewIwAASfAAwAsXcAtgCz6fw7AbYAsRcABoDZJoDOPxPhFmAyvX8mxC1A5BMAW8DgC0ArwOALQBPAXPypQBsAE4ANgAnABsAOQP4ugWwAvQkuf3cADgDsAOUvf/n/vQC0A5xI9wGgBUD0/J0AzJR/k39ka3/+xQlA6PydAMqfWfIv/QtAG8CJyN/z7wDA8y9/+TsAkL/8Y0nyl39n/g4AQufvDQD5I3/kz+AW+ctf/vKXv/yd/8jf8y9/z7/85S9/+ctf/vL3/o/85S9/+cvf+9/B8/cBAPkziyp/+fv9T+O/3//3/Mtf/q5/5e/43/wvf8+//OXv+H/u/Jv8Pf/yD7v+8xeAPP+O/83/8vf8u/7x/Mtf/q5/5C9/+ctf/q5/5e/6R/7yl7/85e/6R/5MY5W/59/1r+ff9Z/nX/6ef/nL3/Wv/F3/yP/h/k8BQufvACB4/t/L9XLs/BUgeP4KEDx/BQievwIEz18BXuiK+SvAC2UFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFUAAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADY4IcAAwDn2I3zbXghCgAAAABJRU5ErkJggg==" alt="image"/></span>
+					<input type="hidden" name="cptch_result" value="N24=" />
+					<input type="hidden" name="cptch_time" value="1472746909" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='600' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='58006' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="eaeb4e978e" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="230"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_9126409"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_9126409', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=600&replytocom=58006 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:55:59 GMT -->
+</html>

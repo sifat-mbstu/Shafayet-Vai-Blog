@@ -1,0 +1,9 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.shafaetsplanet.com	TRUE	/planetcoding/	FALSE	1999999999	wordpress_test_cookie	WP+Cookie+check
+.mathjax.org	TRUE	/	FALSE	1999999999	__cfduid	dac0ef7d006053557ff4503d7b7f47d541472743362
+www.shafaetsplanet.com	TRUE	/	FALSE	1999999999	PHPSESSID	df61770ee41b147f17d7989fe2ad4ad7
+gist.github.com	TRUE	/	FALSE	1999999999	_gh_sess	eyJzZXNzaW9uX2lkIjoiZGZkY2QxZGQ4ZWMzODYxNjczNDRjMjJkZjIwNWE4ZmYiLCJyZWZlcnJhbF9jb2RlIjoiaHR0cDovL3d3dy5zaGFmYWV0c3BsYW5ldC5jb20vcGxhbmV0Y29kaW5nLz9wPTEwNzIifQ%3D%3D--cf3f86c7f1b8c0cd72558b4ba5c8f757eecea595
+wps.prenhall.com	TRUE	/	FALSE	1999999999	BIGipServerwps-80	320193546.16415.0000
+.mukto-mona.com	TRUE	/	FALSE	1999999999	__cfduid	d733129c62138ce61d51c646d415859e41472746355
+

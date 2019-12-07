@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=2195&replytocom=58344 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:39:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১) | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১) &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,302] -->
+<meta name="description" itemprop="description" content="এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা" />
+
+<meta name="keywords" itemprop="keywords" content="ম্যাক্স ফ্লো,গ্রাফ,গ্রাফ থিওরি,অ্যালগোরিদম,অ্যালগোরিদম/প্রবলেম সলভিং,প্রোগ্রামিং" />
+
+<link rel="canonical" href="indexc292.html?p=2195" />
+<meta property="og:title" content="গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১) | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="activity" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=2195" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা শেখা খুবই গুরুত্বপূর্ণ। এই লেখাটা পড়ার আগে তোমাকে গ্রাফ থিওরির বেসিক অ্যালগোরিদমগুলো, বিশেষ করে শর্টেস্ট পাথ বের করার অ্যালগোরিদমগুলো ভালো করে শিখে নিবে। প্রথমেই আমরা দেখি একটি খুবই সাধারণ ম্যাক্স ফ্লো প্রবলেম:  চিত্র: ১ তোমাকে চিত্র-১ এর মত একটা গ্রাফ দেয়া আছে। মনে কর গ্রাফের প্রতিটা এজ একটা করে পানির পাইপ। প্রতিটা পাইপ দিয়ে প্রতি সেকেন্ডে কত লিটার পানি প্রবাহিত হতে পারবে সেটার একটা সীমা আছে যেটাকে বলা হয় পাইপের ক্যাপাসিটি। আর কোনো পাইপ দিয়ে সেকেন্ডে যতটুকু পানি যাচ্ছে সেটা হলো পাইপটার ফ্লো। প্রতিটা এজের সাথে &quot;ফ্লো/ক্যাপাসিটি&quot; উল্লেখ করে দেয়া হয়েছে। যেমন A-&gt;B এজ দিয়ে সেকেন্ডে সর্বোচ্চ ২লিটার পানি যেতে পারে এবং এই মুহূর্তে সেকেন্ডে পানি যাচ্ছে ০ লিটার। শুধুমাত্র A নোড দিয়ে পানি প্রবেশ করানো যায় এবং শুধুমাত্র F নোড দিয়ে পানি বের হয়ে যায়। A কে বলা হয় সোর্স এবং F হলো সিংক। তোমাকে বলতে হবে A থেকে F এ প্রতি" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১) | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা শেখা খুবই গুরুত্বপূর্ণ। এই লেখাটা পড়ার আগে তোমাকে গ্রাফ থিওরির বেসিক অ্যালগোরিদমগুলো, বিশেষ করে শর্টেস্ট পাথ বের করার অ্যালগোরিদমগুলো ভালো করে শিখে নিবে। প্রথমেই আমরা দেখি একটি খুবই সাধারণ ম্যাক্স ফ্লো প্রবলেম:  চিত্র: ১ তোমাকে চিত্র-১ এর মত একটা গ্রাফ দেয়া আছে। মনে কর গ্রাফের প্রতিটা এজ একটা করে পানির পাইপ। প্রতিটা পাইপ দিয়ে প্রতি সেকেন্ডে কত লিটার পানি প্রবাহিত হতে পারবে সেটার একটা সীমা আছে যেটাকে বলা হয় পাইপের ক্যাপাসিটি। আর কোনো পাইপ দিয়ে সেকেন্ডে যতটুকু পানি যাচ্ছে সেটা হলো পাইপটার ফ্লো। প্রতিটা এজের সাথে &quot;ফ্লো/ক্যাপাসিটি&quot; উল্লেখ করে দেয়া হয়েছে। যেমন A-&gt;B এজ দিয়ে সেকেন্ডে সর্বোচ্চ ২লিটার পানি যেতে পারে এবং এই মুহূর্তে সেকেন্ডে পানি যাচ্ছে ০ লিটার। শুধুমাত্র A নোড দিয়ে পানি প্রবেশ করানো যায় এবং শুধুমাত্র F নোড দিয়ে পানি বের হয়ে যায়। A কে বলা হয় সোর্স এবং F হলো সিংক। তোমাকে বলতে হবে A থেকে F এ প্রতি" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১) Comments Feed" href="index4a55.html?feed=rss2&amp;p=2195" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='কোয়ান্টাম কম্পিউটার &#8211; ২ (শক্তি এবং সীমাবদ্ধতা)' href='indexbb9e.html?p=2135' />
+<link rel='next' title='গ্রাফ থিওরিতে হাতেখড়ি-১২ &#8211; ম্যাক্সিমাম ফ্লো (২)' href='indexba06.html?p=2231' />
+
+<link rel='shortlink' href='indexc292.html?p=2195' />
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/json+oembed" href="index9692.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2195" />
+<link rel="alternate" type="text/xml+oembed" href="index75b6.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2195&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-2195 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-2195" class="post-2195 post type-post status-publish format-standard hentry category-contest category-programming tag-89 tag-26 tag-124">
+	<header class="entry-header">
+		<h1 class="main-title"><span>গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১)</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="indexc292.html?p=2195" rel="bookmark"><time class="entry-date published" datetime="২০১৫-০১-২৩T১০:৫৪:০৮+০০:০০">জানুয়ারি ২৩, ২০১৫</time><time class="updated" datetime="2015-12-21T19:35:10+00:00">December 21, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=2195'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB%20%E0%A6%A5%E0%A6%BF%E0%A6%93%E0%A6%B0%E0%A6%BF%E0%A6%A4%E0%A7%87%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF%20%E0%A7%A7%E0%A7%A8%20-%20%E0%A6%AE%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%AE%20%E0%A6%AB%E0%A7%8D%E0%A6%B2%E0%A7%87%E0%A6%BE%20%28%E0%A7%A7%29&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2195&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=2195'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB%20%E0%A6%A5%E0%A6%BF%E0%A6%93%E0%A6%B0%E0%A6%BF%E0%A6%A4%E0%A7%87%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF%20%E0%A7%A7%E0%A7%A8%20-%20%E0%A6%AE%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%AE%20%E0%A6%AB%E0%A7%8D%E0%A6%B2%E0%A7%87%E0%A6%BE%20%28%E0%A7%A7%29&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=2195&amp;summary=%e0%a6%8f%e0%a6%87%20%e0%a6%b2%e0%a7%87%e0%a6%96%e0%a6%be%e0%a7%9f%20%e0%a6%86%e0%a6%ae%e0%a6%b0%e0%a6%be%20%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab%e0%a7%87%20%e0%a6%ae%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%95%e0%a7%8d%e0%a6%b8%e0%a6%bf%e0%a6%ae%e0%a6%be%e0%a6%ae%20%e0%a6%ab%e0%a7%8d%e0%a6%b2%e0%a7...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p>এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা শেখা খুবই গুরুত্বপূর্ণ। এই লেখাটা পড়ার আগে তোমাকে <a href="indexd217.html?tag=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB-%E0%A6%A5%E0%A6%BF%E0%A6%93%E0%A6%B0%E0%A6%BF">গ্রাফ থিওরির</a> বেসিক অ্যালগোরিদমগুলো, বিশেষ করে শর্টেস্ট পাথ বের করার অ্যালগোরিদমগুলো ভালো করে শিখে নিবে।</p>
+<p>প্রথমেই আমরা দেখি একটি খুবই সাধারণ ম্যাক্স ফ্লো প্রবলেম:</p>
+<p><a href="wp-content/uploads/2015/01/flow.png"><img class="aligncenter size-full wp-image-2553" src="wp-content/uploads/2015/01/flow.png" alt="flow" width="582" height="245" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow.png 582w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow-300x126.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></a></p>
+<p style="text-align: center;">চিত্র: ১</p>
+<p style="text-align: left;">তোমাকে চিত্র-১ এর মত একটা গ্রাফ দেয়া আছে। মনে কর গ্রাফের প্রতিটা এজ একটা করে পানির পাইপ। প্রতিটা পাইপ দিয়ে প্রতি সেকেন্ডে কত লিটার পানি প্রবাহিত হতে পারবে সেটার একটা সীমা আছে যেটাকে বলা হয় পাইপের <strong>ক্যাপাসিটি</strong>। আর কোনো পাইপ দিয়ে সেকেন্ডে যতটুকু পানি যাচ্ছে সেটা হলো পাইপটার <strong>ফ্লো</strong>। প্রতিটা এজের সাথে &#8220;ফ্লো/ক্যাপাসিটি&#8221; উল্লেখ করে দেয়া হয়েছে। যেমন A-&gt;B এজ দিয়ে সেকেন্ডে সর্বোচ্চ ২লিটার পানি যেতে পারে এবং এই মুহূর্তে সেকেন্ডে পানি যাচ্ছে ০ লিটার। শুধুমাত্র A নোড দিয়ে পানি প্রবেশ করানো যায় এবং শুধুমাত্র F নোড দিয়ে পানি বের হয়ে যায়। A কে বলা হয় <strong>সোর্স</strong> এবং F হলো <strong>সিংক</strong>। তোমাকে বলতে হবে A থেকে F এ প্রতি সেকেন্ডে সর্বোচ্চ কত লিটার পানি প্রবাহিত করা যাবে? অর্থাৎ পানির &#8220;ফ্লো&#8221;  সর্বোচ্চ কত হতে পারে?</p>
+<p style="text-align: left;">মূল সমস্যা সমাধানের আগে আমরা ছোট একটা সমস্যা সমাধান করি। A-&gt;C-&gt;D-&gt;F এই পথটা ব্যবহার করে পানি সোর্স থেকে সিংক এ গেলে সর্বোচ্চ কত লিটার পানি প্রবাহিত হতে পারবে?   ছবিতে দেখা যাচ্ছে A-&gt;C এজের ক্যাপাসিটি ৫, C-&gt;D এজের ক্যাপাসিটি 3, D-&gt;F এজের ক্যাপাসিটি ৪। এখানে সর্বনিম্ন ক্যাপাসিটি হলো ৩, তাই আমরা কোনো সময় ৩লিটারের বেশি পানি এই পথে পাঠাতে পারবোনা।</p>
+<p style="text-align: left;">কোনো পথের সর্বনিম্ন ক্যাপাসিটির এজ সেই পথের ফ্লো নিয়ন্ত্রণ করে। বোতলের সরু মুখের সাথে তুলনা দিয়ে এই ব্যাপারটাকে বলা হয় বোটলনেক(bottleneck)। যেমন ধরো তোমার বাসায় ৫MBps এর ইন্টারনেট কানেকশন আছে, এখন তুমি একটা মুভি ডাউনলোড করতে চাচ্ছ। এখন মুভির সার্ভার থেকে তোমার বাসায় ডাটা প্যাকেট আসার আগে অনেকগুলো নেটওয়ার্ক পার হয়ে আসে, কোনো একটা নেটওয়ার্কে গতি মাত্র 1MBps। এখন নেটওয়ার্কের বাকি অংশের গতি যতই বেশি হোক না কেন তুমি 1MBps এর বেশি গতিতে ডাউনলোড করতে পারবে না,  নেটওয়ার্কের সবথেকে ধীরগতির অংশই তোমার ডাউনলোডের গতি নিয়ন্ত্রণ করবে।</p>
+<p style="text-align: left;">এখন দেখি কিভাবে সর্বোচ্চ পানির ফ্লো পাবার সমস্যাটার সমাধান করা যায়। সমাধান খুবই সহজ, আমরা প্রতিবার যেকোনো একটা করে পথ দিয়ে পানি পাঠাতে থাকবো যতক্ষণ পাইপে ক্যাপাসিটি থাকে। কিন্তু এভাবে কি আমরা সর্বোচ্চ ফ্লো বা প্রবাহ পাবো? পাবো তবে সেজন্য একটু বুদ্ধি খাটাতে হবে। প্রথমে আমরা একটা পথে পানির ফ্লো পাঠিয়ে দেখি কি ঘটে। যেকোনো একটা পথ বেছে নিতে পারি, আমি বুঝানোর সুবিধার জন্য A-&gt;B-&gt;D-&gt;F পথটা বেছে নিলাম। এই পথে সর্বনিম্ন ক্যাপাসিটি হলো ২। তাহলে এই পথে ২লিটার পানির ফ্লো পাঠিয়ে দেবার পর গ্রাফটা দেখতে হবে এরকম:</p>
+<p style="text-align: left;"><a href="wp-content/uploads/2015/01/flow2.png"><img class="aligncenter size-full wp-image-2555" src="wp-content/uploads/2015/01/flow2.png" alt="flow2" width="582" height="245" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow2.png 582w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow2-300x126.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></a></p>
+<p style="text-align: center;">চিত্র-২: A-&gt;B-&gt;D-&gt;F পথে ফ্লো পাঠানোর পর</p>
+<p style="text-align: left;">আমরা A-&gt;B-&gt;D-&gt;F পথের প্রতিটি এজের ফ্লো ২বাড়িয়ে দিয়েছি। লক্ষ্য করো A-&gt;B এজের আসল ক্যাপাসিটি ২ এবং ফ্লো পাঠানো হয়েছে ২, তাই এই এজ নিয়ে আর কোনো ফ্লো পাঠানো যাবে না। তেমনি B-&gt;D এজের ক্যাপাসিটি ৩ কিন্তু ফ্লো পাঠানো হয়েছে ২, তাই এই এজটা দিয়ে আরো ৩-২=১ ফ্লো পাঠানো সম্ভব। আমরা বলতে পারি B-&gt;D এজের <strong>residual ক্যাপাসিটি</strong>=১, <span data-dobid="hdw">residual শব্দটার অর্থ হলো কোনো কিছু ব্যবহার করে ফেলার পর বেচে যাওয়া অংশ।</span></p>
+<blockquote>
+<p style="text-align: left;">residual ক্যাপাসিটি = এজ এর ক্যাপাসিটি &#8211; ব্যবহৃত ক্যাপাসিটি বা ফ্লো এর পরিমাণ ।</p>
+</blockquote>
+<p style="text-align: left;">এবার একইভাবে A-&gt;C-&gt;D-&gt;F পথটা নির্বাচিত করি। এই পথে D-&gt;F এজের আসল ক্যাপাসিটি ৪ হলেও ২ ফ্লো আগেই পাঠানো হয়েছে, তাই বর্তমান ক্যাপাসিটি বা <strong>residual ক্যাপাসিটি</strong> ৪-২=২। এই পথটা দিয়ে ২ ফ্লো পাঠানো সম্ভব।</p>
+<p style="text-align: left;"><a href="wp-content/uploads/2015/01/flow3.png"><img class="aligncenter size-full wp-image-2556" src="wp-content/uploads/2015/01/flow3.png" alt="flow3" width="582" height="245" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow3.png 582w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow3-300x126.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></a></p>
+<p style="text-align: center;">চিত্র-৩: A-&gt;C-&gt;D-&gt;F পথে ফ্লো পাঠানোর পর</p>
+<p style="text-align: left;">আমরা এখন মোট ২+২=৪ ফ্লো পেলাম, অর্থাৎ পানি প্রবাহের হার এখন সেকেন্ডে ৪ লিটার। এই গ্রাফে কি আরো বেশি পানির ফ্লো পাঠানো সম্ভব? A-&gt;B এবং D-&gt;F এজ এরই মধ্যে সর্বোচ্চ ক্যাপাসিটিতে পৌছে গেছে, এই ২টা এজের কোনোটাকে না নিয়ে সিংক এ যাবার পথ গ্রাফে নেই। তাই দেখে মনে হতে পারে আর ফ্লো পাঠানো সম্ভব না। কিন্তু আমরা এখন বুদ্ধি খাটিয়ে আরো বেশি ফ্লো পাঠিয়ে দিব!</p>
+<p><span data-dobid="hdw">আমাদের এখন প্রতিটা এজের residual ক্যাপাসিটি ব্যবহার করে <strong><span data-dobid="hdw">residual</span> গ্রাফ</strong> আকঁতে হবে কিভাবে আরো ফ্লো পাঠাবো সেটা বুঝতে হলে।residual গ্রাফ আকার নিয়ম হলো:<br />
+</span></p>
+<blockquote><p>১. গ্রাফের প্রতিটা এজ (u,v) এর ক্যাপাসিটি হবে এজ টার residual ক্যাপাসিটির সমান।<br />
+২. প্রতি এজ (u,v) এর জন্য উল্টা এজ (v,u) এর residual ক্যাপাসিটি হবে (u,v) এজ এ ফ্লো এর সমান।</p></blockquote>
+<p>তারমানে কোনো এজ দিয়ে যতটুকু ফ্লো পাঠিয়েছি সেটা হবে উল্টো এজের residual ক্যাপাসিটি। তাহলে residual গ্রাফে মূল এজ এবং উল্টো এজের residual ক্যাপাসিটির যোগফল হবে মূল এজ এজের মোট ক্যাপাসিটির সমান। চিত্র-৪ এর গ্রাফটার residual গ্রাফটা হবে এরকম:</p>
+<p><a href="wp-content/uploads/2015/01/flow4.png"><img class="aligncenter size-full wp-image-2558" src="wp-content/uploads/2015/01/flow4.png" alt="flow4" width="582" height="235" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow4.png 582w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow4-300x121.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></a></p>
+<p style="text-align: center;">চিত্র-৪: ৩নং চিত্রের গ্রাফের residual গ্রাফ</p>
+<p style="text-align: left;">সবুজ রঙ দিয়ে উল্টো এজ এবং তাদের  residual ক্যাপাসিটি দেখানো হয়েছে। ০ ক্যাপাসিটির এজগুলোকে গ্রাফে একে দেখাইনি। A-&gt;C এজ দিয়ে আগে ২ফ্লো পাঠানো হয়েছে বলে উল্টো এজ এর residual ক্যাপাসিটি ২, এবং এজটার আরো ৩ ফ্লো পাঠানোর ক্ষমতা আছে তাই মূল এজ এর residual ক্যাপাসিটি ৩। ঠিক এভাবে অন্যান্য এজগুলো আঁকা হয়েছে, তুমি নিজে একে যাচাই করে নিতে পারো ঠিকমত বুঝেছো নাকি বা আমার ছবিতে ভূল আছে নাকি।</p>
+<p style="text-align: left;">এখন উল্টা এজ এ ফ্লো পাঠানোর মানে কি? আমরাতো পাইপের উল্টো দিক দিয়ে পানি পাঠাতে পারবো না বা রাস্তার উল্টো দিক দিয়ে গাড়ি চালাতে পারবো না। উল্টো দিকে ফ্লো পাঠানোর মানে হলো মূল ফ্লো টাকে বাতিল করে দেয়া! আমরা যদি D-&gt;B এজ দিয়ে ২ফ্লো পাঠাই তার মানে B-&gt;D এজ দিয়ে আসা ২লিটার পানির প্রবাহকে আমরা বাতিল করে দিচ্ছি। তখন residual গ্রাফে মূল এজের residual ক্যাপাসিটি যাবে বেড়ে, এবং উল্টা এজের residual ক্যাপাসিটি যাবে কমে, যোগফল আগের মতই থাকবে!</p>
+<p style="text-align: left;">এখন চিন্তা করে দেখো চিত্র-৪ দিয়ে আরো ফ্লো সিংক এ পাঠানো যায় নাকি। মনে রাখবে চিত্র-৩ আর চিত্র-৪ এ একই গ্রাফকেই ভিন্নভাবে আঁকা হয়েছে।</p>
+<p style="text-align: left;">চিত্র ৪ এ দেখা যাচ্ছে A-&gt;C-&gt;D-&gt;B-&gt;E-&gt;F পথে আরো ১ ফ্লো পাঠানো সম্ভব! এই পথে D-&gt;B হলো উল্টো এজ। তারমানে D-&gt;B এজ এর ১ ফ্লো বাতিল করে দিয়ে আমরা গ্রাফে মোট ফ্লো ১বাড়িয়ে ফেলতে পারছি। এখন residual গ্রাফ কিরকম হবে দেখি:</p>
+<p style="text-align: left;"><a href="wp-content/uploads/2015/01/flow51.png"><img class="aligncenter size-full wp-image-2561" src="wp-content/uploads/2015/01/flow51.png" alt="flow5(1)" width="582" height="232" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow51.png 582w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/01/flow51-300x120.png 300w" sizes="(max-width: 582px) 100vw, 582px" /></a></p>
+<p style="text-align: center;">চিত্র-৫: A-&gt;C-&gt;D-&gt;B-&gt;E-&gt;F পথে ফ্লো পাঠানোর পর residual গ্রাফ</p>
+<p style="text-align: left;">তুমি যদি এ পর্যন্ত বুঝে থাকো তাহলে চিত্র-৫ থেকে মূল গ্রাফটাও নিজে একে নিতে পারবে। চিত্র-৪ এ C-&gt;D এজ দিয়ে ১ ফ্লো পাঠানো হয়েছে। তাই চিত্র-৫ এ C-&gt;D এজের residual ক্যাপাসিটি কমে ১-১=০ হয়ে গিয়েছে এবং D-&gt;C এজের residual ক্যাপাসিটি বেড়ে ২+১=৩ হয়ে গিয়েছে। এভাবে সবগুলো এজ আঁকা হয়েছে।</p>
+<p style="text-align: left;">এই গ্রাফে সোর্স থেকে সিংক এ পানি পাঠানোর আর কোনো পথ নেই। আমরা ৩টি পথে মোট ২+২+১=৫ ফ্লো পেয়েছি, অর্থাৎ পানি প্রবাহের হার প্রতি সেকেন্ডে ৫ লিটার। এটাই গ্রাফটার জন্য ম্যাক্সিমাম ফ্লো।</p>
+<p style="text-align: left;">residual গ্রাফে আমরা যখন একটা পথ বের করি সেই পথের একটা বিশেষ নাম আছে, সেটা হলো <strong>অগমেন্টেড পাথ(Augmented path)</strong>। তাহলে আমাদের অ্যালগোরিদম খুব সহজ, যতক্ষণ সম্ভব আমরা residual graph এ একটা অগমেন্টেড পাথ খুজে বের করবো এবং সেই পথে ফ্লো পাঠিয়ে দিবো! এটার নাম Ford-Fulkerson অ্যালগোরিদম। এটার সুডোকোড এরকম:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84ce6a50b0229836278" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">Max flow pseudo-code</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+Input: A graph G = (V,E) with flow capacity cap, source node s and sink node t.
+Output: Calculate maximum flow from s to t.
+Initialize:
+    1. total_flow=0
+    2. Residual Capacity Cf(u,v)=cap(u,v) for each edge(u,v) in the graph      
+Algorithm:
+    1. While there is a path from s to t such that Cf[u][v]&gt;0 for all edges (u,v) in path:
+        1.1. min_res_cap = minimum residual capacity among all the edges (u,v) in the path.
+        1.2. For each edge (u,v) in the path:
+            Cf(u,v) = Cf(u,v) - min_res_cap
+            Cf(v,u) = Cf(v,u) + min_res_cap
+        1.3. total_flow = total_flow + min_res_cap
+    3. Return total_flow</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ce6a50b0229836278-2">2</div><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ce6a50b0229836278-4">4</div><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ce6a50b0229836278-6">6</div><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ce6a50b0229836278-8">8</div><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ce6a50b0229836278-10">10</div><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ce6a50b0229836278-12">12</div><div class="crayon-num" data-line="crayon-57c84ce6a50b0229836278-13">13</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-1"><span class="crayon-v">Input</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-i">A</span><span class="crayon-h"> </span><span class="crayon-i">graph</span><span class="crayon-h"> </span><span class="crayon-v">G</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">V</span><span class="crayon-sy">,</span><span class="crayon-v">E</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-e">with </span><span class="crayon-e">flow </span><span class="crayon-e">capacity </span><span class="crayon-v">cap</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-e">source </span><span class="crayon-i">node</span><span class="crayon-h"> </span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-e">sink </span><span class="crayon-i">node</span><span class="crayon-h"> </span><span class="crayon-v">t</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ce6a50b0229836278-2"><span class="crayon-v">Output</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Calculate </span><span class="crayon-e">maximum </span><span class="crayon-e">flow </span><span class="crayon-i">from</span><span class="crayon-h"> </span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-v">t</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-3"><span class="crayon-v">Initialize</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ce6a50b0229836278-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.</span><span class="crayon-h"> </span><span class="crayon-v">total_flow</span><span class="crayon-o">=</span><span class="crayon-cn">0</span></div><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">2.</span><span class="crayon-h"> </span><span class="crayon-e">Residual </span><span class="crayon-e">Capacity </span><span class="crayon-e">Cf</span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-o">=</span><span class="crayon-e">cap</span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-st">each</span><span class="crayon-h"> </span><span class="crayon-e">edge</span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">the </span><span class="crayon-e">graph&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ce6a50b0229836278-6"><span class="crayon-v">Algorithm</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.</span><span class="crayon-h"> </span><span class="crayon-st">While</span><span class="crayon-h"> </span><span class="crayon-e">there </span><span class="crayon-st">is</span><span class="crayon-h"> </span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-e">path </span><span class="crayon-i">from</span><span class="crayon-h"> </span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-e">such </span><span class="crayon-e">that </span><span class="crayon-v">Cf</span><span class="crayon-sy">[</span><span class="crayon-v">u</span><span class="crayon-sy">]</span><span class="crayon-sy">[</span><span class="crayon-v">v</span><span class="crayon-sy">]</span><span class="crayon-o">&gt;</span><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">all </span><span class="crayon-e">edges</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">path</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ce6a50b0229836278-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.1.</span><span class="crayon-h"> </span><span class="crayon-v">min_res_cap</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">minimum </span><span class="crayon-e">residual </span><span class="crayon-e">capacity </span><span class="crayon-e">among </span><span class="crayon-e">all </span><span class="crayon-e">the </span><span class="crayon-e">edges</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">the </span><span class="crayon-v">path</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.2.</span><span class="crayon-h"> </span><span class="crayon-st">For</span><span class="crayon-h"> </span><span class="crayon-st">each</span><span class="crayon-h"> </span><span class="crayon-e">edge</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">the </span><span class="crayon-v">path</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ce6a50b0229836278-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">Cf</span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">Cf</span><span class="crayon-sy">(</span><span class="crayon-v">u</span><span class="crayon-sy">,</span><span class="crayon-v">v</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-e">min_res_cap</span></div><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-11"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">Cf</span><span class="crayon-sy">(</span><span class="crayon-v">v</span><span class="crayon-sy">,</span><span class="crayon-v">u</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-e">Cf</span><span class="crayon-sy">(</span><span class="crayon-v">v</span><span class="crayon-sy">,</span><span class="crayon-v">u</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">min_res</span><span class="crayon-sy">_</span>cap</div><div class="crayon-line crayon-striped-line" id="crayon-57c84ce6a50b0229836278-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.3.</span><span class="crayon-h"> </span><span class="crayon-v">total_flow</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">total_flow</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">min_res</span><span class="crayon-sy">_</span>cap</div><div class="crayon-line" id="crayon-57c84ce6a50b0229836278-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">3.</span><span class="crayon-h"> </span><span class="crayon-st">Return</span><span class="crayon-h"> </span><span class="crayon-v">total_flow</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0107 seconds] -->
+<p>&nbsp;</p>
+<p>সহজ কথায় একটা ২-ডি অ্যারে C<sub>f</sub>[u][v] তে প্রতিটা এজের residual ক্যাপাসিটি থাকবে, যে এজগুলো গ্রাফে নাই সে এজের residual ক্যাপাসিটি ০। এখন তুমি সোর্স থেকে সিংক এ যাবার এমন একটা পথ বের করবে যে পথের প্রতিটি এজের residual ক্যাপাসিটি ০ থেকে বড়। পথের এজগুলোর মধ্যে মিনিমাম residual ক্যাপাসিটির মান খুজে বের করবে। ফ্লো পাঠানোর পর প্রতিটা এজের residual ক্যাপাসিটি কমে যাবে এবং উল্টা এজের residual ক্যাপাসিটি বেড়ে যাবে। মিনিমাম residual ক্যাপাসিটিটা মোট ফ্লো এর মানের সাথে যোগ হতে থাকবে। সবশেষে চাইলে তুমি আসল ক্যাপাসিটি থেকে residual capacity বিয়োগ করে কোনো এজ এ ফ্লো এর পরিমাণ নির্ণয় করতে পারো।</p>
+<p style="text-align: left;">গ্রাফটা ডিরেক্টেড হতে হবে এমন কোনো কথা নেই। বাইডিরেকশনাল এজও থাকতে পারে। A-B বাইডিরেকশনাল এজের ক্যাপাসিটি ১০ হলে C<sub>f</sub>[A][B] = C<sub>f</sub>[B][A]=১০ হবে। এখন আগের মতই অগমেন্টেড পাথ বের করে ম্যাক্সিমাম ফ্লো বের করতে পারবে। তবে এক্ষেত্রে কোন নোডে ফ্লো কত হচ্ছে সেটা বের করতে হলে তোমাকে আরেকটু বুদ্ধি খাটাতে হবে।</p>
+<p style="text-align: left;">অ্যালগোরিদমে ২নম্বর ধাপে পাথ বের করার জন্য <a href="index1d45.html?p=604">বিএফএস</a>/<a href="index236f.html?p=973">ডিএফএস</a>/<a href="indexa318.html?p=2044">বেলম্যান ফোর্ড</a> ইত্যাদি অ্যালগোরিদম ব্যবহার করা যেতে পারে। প্রবলেমের ধরণ অনুযায়ী এই ধাপে একেক অ্যালগোরিদম একেক ধরণের সুবিধা দিবে, সেগুলো তুমি প্রবলেম সলভ করতে করতে জানতে পারবে। আর পাথ বের করার জন্য বিএফএস বা যেটাই ব্যবহার করোনা কেন, প্রতিটা নোডে যাবার সময় নোডটার প্যারেন্ট কে সেটা মনে রাখতে হবে কোনো একটা অ্যারেতে।</p>
+<p style="text-align: left;">তুমি যদি বিএফএস ব্যবহার করে সমাধান করো তাহলে সেটাকে বলা হয় <strong>এডমন্ড কার্প</strong> অ্যালগোরিদম। ফোর্ড-ফুলকার্সন অ্যালগোরিদমে শুধু পাথ খুজে বের করার কথা বলে হয়েছে, সেটা যেকোনোভাবে বের করা যেতে পারে, আর এডমন্ড-কার্প বিএফএস ব্যবহার করে কাজটা করতে বলা হয়েছে অর্থাৎ ফোর্ড-ফুলকার্সন ইমপ্লিমেন্ট করার একটা উপায় হলো এডমন্ড কার্প অ্যালগোরিদম যার কমপ্লেক্সিটি <em><strong>O(VE^2)</strong></em>।</p>
+<p style="text-align: left;">এখন তোমাদের জন্য চিন্তা করার মত কয়েকটা প্রশ্ন:</p>
+<p style="text-align: left;"><strong>প্রশ্ন ১: </strong>আমাদের প্রবলেমে সোর্স এবং সিংক ছিলো একটা। কিন্তু গ্রাফে একাধিক নোড দিয়ে পানি প্রবেশ করলে এবং একাধিক নোড দিয়ে পানি বের হয়ে গেলে কিভাবে অ্যালগোরিদমটা পরিবর্তন করবে?</p>
+<p style="text-align: left;">প্রশ্ন ২: যদি প্রতিটা নোডের কিছু ক্যাপাসিটি থাকে, অর্থাৎ একটা নোড দিয়ে কত সর্বোচ্চ ফ্লো পাঠানো যাবে সেটা নির্দিষ্ট করা থাকে তাহলে কিভাবে সমাধান করবে?</p>
+<p style="text-align: left;">প্রশ্ন ৩: দুটি নোডের মধ্যে একাধিক এজ থাকলে কি করবে?</p>
+<p style="text-align: left;">প্রশ্ন ৪: দুই বন্ধু একই নোড থেকে যাত্রা শুরু করে একই গন্তব্যে পৌছাতে চায় কিন্তু দুইজনেই চায় ভিন্ন ভিন্ন রাস্তা ব্যবহার করে যেতে, তারমানে একই এজ কখনো ২জন ব্যবহার করতে পারবে না। গ্রাফটি দেয়া হলে তুমি কি বলতে পারবে এরকম ২টি পথ আছে নাকি? এ ধরণের পথকে <strong>এজ ডিসজয়েন্ট পাথ</strong> বলে।</p>
+<p style="text-align: left;">এই প্রশ্নগুলো নিয়ে আলোচনা করা হয়েছে <a href="indexba06.html?p=2231">পরের পর্বে</a>।</p>
+<p style="text-align: left;">প্রোগ্রামিং কনটেস্টে ম্যাক্সিমাম ফ্লো প্রবলেম এ কোডিং এর থেকে অনেক কঠিন হলো গ্রাফটা কিভাবে বানাতে হবে সেটা বের করা, তাই অনেক সমস্যা সমাধান করে প্র্যাকটিস করতে হবে। শুরু করার জন্য কয়েকটা প্রবলেম দিয়ে দিলাম:</p>
+<p style="text-align: left;"><a href="http://lightoj.com/volume_showproblem.php?problem=1153" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://lightoj.com/volume_showproblem.php?problem=1153', 'http://lightoj.com/volume_showproblem.php?problem=1153');" title="Internet bandwidth">http://lightoj.com/volume_showproblem.php?problem=1153</a></p>
+<p style="text-align: left;"><a href="http://lightoj.com/volume_showproblem.php?problem=1155" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://lightoj.com/volume_showproblem.php?problem=1155', 'http://lightoj.com/volume_showproblem.php?problem=1155');" title="Power Transmission">http://lightoj.com/volume_showproblem.php?problem=1155</a></p>
+<p style="text-align: left;"><a href="http://uva.onlinejudge.org/external/110/11045.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://uva.onlinejudge.org/external/110/11045.html', 'http://uva.onlinejudge.org/external/110/11045.html');" title="My Tshirt Suits me">http://uva.onlinejudge.org/external/110/11045.html</a></p>
+<p style="text-align: left;">হ্যাপি কোডিং!</p>
+<p style="text-align: left;">(এখন থেকে কোনো লেখায় সি++/জাভায় সোর্স-কোড দেয়া হবে না এবং আগের লেখাগুলোর সি++ সোর্স-কোডগুলোও ধীরে ধীরে সরিয়ে নেয়া হবে, তুমি যদি অ্যালগোরিদমটা বুঝে থাকো তাহলে নিজেই কোড লিখতে পারবে। আর বুঝতে সমস্যা হলে বা বিশেষ কোনো কারণে কোড চাইলে সরাসরি আমার সাথে <a href="www.shafaetsplanet.com/planetcoding/indexba53.html?page_id=2">যোগাযোগ কর</a>)</p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=indexc292.html?p=2195></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=2195" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=2195'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB%20%E0%A6%A5%E0%A6%BF%E0%A6%93%E0%A6%B0%E0%A6%BF%E0%A6%A4%E0%A7%87%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF%20%E0%A7%A7%E0%A7%A8%20-%20%E0%A6%AE%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%AE%20%E0%A6%AB%E0%A7%8D%E0%A6%B2%E0%A7%87%E0%A6%BE%20%28%E0%A7%A7%29&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2195&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=2195'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB%20%E0%A6%A5%E0%A6%BF%E0%A6%93%E0%A6%B0%E0%A6%BF%E0%A6%A4%E0%A7%87%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF%20%E0%A7%A7%E0%A7%A8%20-%20%E0%A6%AE%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%BF%E0%A6%AE%E0%A6%BE%E0%A6%AE%20%E0%A6%AB%E0%A7%8D%E0%A6%B2%E0%A7%87%E0%A6%BE%20%28%E0%A7%A7%29&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=2195&amp;summary=%e0%a6%8f%e0%a6%87%20%e0%a6%b2%e0%a7%87%e0%a6%96%e0%a6%be%e0%a7%9f%20%e0%a6%86%e0%a6%ae%e0%a6%b0%e0%a6%be%20%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab%e0%a7%87%20%e0%a6%ae%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%95%e0%a7%8d%e0%a6%b8%e0%a6%bf%e0%a6%ae%e0%a6%be%e0%a6%ae%20%e0%a6%ab%e0%a7%8d%e0%a6%b2%e0%a7...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="index9ad7.html?cat=35" rel="category">অ্যালগোরিদম/প্রবলেম সলভিং</a>, <a href="indexb31a.html?cat=1" rel="category">প্রোগ্রামিং</a></span><span class="tags-links">Tagged <a href="index7b83.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab" rel="tag">গ্রাফ</a>, <a href="index127e.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf" rel="tag">গ্রাফ থিওরি</a>, <a href="indexfe40.html?tag=%e0%a6%ae%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%95%e0%a7%8d%e0%a6%b8-%e0%a6%ab%e0%a7%8d%e0%a6%b2%e0%a7%87%e0%a6%be" rel="tag">ম্যাক্স ফ্লো</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="indexbb9e.html?p=2135" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;কোয়ান্টাম কম্পিউটার &#8211; ২ (শক্তি এবং সীমাবদ্ধতা)</a></div><div class="nav-next"><a href="indexba06.html?p=2231" rel="next">গ্রাফ থিওরিতে হাতেখড়ি-১২ &#8211; ম্যাক্সিমাম ফ্লো (২)&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			4 thoughts on &ldquo;<span>গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১)</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-58011" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-58011" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/681116aec51d5972001d6d66aea5197d?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/681116aec51d5972001d6d66aea5197d?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">নিরব</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc292.html?p=2195#comment-58011">
+							<time datetime="২০১৫-০১-৩১T১৪:৫৪:০৯+০০:০০">
+								জানুয়ারি ৩১, ২০১৫ at ২:৫৪ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া , এডমন্ড কার্পের কমপ্লেক্সিটি হবে O(V*E*E) । Dinic&#8217;s অ্যালগোরিদম আরও কিছু টেকনিক ব্যবহার করে টাইম কমপ্লেক্সিটি O(V*V*E) তে নিয়ে আসতে পারে ।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index1bc7.html?p=2195&amp;replytocom=58011#respond' onclick='return addComment.moveForm( "div-comment-58011", "58011", "respond", "2195" )' aria-label='Reply to নিরব'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-58037" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-58037" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc292.html?p=2195#comment-58037">
+							<time datetime="২০১৫-০২-২১T২৩:৩৯:১৬+০০:০০">
+								ফেব্রুয়ারি ২১, ২০১৫ at ১১:৩৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভুলে V*V*E লিখেছিলাম, ঠিক করে দিলাম। ধন্যবাদ তোমাকে।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexedae.html?p=2195&amp;replytocom=58037#respond' onclick='return addComment.moveForm( "div-comment-58037", "58037", "respond", "2195" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-58063" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58063" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/0cad90354cb11d5f43b3aefe0fb637b8?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/0cad90354cb11d5f43b3aefe0fb637b8?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">muztaba</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc292.html?p=2195#comment-58063">
+							<time datetime="২০১৫-০৪-০৬T২০:৩৯:২৭+০০:০০">
+								এপ্রিল ৬, ২০১৫ at ৮:৩৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Cf(v,u) = Cf(u,v) + min_res_cap এই রকম হবে না ?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index1adb.html?p=2195&amp;replytocom=58063#respond' onclick='return addComment.moveForm( "div-comment-58063", "58063", "respond", "2195" )' aria-label='Reply to muztaba'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58344" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-58344" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/2699fe7a5c56efdeb04e314768bd74e9?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/2699fe7a5c56efdeb04e314768bd74e9?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">মুহাইমিন</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc292.html?p=2195#comment-58344">
+							<time datetime="২০১৫-১১-২৯T২৩:০৬:৪৩+০০:০০">
+								নভেম্বর ২৯, ২০১৫ at ১১:০৬ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া Cf(v,u) = Cf(v,u) + min_res_cap;<br />
+এইটা হবে না ?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexfa8e.html?p=2195&amp;replytocom=58344#respond' onclick='return addComment.moveForm( "div-comment-58344", "58344", "respond", "2195" )' aria-label='Reply to মুহাইমিন'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply to <a href="#comment-58344">মুহাইমিন</a> <small><a rel="nofollow" id="cancel-comment-reply-link" href="indexc292.html?p=2195#respond">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_7295867"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_7295867', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_41");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_41" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><input id="cptch_input_41" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<span class="cptch_span">&nbsp;&times;&nbsp;</span>
+					<span class="cptch_span"><img class="cptch_img " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAMAAADDpiTIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF////m5ubAAAAysrKZGRkJycn4uLi8/Pz4CtFhgAABmNJREFUeNrs3AtqXUcQRdHXn9s1/xkHTEKcyBG0JExUZ+0hmMWxqnXt11R0L38EAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAAQAAP4IABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJA6QBe/9cWANkADgAWAAALAIAFAMACAGABALAAAFgAACwAABYAAAsAgAUAwAIAYAEAsAAAWAAALAAAFgAACwCABQDAAgBgAQCwAABYAAAsAAAWAAALAIAFAOBbAdgARAP4ln8DAPBl1QAgG8AEIBrAACAbwANANIA1AYgGsAGIBvBdB+A7Anh+VytgAPw/ge9Aq/Y3IADvNfrfgAB81QA8AEQPwJoAtOv0fwQC4L0BqIgBAOArBmAD0K7d/kMAAN5tRdyAAHzFANQEwAAA0KrnlXEDAvBfN2DGIxAAXzEAG4DoATgTgHZVzgAA8MkB+PZ/fgC87cTcgAD8qp1zAwLwq1bODQjAJwegNgAGAIBWJT0CAfDJATgTgHYDUEk3IABvunkEqgcAAwBArwGopEcgAN50sm5AAP7VDrsBAfjEAJwJQPQADADatWI+BgfglwNQeQMAwM834CvtBgTg565+DbQmAMkDUBuAdgNQiQMAwMd+AtgAtCvwEQiAjw7AAKBdK+1DAAD+0Q4dAAA+MACNfgQE4CMDsCYA7QagQgcAgB9dPQKdCYAbEIBWA/AK/BAAAAMAwJ9V4ocAAPw9AJV6AwLwoxP5IQAAf3X1CHQmAN2KfQUG4H4AagIQPQADgG5dPQJ1uwEBuPwQZE0Aug1AZQ9APIARfQMCcPcKvAEwAAC06mTfgPEA7l6BHwAMAACxA/B6AOjWegV/CADA5SvwBiB6AM4EoNsA3DwC1QCgWyP7Q4B4AHe/BhoAtBuAcgNGAzjhHwKkA9huwGwAxyNQNAADEA5guQGjAWw3YDaAuwF4AGjW3a+BOg9AKIDhQ4BoAHevwGsCED0AG4BulQ8BogHc/R54ANCtUx6BkgFsN2A2gOUGjAZwNwBrAtBtAMoNmAzgMQDZAJZHoGgAd6/ANQFo1nADZgMoHwJEAxh+BMwGcDwCRQPwCBQO4LgBowHcDcCZADRruQGjAdy9AtcEwAAA0GkAyg0YDcAjUDaAywHYAEQPwJkANMsjUDaA7QbMBnDcgNEA7gYg5QYMArDcgNEALn8C2AB0GwD/I0A0AI9A4QA8AmUDuByAAUD0ANQDQLM8AmUDGB6BsgEcj0DRAC5fgTcAzVpuwGgAlwMwAIgegJoA9OoxANkA3IDZAC4HYE0AkgegNgDNKgMQDWB4BMoGcDwCRQPwCBQO4PgQIBqAAQgHsDwCRQPwCBQOYLkBowFcfgt8JgC9Gn4EjAZwOQA1AWg2AP41SDaA4waMBrDdgNkAjg8BogFcDsCZAPTKI1A2gO0GzAbgESgbwOWvgeoBIHkAak0Aeg1AeQSKBjDcgNkAyg0YDcAjUDiA4waMBnA5ADUB6NUyANEALgcg+gZsCWD5B8HRAB43YDYAj0DZAC5/DRQ/AO0ADDdgNoByA0YDGG7AbADHhwDRALYfAbMBXL4CG4BmAAxAOIDlBowGcPsI5AZsBmD5GDz+DBQAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAAEAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAANDv7w8BBgD+EJsHLsyzfwAAAABJRU5ErkJggg==" alt="image"/></span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span">21</span>
+					<input type="hidden" name="cptch_result" value="B8Q=" />
+					<input type="hidden" name="cptch_time" value="1472744678" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='2195' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='58344' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="31309088ac" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="75"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_8692670"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_8692670', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=2195&replytocom=58344 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:39:05 GMT -->
+</html>

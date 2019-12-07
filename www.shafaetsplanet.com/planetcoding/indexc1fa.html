@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=1072&replytocom=3855 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:40:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২ | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২ &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,281] -->
+<meta name="description" itemprop="description" content="(১ম পর্ব) (সবগুলো পর্ব) ১ম পর্বে আমরা জেনেছি ডাইনামিক প্রোগ্রামিং কাকে বলে,প্রবলেমে কি রকমের বৈশিষ্ট্য থাকলে সেটা ডাইনামিক প্রোগ্রামিং এর সাহায্যে সমাধান" />
+
+<meta name="keywords" itemprop="keywords" content="ncr,ডাইনামিক প্রোগ্রামিং,ডিপি,ন্যাপস্যাক,অ্যালগোরিদম/প্রবলেম সলভিং,প্রোগ্রামিং" />
+
+<link rel="canonical" href="index4b2e.html?p=1072" />
+<meta property="og:title" content="ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২ | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="activity" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=1072" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="(১ম পর্ব) (সবগুলো পর্ব) ১ম পর্বে আমরা জেনেছি ডাইনামিক প্রোগ্রামিং কাকে বলে,প্রবলেমে কি রকমের বৈশিষ্ট্য থাকলে সেটা ডাইনামিক প্রোগ্রামিং এর সাহায্যে সমাধান করা যায়। আমরা দেখেছি ডিপি দিয়ে কিভাবে ফিবোনাচ্চি সংখ্যার রিকার্শনের রানটাইম অনেক কমিয়ে আনা যায়। তবে ডিপি এমন একটা জিনিস যে এতকিছু জেনেও তুমি কিছুই সমাধান করতে পারবেনা যদিনা খুব ভালো করে প্র্যাকটিস করো আর চিন্তা করো। তবে এটা শুনে ভয়ের একদমই কিছু নেই, প্র্যাকটিস করতে থাকলে কিছুদিন পর দেখবে অনেক সহজেই রিকার্সিভ ফাংশন বের করে ডিপি প্রবলেম সলভ করে ফেলতে পারছো,আমার কাজ হলো তোমাকে শুরু করিয়ে দেয়া। সব শেষে hexabonacci নামের একটি প্রবলেম সলভ করতে দিয়েছিলাম,আশা করি সবাই প্রবলেমটি খুব সহজেই সমাধান করে ফেলেছে। সমাধান করতে না পারলে আমি বলবো আগের পর্বটা আরেকবার খুব ভালোভাবে পড়ে ফেলতে আর কোনো জায়গায় না বুঝলে মন্তব্য অংশে জানাতে। প্রবলেমটির সাথে ফিবোনাচ্চি প্রবলেমটার খুব একটা পার্থক্য নেই বলে আমি সমাধান নিয়ে আলোচনা করছিনা।  আরেকটি কাজ দিয়েছিলাম,সেটা হলো nCr এর মান বের করা। এটার সমাধান নিয়ে এখন আলোচনা করবো। কলেজে থাকতে হয়তো পড়েছো:" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২ | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="(১ম পর্ব) (সবগুলো পর্ব) ১ম পর্বে আমরা জেনেছি ডাইনামিক প্রোগ্রামিং কাকে বলে,প্রবলেমে কি রকমের বৈশিষ্ট্য থাকলে সেটা ডাইনামিক প্রোগ্রামিং এর সাহায্যে সমাধান করা যায়। আমরা দেখেছি ডিপি দিয়ে কিভাবে ফিবোনাচ্চি সংখ্যার রিকার্শনের রানটাইম অনেক কমিয়ে আনা যায়। তবে ডিপি এমন একটা জিনিস যে এতকিছু জেনেও তুমি কিছুই সমাধান করতে পারবেনা যদিনা খুব ভালো করে প্র্যাকটিস করো আর চিন্তা করো। তবে এটা শুনে ভয়ের একদমই কিছু নেই, প্র্যাকটিস করতে থাকলে কিছুদিন পর দেখবে অনেক সহজেই রিকার্সিভ ফাংশন বের করে ডিপি প্রবলেম সলভ করে ফেলতে পারছো,আমার কাজ হলো তোমাকে শুরু করিয়ে দেয়া। সব শেষে hexabonacci নামের একটি প্রবলেম সলভ করতে দিয়েছিলাম,আশা করি সবাই প্রবলেমটি খুব সহজেই সমাধান করে ফেলেছে। সমাধান করতে না পারলে আমি বলবো আগের পর্বটা আরেকবার খুব ভালোভাবে পড়ে ফেলতে আর কোনো জায়গায় না বুঝলে মন্তব্য অংশে জানাতে। প্রবলেমটির সাথে ফিবোনাচ্চি প্রবলেমটার খুব একটা পার্থক্য নেই বলে আমি সমাধান নিয়ে আলোচনা করছিনা।  আরেকটি কাজ দিয়েছিলাম,সেটা হলো nCr এর মান বের করা। এটার সমাধান নিয়ে এখন আলোচনা করবো। কলেজে থাকতে হয়তো পড়েছো:" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২ Comments Feed" href="index66c6.html?feed=rss2&amp;p=1072" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-১(শুরুর কথা)' href='indexb703.html?p=1022' />
+<link rel='next' title='ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-৩ (কয়েন চেঞ্জ + রক ক্লাইম্বিং)' href='index2f10.html?p=1158' />
+
+<link rel='shortlink' href='index4b2e.html?p=1072' />
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/json+oembed" href="index8719.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D1072" />
+<link rel="alternate" type="text/xml+oembed" href="indexe16f.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D1072&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-1072 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-1072" class="post-1072 post type-post status-publish format-standard hentry category-contest category-programming tag-ncr tag-71 tag-54 tag-72">
+	<header class="entry-header">
+		<h1 class="main-title"><span>ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="index4b2e.html?p=1072" rel="bookmark"><time class="entry-date published" datetime="২০১২-০৫-২৩T১৩:২৭:১০+০০:০০">মে ২৩, ২০১২</time><time class="updated" datetime="2016-05-13T15:13:24+00:00">May 13, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=1072'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%A1%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%95%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%82%20%E0%A6%8F%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF-%E0%A7%A8&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D1072&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=1072'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%A1%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%95%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%82%20%E0%A6%8F%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF-%E0%A7%A8&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=1072&amp;summary=(%e0%a7%a7%e0%a6%ae%20%e0%a6%aa%e0%a6%b0%e0%a7%8d%e0%a6%ac)(%e0%a6%b8%e0%a6%ac%e0%a6%97%e0%a7%81%e0%a6%b2%e0%a7%87%e0%a6%be%20%e0%a6%aa%e0%a6%b0%e0%a7%8d%e0%a6%ac)%e0%a7%a7%e0%a6%ae%20%e0%a6%aa%e0%a6%b0%e0%a7%8d%e0%a6%ac%e0%a7%87%20%e0%a6%86%e0%a6%ae%e0%a6%b0%e0%a6%be%20%e0...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p><a title="ডাইনামিক প্রোগ্রামিং,শাফায়েতের ব্লগ" href="indexb703.html?p=1022">(১ম পর্ব)</a><br />
+<a title="ডাইনামিক প্রোগ্রামিং,শাফায়েতের ব্লগ" href="indexd1f6.html?tag=%E0%A6%A1%E0%A6%BF%E0%A6%AA%E0%A6%BF">(সবগুলো পর্ব)</a></p>
+<p><a href="indexb703.html?p=1022">১ম পর্বে</a> আমরা জেনেছি ডাইনামিক প্রোগ্রামিং কাকে বলে,প্রবলেমে কি রকমের বৈশিষ্ট্য থাকলে সেটা ডাইনামিক প্রোগ্রামিং এর সাহায্যে সমাধান করা যায়। আমরা দেখেছি ডিপি দিয়ে কিভাবে ফিবোনাচ্চি সংখ্যার রিকার্শনের রানটাইম অনেক কমিয়ে আনা যায়। তবে ডিপি এমন একটা জিনিস যে এতকিছু জেনেও তুমি কিছুই সমাধান করতে পারবেনা যদিনা খুব ভালো করে প্র্যাকটিস করো আর চিন্তা করো। তবে এটা শুনে ভয়ের একদমই কিছু নেই, প্র্যাকটিস করতে থাকলে কিছুদিন পর দেখবে অনেক সহজেই রিকার্সিভ ফাংশন বের করে ডিপি প্রবলেম সলভ করে ফেলতে পারছো,আমার কাজ হলো তোমাকে শুরু করিয়ে দেয়া। সব শেষে <a href="http://www.lightoj.com/volume_showproblem.php?problem=1006" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.lightoj.com/volume_showproblem.php?problem=1006', 'hexabonacci');">hexabonacci</a> নামের একটি প্রবলেম সলভ করতে দিয়েছিলাম,আশা করি সবাই প্রবলেমটি খুব সহজেই সমাধান করে ফেলেছে। সমাধান করতে না পারলে আমি বলবো আগের পর্বটা আরেকবার খুব ভালোভাবে পড়ে ফেলতে আর কোনো জায়গায় না বুঝলে মন্তব্য অংশে জানাতে। প্রবলেমটির সাথে ফিবোনাচ্চি প্রবলেমটার খুব একটা পার্থক্য নেই বলে আমি সমাধান নিয়ে আলোচনা করছিনা।</p>
+<div id="ncr"></div>
+<p>আরেকটি কাজ দিয়েছিলাম,সেটা হলো nCr এর মান বের করা। এটার সমাধান নিয়ে এখন আলোচনা করবো। কলেজে থাকতে হয়তো পড়েছো:</p>
+<blockquote><p>
+$^nC_{r} =^{(n-1)}C_{r} + ^{(n-1)}C_{(r-1)}$</p></blockquote>
+<p>আমরা এই রিলেশনটি ব্যবহার করে nCr এর মান বের করবো, সুত্রের প্রমান লেখার একদম শেষ অংশ দেখে আসতে পারো। আমরা যদি মনে করি nCr(n,r) হলো একটি ফাংশন যা n আর r এর মানকে প্যারামিটার হিসাবে গ্রহণ করে তাহলে আমরা উপরের রিলেশন তাকে এভাবে লিখতে পারি:</p>
+<blockquote><p>nCr(n,r) =nCr(n-1,r) + nCr(n-1,r-1)</p></blockquote>
+<p>এবার হয়তো জিনিসটা আরো স্পষ্ট হয়েছে তোমার কাছে। কিন্তু রিকার্শনটা শেষ হবে কখন? অর্থাৎ বেস কেস কি? আমরা জানি nCr(n,1)=n এবং nCr(n,n)=1 । এ দুটি শর্ত বেস কেস হিসাবে ব্যবহার করলে কোডটা হবে:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84dadb6af2307846763" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+#define i64 long long
+i64 nCr(int n,int r)
+{
+if(r==1) return n;
+if(n==r) return 1;
+return nCr(n-1,r)+nCr(n-1,r-1);
+
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84dadb6af2307846763-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6af2307846763-2">2</div><div class="crayon-num" data-line="crayon-57c84dadb6af2307846763-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6af2307846763-4">4</div><div class="crayon-num" data-line="crayon-57c84dadb6af2307846763-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6af2307846763-6">6</div><div class="crayon-num" data-line="crayon-57c84dadb6af2307846763-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6af2307846763-8">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84dadb6af2307846763-1"><span class="crayon-p">#define i64 long long</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6af2307846763-2"><span class="crayon-e">i64 </span><span class="crayon-e">nCr</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">n</span><span class="crayon-sy">,</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">r</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c84dadb6af2307846763-3"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6af2307846763-4"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">r</span><span class="crayon-o">==</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">n</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c84dadb6af2307846763-5"><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">n</span><span class="crayon-o">==</span><span class="crayon-v">r</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">1</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6af2307846763-6"><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">nCr</span><span class="crayon-sy">(</span><span class="crayon-v">n</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-v">r</span><span class="crayon-sy">)</span><span class="crayon-o">+</span><span class="crayon-e">nCr</span><span class="crayon-sy">(</span><span class="crayon-v">n</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-v">r</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c84dadb6af2307846763-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6af2307846763-8"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0031 seconds] -->
+<p></p>
+<p>ফাংশন কল গুলো লক্ষ্য করলে দেখতে পাবে ফিবোনাচ্চির মতো এখানেও একটি ফাংশন বার বার কল হচ্ছে:</p>
+<div align="center"><a href="wp-content/uploads/2012/05/dp2.png"><img class="aligncenter size-full wp-image-2426" src="wp-content/uploads/2012/05/dp2.png" alt="dp2" width="404" height="314" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2012/05/dp2.png 404w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2012/05/dp2-300x233.png 300w" sizes="(max-width: 404px) 100vw, 404px" /></a></div>
+<p>আমরা এই অতিরিক্ত ফাংশন কল সহজেই এড়াতে পারি আগের মতো একটা টেবিল রেখে। পার্থক্য হলো এবার টেবিলটা হবে ২-ডি,আর কোনো পার্থক্য নেই। আগে টেবিলটার সব ঘরে -১ রেখে নিবো,-১ দিয়ে বুঝাচ্ছে ঘরটি খালি আছে।</p>
+<p><script src="../../gist.github.com/Shafaet/5494068.js"></script>আমাদের সবগুলো ডিপি কোডই মোটামুটি একটা ফরমেট মেনে চলবে,সেটা এরকম:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84dadb6b09890632713" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+ int/double/long long call(int x1,int x2........,int xn)
+ {
+ CHECK BASE CASES,RETURN IF REACHED ANY OF THE BASE CASES
+ CHECK TABLE,RETURN IF VALUE IS ALREADY COMPUTED
+ ELSE { COMPUTE VALUE RECURSIVELY AND SAVE IN A N-Dimensional TABLE/ARRAY RETURN VALUE }
+ }</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84dadb6b09890632713-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6b09890632713-2">2</div><div class="crayon-num" data-line="crayon-57c84dadb6b09890632713-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6b09890632713-4">4</div><div class="crayon-num" data-line="crayon-57c84dadb6b09890632713-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6b09890632713-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84dadb6b09890632713-1"><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-o">/</span><span class="crayon-t">double</span><span class="crayon-o">/</span><span class="crayon-t">long</span><span class="crayon-h"> </span><span class="crayon-t">long</span><span class="crayon-h"> </span><span class="crayon-e">call</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">x1</span><span class="crayon-sy">,</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">x2</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">,</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">xn</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6b09890632713-2"><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c84dadb6b09890632713-3"><span class="crayon-h"> </span><span class="crayon-e">CHECK </span><span class="crayon-e">BASE </span><span class="crayon-v">CASES</span><span class="crayon-sy">,</span><span class="crayon-st">RETURN</span><span class="crayon-h"> </span><span class="crayon-st">IF</span><span class="crayon-h"> </span><span class="crayon-e">REACHED </span><span class="crayon-e">ANY </span><span class="crayon-e">OF </span><span class="crayon-e">THE </span><span class="crayon-e">BASE </span><span class="crayon-e">CASES</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6b09890632713-4"><span class="crayon-e"> </span><span class="crayon-e">CHECK </span><span class="crayon-v">TABLE</span><span class="crayon-sy">,</span><span class="crayon-st">RETURN</span><span class="crayon-h"> </span><span class="crayon-st">IF</span><span class="crayon-h"> </span><span class="crayon-t">VALUE</span><span class="crayon-h"> </span><span class="crayon-st">IS</span><span class="crayon-h"> </span><span class="crayon-e">ALREADY</span><span class="crayon-h"> </span><span class="crayon-e">COMPUTED</span></div><div class="crayon-line" id="crayon-57c84dadb6b09890632713-5"><span class="crayon-h"> </span><span class="crayon-st">ELSE</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-e">COMPUTE </span><span class="crayon-t">VALUE</span><span class="crayon-h"> </span><span class="crayon-e">RECURSIVELY </span><span class="crayon-st">AND</span><span class="crayon-h"> </span><span class="crayon-e">SAVE </span><span class="crayon-st">IN</span><span class="crayon-h"> </span><span class="crayon-i">A</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-o">-</span><span class="crayon-e">Dimensional </span><span class="crayon-v">TABLE</span><span class="crayon-o">/</span><span class="crayon-t">ARRAY</span><span class="crayon-h"> </span><span class="crayon-st">RETURN</span><span class="crayon-h"> </span><span class="crayon-t">VALUE</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6b09890632713-6"><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0038 seconds] -->
+<p></p>
+<p>nCr এর ক্ষেত্রে প্যারামিটার ছিলো n এবং r। বুঝতেই পারছো যতগুলো প্যারামিটার থাকবে মান টেবিলে সেভ করার জন্য তত ডাইমেনশনের টেবিল লাগবে। স্টেট বেশি লাগলে মেমরিও বেশি লাগে। অ্যারের প্রতিটি ডাইমেনশনের সাইজ প্রয়োজনমতো প্যারামিটার অনুসারে কমবেশি হবে। প্যারামিটারকে আমরা সাধারণত বলে থাকি স্টেট(State)। সম্ভবত ডিপিতে সবথেকে গুরুত্বপূর্ণ অংশ হলো স্টেট বুঝতে পারা। ধরো তোমাকে ৫০মিনিটের মধ্যে একটা ক্লাস ধরতে হবে। এখন রাস্তায় তুমি কোন অবস্থায় আছো সেটা আমি জানতে পারবো যদি তুমি আমাকে দুটি তথ্য দাও: তুমি এই মুহুর্তে কোন জায়গায় আছো আর তুমি বাসা থেকে বের হবার পর কয় মিনিট পার হয়েছে। যেমন হয়তো তুমি ফার্মগেটে আছো আর বাসা থেকে বের হবার পর ২০ মিনিট পার হয়েছে। তুমি কি রঙের জামা পড়েছো বা তুমি কোন জুতা পড়েছো এটা কিন্তু এখানে গুরুত্বপূর্ণ না তাই এটা &#8220;স্টেট&#8221; এর মধ্যে পড়েনা।</p>
+<div id="knapsack"></div>
+<p><strong>০-১ ন‍্যাপস‍্যাক:</strong> কোনো এক রাতে তুমি চুরি করতে বের হলে!! বন্ধুর বাসায় জানালা দিয়ে ঢুকে দেখলে প্রচুর জিনিসপত্র,কিন্তু তোমার চুরি করার থলেতে জায়গা আছে মাত্র ১০ইউনিট,এর বেশি নিলে থলে ছিড়ে যাবে। প্রতিটা জিনিসের ভর আছে আর একেক জিনিসের মুল্যও একেকরকম।</p>
+<blockquote><p>
+১. মানিব্যাগ: ১ইউনিট,১২০টাকা<br />
+ ২. কোরম্যানের-বই ভর: ৭ইউনিট,৪০০টাকা<br />
+ ৩. ডিভিডি-কালেকশন ভর: ৪ইউনিট,২৮০ টাকা<br />
+ ৪. ফেলুদা-সমগ্র: ৩ইউনিট,১৫০টাকা<br />
+ ৫. ফুটবল: ভর: ৪ইউনিট,২০০টাকা
+</p></blockquote>
+<p>কোনো জিনিস নিলে পুরোটাই নিতে হবে,৪টি ডিভিডির ২টি তুমি নিতে পারবেনা,ফেলুদা সমগ্রের অর্ধেক ছিড়ে আনতে পারবেনা। প্রথমদিন চুরি করতে গিয়েছো এই জন্য কিছু না ভেবেই তুমি ফটাফট দামি জিনিসগুলো ভরতে থাকলে। প্রথমেই তুমি ৪০০টাকার কোরম্যানের বই নিয়ে নিলে,তারপর ১৫০টাকার ফেলুদা সমগ্র নিয়ে বাসায় ফিরে আসলে,তোমার লাভ হলো ৫৫০ টাকা। বাসায় এসে হিসাব করে দেখলে তুমি যদি <a href="http://www.c3.lanl.gov/mega-math/gloss/compute/greedy.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.c3.lanl.gov/mega-math/gloss/compute/greedy.html', 'লোভীর মতো (greedy)');">লোভীর মতো (greedy)</a> দামী জিনিসগুলো আগে না নিয়ে একটু ভেবে-চিন্তে নিতে তাহলে ২৮০টাকার ডিভিডি,২০০টাকার ফুটবল আর ১২০টাকার মানিব্যাগ নিয়ে ফিরতে পারতে,তোমার লাভ হতো ৬০০টাকা। <a href="http://www.c3.lanl.gov/mega-math/gloss/compute/greedy.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.c3.lanl.gov/mega-math/gloss/compute/greedy.html', 'greedy');">greedy</a> অ্যলগোরিদমে অপটিমাল রেজাল্ট না পাওয়ায় তুমি চিন্তা করলে সবরকমের কম্বিনেশনে চেষ্টা করবে, প্রতিবার একটা করে জিনিস থলেতে ভরবে আর দেখবে আর কত লাভ করা যায়,প্রয়োজনে জিনিসটা থলে থেকে নামিয়ে রেখে আরেকটি নিয়ে চেষ্টা করবে। এবং সুবিধার জন্য তুমি লিস্টের সিরিয়াল অনুযায়ী জিনিস নিয়ে চেষ্টা করবে, ৩ নম্বর জিনিসের পরে ১ নম্বর জিনিস নিতে চেষ্টা করবেনা। কোনো সময় তোমার অবস্থা বুঝাতে ২টা তথ্যই যথেষ্ট।</p>
+<blockquote><p>
+১. তুমি এখন কত নম্বর জিনিস ট্রাই করছো।<br />
+ ২. এখন পর্যন্ত তুমি কত ইউনিট জিনিস নিয়েছো।
+</p></blockquote>
+<p>&nbsp;</p>
+<div align="center"><img src="../../upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Knapsack.svg/500px-Knapsack.svg.png" alt="" width="320" height="300" /></div>
+<p>তুমি একটা ফাংশন লিখে ফেললে যেটা জিনিসপত্রের লিস্ট থেকে অপটিমাল রেজাল্ট বের করে দিতে পারে। ফাংশনটির রিটার্ন টাইপ আর প্যারামিটার হবে এরকম:</p>
+<blockquote><p>
+i=current_index w=weight taken int func(int i,int w)
+</p></blockquote>
+<p>মনে করি i নম্বর বস্তুটির ভর হলো weight[i] আর মূল্য cost[i]। আর ব্যাগের capacity=CAP। প্রতিবার তুমি i নম্বর জিনিসটি নিতে পারো যদি ব্যাগে জায়গা থাকে, অথবা তুমি i নম্বর জিনিসটি না নিয়ে i+1 তম জিনিস ট্রাই করতে পারো। i নম্বর জিনিসটি যদি তুমি নাও তাহলে লাভ হবে <strong>cost[i] + পরবর্তি স্টেটে লাভ</strong>, তাহলে আমরা cost[i] যোগ করে পরবর্তি স্টেটে চলে গিয়ে কত লাভ হয় সেটা হিসাব করবো।</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84dadb6b32738982743" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+ if(w+weight[i]&lt;=CAP) profit1=cost[i]+func(i+1,w+weight[i])
+ else profit1=0;</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84dadb6b32738982743-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb6b32738982743-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84dadb6b32738982743-1"><span class="crayon-h"> </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">w</span><span class="crayon-o">+</span><span class="crayon-v">weight</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-sy">]</span><span class="crayon-o">&lt;=</span><span class="crayon-v">CAP</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">profit1</span><span class="crayon-o">=</span><span class="crayon-v">cost</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-sy">]</span><span class="crayon-o">+</span><span class="crayon-e">func</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-o">+</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-v">w</span><span class="crayon-o">+</span><span class="crayon-v">weight</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb6b32738982743-2"><span class="crayon-h"> </span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-v">profit1</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0018 seconds] -->
+<p></p>
+<p>i নম্বর জিনিসটি যদি তুমি না নাও তাহলেও লাভ বেশি হতে হবে তাই সেটাও আমাদের হিসাব করতে হবে:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84dadb6b3f139564312" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+ profit2=func(i+1,w) //নতুন ওজন যোগ হচ্ছেনা,i+1 তম বস্তু নিয়ে ট্রাই করছি।</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84dadb6b3f139564312-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84dadb6b3f139564312-1"><span class="crayon-h"> </span><span class="crayon-v">profit2</span><span class="crayon-o">=</span><span class="crayon-e">func</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-o">+</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-v">w</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c">//নতুন ওজন যোগ হচ্ছেনা,i+1 তম বস্তু নিয়ে ট্রাই করছি।</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p></p>
+<p>লক্ষ্য করো এক্ষেত্রে কারেন্ট প্রফিট বা ওজনের কোনো পরিবর্তন হচ্ছেনা, কোনো কিছু না নিয়েই পরের স্টেটে গিয়ে দেখছি লাভ কত হবে। তাহলে সহজেই বোঝা যাচ্ছে অপটিমাল রেজাল্টের জন্য আমাদের profit1 আর profit2 এর মধ্যে বড়টা নিতে হবে,সেই মানটা আমরা রিটার্ণ করে দিবো।</p>
+<blockquote><p>
+return max(profit1,profit2)
+</p></blockquote>
+<p>তাহলে তুমি যদি main থেকে func(1,0) কল করো তাহলে রিকার্শন তোমাকে রেজাল্ট বের করে দিবে। func(1,0) কল করার কারণ হলো শুরুতে তুমি ১ নম্বর জিনিসটা নিয়ে ট্রাই করবে এবং শুরুতে ব্যাগে সম্পূর্ণ খালি। যখন সবগুলো জিনিস নিয়ে ট্রাই করা হয়ে যাবে তখন রিকার্শন শেষ হবে,অর্থাৎ</p>
+<blockquote><p>
+n টা বস্তু থাকলে বেসকেস হবে if(i==n+1) return 0
+</p></blockquote>
+<p>শুন্য রিটার্ন করছি কারণ সবকিছু নেয়া হয়ে গেলে আর প্রফিট করা সম্ভবনা। তোমার বোঝার সুবিধার জন্য সম্পূর্ণ একটা কোড দিয়ে দিলাম:<script src="../../gist.github.com/Shafaet/5494064.js"></script></p>
+<p>এই কোডে উপরের উদাহরণের ইনপুটটা নিচের মতো করে দিলে দিলে ৬০০ আউটপুট আসবে</p>
+<blockquote><p>4 10 //৫ টা জিনিস, ১০ ক্যাপাসিটি<br />
+1 120 //প্রতিটা জিনিসের ওজন এবং দাম<br />
+4 280<br />
+3 150<br />
+4 200</p></blockquote>
+<p>আমরা উপরের ইনপুটের জন‍্য কিভাবে ফাংশন কলে হচ্ছে তার একটা সিমুলেশন দেখি:</p>
+<p><a href="wp-content/uploads/2012/05/Blank-Flowchart-New-Page.jpg"><img class="aligncenter wp-image-2163" src="wp-content/uploads/2012/05/Blank-Flowchart-New-Page-1024x795.jpg" alt="Blank Flowchart - New Page" width="791" height="690" /></a></p>
+<p>ছবিতে প্রতিটা নোড প্রকাশ করছে আমরা এখন কোন জিনিসটা নিয়ে কাজ করছি এবং ব‍্যাগে কত ওজনের জিনিস আছে। তারপর জিনিসটা একবার ব‍্যাগে ভরে(যদি জায়গা থাকে) নতুন নোডে যাচ্ছি, আরেকবার না ভরে নতুন জায়গায় যাচ্ছি। নীল রঙ এর নোডগুলো হলো বেস কেস, কারণ আর কোনো জিনিস নেয়ার মত নেই। লক্ষ‍্য কর সবুজ রঙ এর নোডটায় একাধিক পথে আসা যায়, তাই আমরা প্রতিটি নোডের রিটার্ণ ভ‍্যালু ডিপি অ‍্যারেতে সেভ করে রাখবো।</p>
+<p><strong>কমপ্লেক্সিটি:</strong></p>
+<p>আমাদের কোডে ভিন্ন ভিন্ন স্টেট সংখ‍্যা n*cap টা যেখানে n হলো জিনিস সংখ‍্যা আর cap হলো ব‍্যাগের ক‍্যাপাসিটি। ফাংশনের ভিতর কোনো লুপ নেই। তাই মোট O(n*cap) টাইম কমপ্লেক্সিটিতে কোডটা চলবে। ডিপি অ‍্যারের আকার হবে [n][cap] , তাই স্পেস কমপ্লেক্সিটিও  O(n*cap)।<br />
+এখন ছোট্ট একটা প্রশ্ন, ডিপি প্রবলেমে টাইম আর স্পেস কমপ্লেক্সিটি ভিন্ন হবে কখন?</p>
+<p>&nbsp;</p>
+<p>এটাই হলো ক্লাসিকাল <a href="http://en.wikipedia.org/wiki/Knapsack_problem" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://en.wikipedia.org/wiki/Knapsack_problem', '0-1 knapsack');">0-1 knapsack</a> প্রবলেম,ন্যাপস্যাক শব্দটির অর্থ হলো থলে। ০-১ নাম দেয়ার কারণ হলো তুমি কোনো জিনিস অর্ধেক নিতে পারবেনা,হয় পুরোটা নিবে অথবা নিবেনা। fractional-knapsack বলে আরেক ধরণের প্রবলেম আছে,সেটার আলোচনা অন্য কোনোদিন হবে। ন্যাপস্যাকে সলিউশন প্রিন্ট করা শিখতে <a href="indexd1f6.html?tag=%E0%A6%A1%E0%A6%BF%E0%A6%AA%E0%A6%BF">সিরিজের চতুর্থ পর্বটা</a> দেখো।</p>
+<p>এখন তোমার এখন কাজ হলো এটার সম্পূর্ণ কোড ইমপ্লিমেন্ট করা। <a href="http://uva.onlinejudge.org/external/101/10130.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://uva.onlinejudge.org/external/101/10130.html', 'uva 10130');">uva 10130</a> প্রবলেমটি সলভ করতে চেষ্টা করো।</p>
+<p>ডাইনামিক প্রোগ্রামিং এ ভালো করার একমাত্র উপায় হলো প্রচুর চিন্তা করা। তোমাকে অনুরোধ করবো পরবর্তি পর্ব পড়ার আগে অবশ্যই আগের পর্বের সমস্যাগুলো নিয়ে খুব ভালো করে অন্তত ১দিন চিন্তা করবে।</p>
+<p><a title="ডাইনামিক প্রোগ্রামিং,শাফায়েতের ব্লগ" href="indexd1f6.html?tag=%E0%A6%A1%E0%A6%BF%E0%A6%AA%E0%A6%BF">(সবগুলো পর্ব)</a><br />
+<a href="index2f10.html?p=1158">পরের পর্ব-কয়েন চেঞ্জ,রক ক্লাইম্বিং</a></p>
+<p><strong>পরিশিষ্ট:</strong></p>
+<blockquote><p>[latex]<br />
+^nC_{r} =^{(n-1)}C_{r} + ^{(n-1)}C_{(r-1)}<br />
+[/latex]</p></blockquote>
+<p>এই সূত্রটি কেন কাজ করে বোঝা খুব সহজ। n টা জিনিসের মধ‍্যে r টা জিনিস কতভাবে নেয়া যায় সেটাই nCr বা nCr(n,r)। এখন যেকোন ১টা জিনিসের কথা চিন্তা কর। তুমি যদি জিনিসটা না নাও তাহলে বাকি n-1 টা জিনিসের মধ‍্য থেকে আরো r টা জিনিস নিতে হবে, সেটা করা যায় nCr(n-1,r) ভাবে। আর যদি তুমি জিনিসটা নাও তাহলে বাকি n-1 টা জিনিসের মধ‍্যে থেকে আরো r-1 টা জিনিস নিতে হবে, সেটা করা যায় nCr(n-1,r-1) ভাবে। এই দুইটার যোগফলই হলো মোট উপায়।</p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=index4b2e.html?p=1072></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=1072" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=1072'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%A1%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%95%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%82%20%E0%A6%8F%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF-%E0%A7%A8&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D1072&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=1072'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%A1%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%95%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AE%E0%A6%BF%E0%A6%82%20%E0%A6%8F%20%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%96%E0%A7%9C%E0%A6%BF-%E0%A7%A8&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=1072&amp;summary=(%e0%a7%a7%e0%a6%ae%20%e0%a6%aa%e0%a6%b0%e0%a7%8d%e0%a6%ac)(%e0%a6%b8%e0%a6%ac%e0%a6%97%e0%a7%81%e0%a6%b2%e0%a7%87%e0%a6%be%20%e0%a6%aa%e0%a6%b0%e0%a7%8d%e0%a6%ac)%e0%a7%a7%e0%a6%ae%20%e0%a6%aa%e0%a6%b0%e0%a7%8d%e0%a6%ac%e0%a7%87%20%e0%a6%86%e0%a6%ae%e0%a6%b0%e0%a6%be%20%e0...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="index9ad7.html?cat=35" rel="category">অ্যালগোরিদম/প্রবলেম সলভিং</a>, <a href="indexb31a.html?cat=1" rel="category">প্রোগ্রামিং</a></span><span class="tags-links">Tagged <a href="index7b45.html?tag=ncr" rel="tag">nCr</a>, <a href="index5305.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%87%e0%a6%a8%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%95-%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%82" rel="tag">ডাইনামিক প্রোগ্রামিং</a>, <a href="indexeedc.html?tag=%e0%a6%a1%e0%a6%bf%e0%a6%aa%e0%a6%bf" rel="tag">ডিপি</a>, <a href="index4e7f.html?tag=%e0%a6%a8%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%aa%e0%a6%b8%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%95" rel="tag">ন্যাপস্যাক</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="indexb703.html?p=1022" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-১(শুরুর কথা)</a></div><div class="nav-next"><a href="index2f10.html?p=1158" rel="next">ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-৩ (কয়েন চেঞ্জ + রক ক্লাইম্বিং)&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			33 thoughts on &ldquo;<span>ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি-২</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-495" class="comment even thread-even depth-1">
+			<article id="div-comment-495" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/9012d4176873baee43efe77f97c6241a?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/9012d4176873baee43efe77f97c6241a?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">সিয়াম</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-495">
+							<time datetime="২০১২-০৫-২৪T০০:৫৭:৪৭+০০:০০">
+								মে ২৪, ২০১২ at ১২:৫৭ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>আবারো DP নিয়ে আসাধারণ একটি পোস্ট।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index12b9.html?p=1072&amp;replytocom=495#respond' onclick='return addComment.moveForm( "div-comment-495", "495", "respond", "1072" )' aria-label='Reply to সিয়াম'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-522" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-522" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/ff1b34d4d3e1650a0e6a4a5a9cad9727?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/ff1b34d4d3e1650a0e6a4a5a9cad9727?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">mh</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-522">
+							<time datetime="২০১২-০৫-৩০T০০:০২:২২+০০:০০">
+								মে ৩০, ২০১২ at ১২:০২ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>দারুন হইছে&#8230;&#8230;.:)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index0f7b.html?p=1072&amp;replytocom=522#respond' onclick='return addComment.moveForm( "div-comment-522", "522", "respond", "1072" )' aria-label='Reply to mh'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-624" class="comment even thread-even depth-1">
+			<article id="div-comment-624" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/de85f4d08a7f2adfbe095e7480fad268?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/de85f4d08a7f2adfbe095e7480fad268?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">এন্ড্রোয়েড</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-624">
+							<time datetime="২০১২-০৬-২৭T০২:৪৬:৩৭+০০:০০">
+								জুনe ২৭, ২০১২ at ২:৪৬ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ডিপি &#8230; সুন্দর ।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index7f22.html?p=1072&amp;replytocom=624#respond' onclick='return addComment.moveForm( "div-comment-624", "624", "respond", "1072" )' aria-label='Reply to এন্ড্রোয়েড'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-716" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-716" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/b0196eac06306b91c037b55b5c220a6f?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/b0196eac06306b91c037b55b5c220a6f?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">মুকিত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-716">
+							<time datetime="২০১২-০৮-০৩T২৩:৩৪:৪৪+০০:০০">
+								আগস্ট ৩, ২০১২ at ১১:৩৪ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>কোডটি করেছি&#8230; Accepted ও হয়েছে&#8230;কিন্তু রান টাইম তো অনেক বেশি !!! 🙁<br />
+1.088 sec !!!<br />
+কমানো যায় না ??? contest time এ Time Limit পাবো নাতো ???</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index166c.html?p=1072&amp;replytocom=716#respond' onclick='return addComment.moveForm( "div-comment-716", "716", "respond", "1072" )' aria-label='Reply to মুকিত'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-737" class="comment byuser comment-author-Shafaet_amarsite bypostauthor even depth-2">
+			<article id="div-comment-737" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-737">
+							<time datetime="২০১২-০৮-১৩T১৩:৩৪:০৭+০০:০০">
+								আগস্ট ১৩, ২০১২ at ১:৩৪ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>হয়তো কমানো যায়। ডিপি অ্যারে বার বার initialise না করে একটা বুলিয়ান অ্যারে দিয়ে কাজটা করলে রানটাইম কমবে। যেমন:<br />
+if(dp[n][r]!=-1) return dp[n][r]; এটার যায়গায় লেখা যায়:<br />
+if(vis[n][r]==1) return dp[n][r];<br />
+vis[n][r]=1;<br />
+এখানে vis একটা বুলিয়ান অ্যারে,তাই memset করতে অনেক কম সময় লাগবে।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index4533.html?p=1072&amp;replytocom=737#respond' onclick='return addComment.moveForm( "div-comment-737", "737", "respond", "1072" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-957" class="comment odd alt thread-even depth-1 parent">
+			<article id="div-comment-957" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/f6884b9260b3d06ecc5e2b64400fab38?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/f6884b9260b3d06ecc5e2b64400fab38?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Rahat</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-957">
+							<time datetime="২০১২-১০-১৯T১১:০৬:০২+০০:০০">
+								অক্টোবর ১৯, ২০১২ at ১১:০৬ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>0-1 knapsack এ ,finally যেসব জিনিস নেয়া হয়েছে, ওই গুলো print দেবার জন্য কিভাবে store করব?????</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index0c3c.html?p=1072&amp;replytocom=957#respond' onclick='return addComment.moveForm( "div-comment-957", "957", "respond", "1072" )' aria-label='Reply to Rahat'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-968" class="comment byuser comment-author-Shafaet_amarsite bypostauthor even depth-2">
+			<article id="div-comment-968" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-968">
+							<time datetime="২০১২-১০-১৯T২৩:২৯:১৬+০০:০০">
+								অক্টোবর ১৯, ২০১২ at ১১:২৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>এই লেখাটায় সেটা নিয়ে লিখেছি: <a href="index2b78.html?p=1211" rel="nofollow">http://www.shafaetsplanet.com/planetcoding/?p=1211</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexae3a.html?p=1072&amp;replytocom=968#respond' onclick='return addComment.moveForm( "div-comment-968", "968", "respond", "1072" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-1070" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1070" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/ef2f7d23dd1ea3ebbaaf82da0f4c2ad9?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/ef2f7d23dd1ea3ebbaaf82da0f4c2ad9?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">rajib</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-1070">
+							<time datetime="২০১২-১১-০৫T১৩:১০:২৫+০০:০০">
+								নভেম্বর ৫, ২০১২ at ১:১০ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84dadb9971224497443" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int main()
+{
+    long int num,k=1,i,paste;
+    while(scanf("%ld",&amp;num)==1)
+    {
+        if(num&lt;0) break;
+        for(i=0;; i++)
+        {
+            if(pow(2,i)&gt;=num)
+            {
+                paste=i;
+                break;
+            }
+        }
+        printf("Case %ld: %ld\n",k,paste);
+        k++;
+    }
+    return 0;
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-2">2</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-4">4</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-6">6</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-8">8</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-10">10</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-12">12</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-14">14</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-16">16</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-18">18</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84dadb9971224497443-20">20</div><div class="crayon-num" data-line="crayon-57c84dadb9971224497443-21">21</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84dadb9971224497443-1"><span class="crayon-p">#include&lt;stdio.h&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-2"><span class="crayon-p">#include&lt;math.h&gt;</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-3"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">long</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">num</span><span class="crayon-sy">,</span><span class="crayon-v">k</span><span class="crayon-o">=</span><span class="crayon-cn">1</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-sy">,</span><span class="crayon-v">paste</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">while</span><span class="crayon-sy">(</span><span class="crayon-e">scanf</span><span class="crayon-sy">(</span><span class="crayon-s">"%ld"</span><span class="crayon-sy">,</span><span class="crayon-v">&amp;num</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-v">num</span><span class="crayon-o">&lt;</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-st">break</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-o">=</span><span class="crayon-cn">0</span><span class="crayon-sy">;</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-o">++</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-e">pow</span><span class="crayon-sy">(</span><span class="crayon-cn">2</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-sy">)</span><span class="crayon-o">&gt;=</span><span class="crayon-v">num</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">paste</span><span class="crayon-o">=</span><span class="crayon-v">i</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">break</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-e">printf</span><span class="crayon-sy">(</span><span class="crayon-s">"Case %ld: %ld\n"</span><span class="crayon-sy">,</span><span class="crayon-v">k</span><span class="crayon-sy">,</span><span class="crayon-v">paste</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">k</span><span class="crayon-o">++</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84dadb9971224497443-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c84dadb9971224497443-21"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0046 seconds] -->
+<p></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index16bc.html?p=1072&amp;replytocom=1070#respond' onclick='return addComment.moveForm( "div-comment-1070", "1070", "respond", "1072" )' aria-label='Reply to rajib'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-3154" class="comment even thread-even depth-1">
+			<article id="div-comment-3154" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/7ffd5126d449556eff9c643afffdf761?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/7ffd5126d449556eff9c643afffdf761?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">shawon</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-3154">
+							<time datetime="২০১৩-০২-০৫T১৪:৪৮:২৪+০০:০০">
+								ফেব্রুয়ারি ৫, ২০১৩ at ২:৪৮ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>[<br />
+এডিট: নতুন ছবি আপলোড করে দিলাম, কমেন্ট বক্সের নিচে লাল রঙে লিখে রেখেছি &#8220;(ইংরেজী ফন্টে বাংলা মন্তব্য মুছে ফেলা হতে পারে)&#8221; তাই কমেন্টটা ছাপালামনা, আগে এ ধরণের মন্তব্য ছাপালেও এখন থেকে না ছাপানোর সিদ্ধান্ত নিয়েছি।ধন্যবাদ।<br />
+&#8211;শাফায়েত<br />
+]</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexea53.html?p=1072&amp;replytocom=3154#respond' onclick='return addComment.moveForm( "div-comment-3154", "3154", "respond", "1072" )' aria-label='Reply to shawon'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-3829" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-3829" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/b4e4382ae3f1532c772cad0bd201a498?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/b4e4382ae3f1532c772cad0bd201a498?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">IT</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-3829">
+							<time datetime="২০১৩-০৫-২২T১৭:০৩:৪৭+০০:০০">
+								মে ২২, ২০১৩ at ৫:০৩ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>এই দুইটা লাইন বুজি নাইঃ<br />
+freopen(&#8220;in&#8221;,&#8221;r&#8221;,stdin);<br />
+memset(dp,-1,sizeof(dp));</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index18cf.html?p=1072&amp;replytocom=3829#respond' onclick='return addComment.moveForm( "div-comment-3829", "3829", "respond", "1072" )' aria-label='Reply to IT'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-3833" class="comment byuser comment-author-Shafaet_amarsite bypostauthor even depth-2 parent">
+			<article id="div-comment-3833" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-3833">
+							<time datetime="২০১৩-০৫-২২T১৮:৫৪:৪৭+০০:০০">
+								মে ২২, ২০১৩ at ৬:৫৪ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>freopen ফাংশন দিয়ে ফাইল থেকে ইনপুট নেয়া যায়, scanf ফাংশন কিবোর্ড থেকে ইনপুট না নিয়ে &#8220;in&#8221; নামের ফাইল থেকে নিবে, বারবার ইনপুট কপি-পেস্ট করার থেকে এটা অনেক সুবিধা।<br />
+memset দিয়ে ডিপি অ্যারের প্রতিটি পজিশনে -1 বসিয়েছি।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index91b0.html?p=1072&amp;replytocom=3833#respond' onclick='return addComment.moveForm( "div-comment-3833", "3833", "respond", "1072" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-3850" class="comment odd alt depth-3">
+			<article id="div-comment-3850" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/b4e4382ae3f1532c772cad0bd201a498?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/b4e4382ae3f1532c772cad0bd201a498?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">IT</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-3850">
+							<time datetime="২০১৩-০৫-২৩T১১:০৯:৫২+০০:০০">
+								মে ২৩, ২০১৩ at ১১:০৯ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>&#8216;memset&#8217; ব্যাবহার করলে কোডব্লক্সে এই লাইটা আসেঃ<br />
+D:\Books\Code\Online Judge\New-1 knapsack.c|31|warning: incompatible implicit declaration of built-in function &#8216;memset&#8217;|<br />
+আর আমার আঊটপুট 600 না দেখিয়ে 0 দেখাচ্ছে।<br />
+কোড লিঙ্কঃ <a href="http://ideone.com/oPDnE3" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://ideone.com/oPDnE3', 'http://ideone.com/oPDnE3');" rel="nofollow">http://ideone.com/oPDnE3</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index0eb2.html?p=1072&amp;replytocom=3850#respond' onclick='return addComment.moveForm( "div-comment-3850", "3850", "respond", "1072" )' aria-label='Reply to IT'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-3855" class="comment even depth-3 parent">
+			<article id="div-comment-3855" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/b4e4382ae3f1532c772cad0bd201a498?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/b4e4382ae3f1532c772cad0bd201a498?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">IT</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-3855">
+							<time datetime="২০১৩-০৫-২৩T২০:১৫:৪৯+০০:০০">
+								মে ২৩, ২০১৩ at ৮:১৫ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া uva-10130 supersale এর জন্য একটা কোড লিখেছি, I/O তে সমস্যা আছে, শুধু ইনপুট নিচ্ছে আউটপুট দিচ্ছে না।<br />
+<a href="http://ideone.com/jPMFmf" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://ideone.com/jPMFmf', 'http://ideone.com/jPMFmf');" rel="nofollow">http://ideone.com/jPMFmf</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexc1fa.html?p=1072&amp;replytocom=3855#respond' onclick='return addComment.moveForm( "div-comment-3855", "3855", "respond", "1072" )' aria-label='Reply to IT'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-3885" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-4">
+			<article id="div-comment-3885" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-3885">
+							<time datetime="২০১৩-০৫-২৫T১০:৩২:২৬+০০:০০">
+								মে ২৫, ২০১৩ at ১০:৩২ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>কোডের অনেক জায়গাতেই সমস্যা আছে, তুমি কি কোড ঠিকমতো চেক করেছো? আরেকজনকে কোড দেয়ার আগে নিজে ভালোমত কয়েকবার ডিবাগ করবে।  for(i=0; i<n; n++) এটা খুবই বাজে ভূল, i++ হবে, এছাড়া তুমি বাইরেও i দিয়ে ভিতরেও i দিয়ে লুপ চালিয়েছো। তোমার ডিপি ফাংশন ১-বেসড ইনডেক্স কিন্তু তুমি কস্ট-ওয়েট ইনপুট নিয়েছো ০-বেসড ইনডেক্সে। প্রতিবার ans+=call(1,0) করার আগে ans=0 করে দিচ্ছো! ভুলগুলো ঠিক করো,আউটপুট আসবে।
+</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index4aff.html?p=1072&amp;replytocom=3885#respond' onclick='return addComment.moveForm( "div-comment-3885", "3885", "respond", "1072" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-4342" class="comment even thread-even depth-1">
+			<article id="div-comment-4342" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/514899cbfcb2cbb91157c10917990981?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/514899cbfcb2cbb91157c10917990981?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">মুহিম মুক্তাদীর</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4342">
+							<time datetime="২০১৩-০৭-১৮T০৫:২০:১২+০০:০০">
+								জুলাই ১৮, ২০১৩ at ৫:২০ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>লাইট ওযে এর ১০০৬ নাম্বার প্রবলেমটা accepted  হচ্ছেনা&#8230; ওভারফ্লো হচ্ছে এই ইনপুট এর জন্যঃ ১ ৯৯৯৯ ৯৯৯৯ ৯৯৯৯ ৯৯৯৯ ৯৯৯৯ ৯৯৯৯৯ ৯৯৯৯</p>
+<p>আমার কোডঃ<br />
+<a href="http://pastebin.com/Yn2CGiCd" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://pastebin.com/Yn2CGiCd', 'http://pastebin.com/Yn2CGiCd');" rel="nofollow">http://pastebin.com/Yn2CGiCd</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index75a4.html?p=1072&amp;replytocom=4342#respond' onclick='return addComment.moveForm( "div-comment-4342", "4342", "respond", "1072" )' aria-label='Reply to মুহিম মুক্তাদীর'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-4352" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-4352" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/514899cbfcb2cbb91157c10917990981?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/514899cbfcb2cbb91157c10917990981?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">মুহিম মুক্তাদীর</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4352">
+							<time datetime="২০১৩-০৭-২০T০৩:৫০:১৫+০০:০০">
+								জুলাই ২০, ২০১৩ at ৩:৫০ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>UVA 10130 supersale problem acceptd হয়েছে&#8230; runtime 0.792s 🙂</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index9ab6.html?p=1072&amp;replytocom=4352#respond' onclick='return addComment.moveForm( "div-comment-4352", "4352", "respond", "1072" )' aria-label='Reply to মুহিম মুক্তাদীর'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-4696" class="comment even thread-even depth-1">
+			<article id="div-comment-4696" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/83f8d8446a449270823427f1a742a619?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/83f8d8446a449270823427f1a742a619?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Rajkin Hossain</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4696">
+							<time datetime="২০১৩-০৯-০২T০০:৪৫:০২+০০:০০">
+								সেপ্টেম্বর ২, ২০১৩ at ১২:৪৫ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>aro fast accepted hobea jodi apni memozition pordhoti na korea bottom-up solution vabea solve koren&#8230; 🙂</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index9189.html?p=1072&amp;replytocom=4696#respond' onclick='return addComment.moveForm( "div-comment-4696", "4696", "respond", "1072" )' aria-label='Reply to Rajkin Hossain'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-4697" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-4697" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/83f8d8446a449270823427f1a742a619?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/83f8d8446a449270823427f1a742a619?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Rajkin Hossain</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4697">
+							<time datetime="২০১৩-০৯-০২T০১:০৬:০০+০০:০০">
+								সেপ্টেম্বর ২, ২০১৩ at ১:০৬ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ohh no i am sorry for knapsack based problem bottom-up is not faster the memozition&#8230;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index751c.html?p=1072&amp;replytocom=4697#respond' onclick='return addComment.moveForm( "div-comment-4697", "4697", "respond", "1072" )' aria-label='Reply to Rajkin Hossain'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-4961" class="comment even thread-even depth-1">
+			<article id="div-comment-4961" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/a92a1fce799611c4bca5b2091e9edce4?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/a92a1fce799611c4bca5b2091e9edce4?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">অর্ঘ্য</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4961">
+							<time datetime="২০১৩-১২-২০T০০:৫৮:১৮+০০:০০">
+								ডিসেম্বর ২০, ২০১৩ at ১২:৫৮ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>অনেকবারের চেষ্টায় UVA 10130 এর কোড accepted হলো। রানটাইম .035 ।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index9192.html?p=1072&amp;replytocom=4961#respond' onclick='return addComment.moveForm( "div-comment-4961", "4961", "respond", "1072" )' aria-label='Reply to অর্ঘ্য'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-4988" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-4988" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/6c67f2f2b862e9ef166762ba44622dc3?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/6c67f2f2b862e9ef166762ba44622dc3?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Nazmul</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4988">
+							<time datetime="২০১৩-১২-২৭T২০:৫৫:৪৯+০০:০০">
+								ডিসেম্বর ২৭, ২০১৩ at ৮:৫৫ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Getting Time Limit.<br />
+Problem: Uva 10130.<br />
+My code:<a href="http://ideone.com/iTuikC" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://ideone.com/iTuikC', 'http://ideone.com/iTuikC');" rel="nofollow">http://ideone.com/iTuikC</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index362e.html?p=1072&amp;replytocom=4988#respond' onclick='return addComment.moveForm( "div-comment-4988", "4988", "respond", "1072" )' aria-label='Reply to Nazmul'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-4989" class="comment byuser comment-author-Shafaet_amarsite bypostauthor even depth-2">
+			<article id="div-comment-4989" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-4989">
+							<time datetime="২০১৩-১২-২৭T২১:০৬:২২+০০:০০">
+								ডিসেম্বর ২৭, ২০১৩ at ৯:০৬ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>cin বাদ দিয়ে scanf নাও। তবে আসল সমস্যা হলো dp অ্যারেটা মেমসেট করতে অনেক সময় লাগছে, 1000*50 ডাইমেনশন নাও, AC হবে। ডিপি প্রবলেমে সবসময় এই ব্যাপারটা খেয়াল রাখতে হবে, যত বেশি মেমরি নেয়া হবে সেটা মেমসেট করতে তত বেশি সময় লাগবে।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index6a66.html?p=1072&amp;replytocom=4989#respond' onclick='return addComment.moveForm( "div-comment-4989", "4989", "respond", "1072" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-57992" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-57992" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/ab77f0ae3aaf71c9f3176daddb2adb96?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/ab77f0ae3aaf71c9f3176daddb2adb96?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">dhrubo</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-57992">
+							<time datetime="২০১৫-০১-২২T১৫:১২:৪২+০০:০০">
+								জানুয়ারি ২২, ২০১৫ at ৩:১২ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>vaia, when I copied your code directly to run , including your input also&#8230;&#8230;..the code was not giving any kind of output&#8230;&#8230;..what&#8217;s the error ? would you check please ??</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexcb6c.html?p=1072&amp;replytocom=57992#respond' onclick='return addComment.moveForm( "div-comment-57992", "57992", "respond", "1072" )' aria-label='Reply to dhrubo'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58005" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58005" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/62bed7d3202e6f8b5c47e4695a908c1b?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/62bed7d3202e6f8b5c47e4695a908c1b?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">AH</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58005">
+							<time datetime="২০১৫-০১-২৮T০২:৩১:২৯+০০:০০">
+								জানুয়ারি ২৮, ২০১৫ at ২:৩১ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@Dhrubo<br />
+I think there is no error. May be you need to delete line no. 23 and give input manually.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexc888.html?p=1072&amp;replytocom=58005#respond' onclick='return addComment.moveForm( "div-comment-58005", "58005", "respond", "1072" )' aria-label='Reply to AH'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58113" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-58113" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/46e52094ee9ecf46c46f2d0d141d739d?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/46e52094ee9ecf46c46f2d0d141d739d?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">shihab</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58113">
+							<time datetime="২০১৫-০৪-২৭T২৩:০৩:৪৭+০০:০০">
+								এপ্রিল ২৭, ২০১৫ at ১১:০৩ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাই uva 10819 &#8211; Trouble of 13-Dots এই সমস্যাটা কিভাবে সমা্ঢান করব</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index88b0.html?p=1072&amp;replytocom=58113#respond' onclick='return addComment.moveForm( "div-comment-58113", "58113", "respond", "1072" )' aria-label='Reply to shihab'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58127" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58127" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/51ad6a675a6c9c452d78870a8c3457ca?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/51ad6a675a6c9c452d78870a8c3457ca?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Nayan Ghosh</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58127">
+							<time datetime="২০১৫-০৫-০৩T১৩:৩২:৩০+০০:০০">
+								মে ৩, ২০১৫ at ১:৩২ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hi I have understand everything but can&#8217;t understand the simulation tree for the following input. Please help.</p>
+<p>4 10<br />
+1 120<br />
+4 280<br />
+3 150<br />
+4 200</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexb0f3.html?p=1072&amp;replytocom=58127#respond' onclick='return addComment.moveForm( "div-comment-58127", "58127", "respond", "1072" )' aria-label='Reply to Nayan Ghosh'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58144" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-58144" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/be79369bbcba48e0a64ad4024fb1340a?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/be79369bbcba48e0a64ad4024fb1340a?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">ফাহিম</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58144">
+							<time datetime="২০১৫-০৫-১৯T১৪:০১:৪৫+০০:০০">
+								মে ১৯, ২০১৫ at ২:০১ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া, আমার কোড আমার pc তে ঠিকমতো কাজ করছে। কিন্তু UVA তে wrong answer দেখাচ্ছে। critical input গুলো কী বলা যাবে? আর আমার কোডটা একটু চেক দেখবেন প্লিজ। <a href="http://ideone.com/HaQsCu" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://ideone.com/HaQsCu', 'http://ideone.com/HaQsCu');" rel="nofollow">http://ideone.com/HaQsCu</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexf60e.html?p=1072&amp;replytocom=58144#respond' onclick='return addComment.moveForm( "div-comment-58144", "58144", "respond", "1072" )' aria-label='Reply to ফাহিম'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58182" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58182" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/caae55a0a60dce71b4e304cd8f7c9ecd?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/caae55a0a60dce71b4e304cd8f7c9ecd?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">সৌম্ম্য সরকার আভিক</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58182">
+							<time datetime="২০১৫-০৬-৩০T১৩:৩৮:১৭+০০:০০">
+								জুনe ৩০, ২০১৫ at ১:৩৮ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া ডিপি এর শুরুটা ভালই হোলো । NCR  এর প্রব্লেম টা সলভ করলাম ।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index8465.html?p=1072&amp;replytocom=58182#respond' onclick='return addComment.moveForm( "div-comment-58182", "58182", "respond", "1072" )' aria-label='Reply to সৌম্ম্য সরকার আভিক'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58183" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-58183" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/caae55a0a60dce71b4e304cd8f7c9ecd?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/caae55a0a60dce71b4e304cd8f7c9ecd?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">সৌম্ম্য সরকার আভিক</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58183">
+							<time datetime="২০১৫-০৬-৩০T১৪:৫৫:৫৬+০০:০০">
+								জুনe ৩০, ২০১৫ at ২:৫৫ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া ফাহিম ভাইয়ের ব্লগ থেকে জোবায়ের ভাই এর ব্লগ এর লিঙ্ক টা পাই । লিঙ্ক ঃ<br />
+<a href="http://zobayer.blogspot.com/2009/12/cse-102-attacking-recursion.html" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://zobayer.blogspot.com/2009/12/cse-102-attacking-recursion.html', 'http://zobayer.blogspot.com/2009/12/cse-102-attacking-recursion.html');" rel="nofollow">http://zobayer.blogspot.com/2009/12/cse-102-attacking-recursion.html</a></p>
+<p>ভাইয়া এখান থেকে একটা নতুন তথ্য পেয়েছি । সেটা হোলো প্রায় যেকোনো লুপিং এর কোড নাকি রিকার্শন এর মাধ্যমে করা যায় । ওখানে আপনার একটা কমেন্ট ও দেখেছিলাম । মানে আপনিও ব্লগটি পরেছেন ।</p>
+<p>এখন সমস্যা টা হোলো Incremental for লুপ টা রিকার্শনের মাধ্যমে ভালোভাবেই বুঝতে পেরেছি । কিন্তু Decremental for লুপ টা তে একটু সমস্যা হচ্ছে । যদিও চিত্র টা দেখে কিছুটা বুঝেছি তারপরো খটকা রয়ে গেছে ।<br />
+=&gt; একই রকম রিকার্শন এর কোড কিন্তু কাজ করবে দুটো দু রকম । এ জায়গাটায় একটু প্রব্লেম আছে । এটা কি একটু ক্লিয়ার করে দেয়া যায় ??<br />
+ধন্যবাদ ।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index05e1.html?p=1072&amp;replytocom=58183#respond' onclick='return addComment.moveForm( "div-comment-58183", "58183", "respond", "1072" )' aria-label='Reply to সৌম্ম্য সরকার আভিক'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58308" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58308" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/2548968d3775782dd9f6d6d325e3a715?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/2548968d3775782dd9f6d6d325e3a715?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">moudud</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58308">
+							<time datetime="২০১৫-০৯-২৯T০০:২৭:৫৯+০০:০০">
+								সেপ্টেম্বর ২৯, ২০১৫ at ১২:২৭ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>vaia, The hyperlink of &#8216;Greedy&#8217; approach is not working.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index4524.html?p=1072&amp;replytocom=58308#respond' onclick='return addComment.moveForm( "div-comment-58308", "58308", "respond", "1072" )' aria-label='Reply to moudud'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58332" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-58332" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/861dac209e455e25cf8fe7d3bf6c570d?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/861dac209e455e25cf8fe7d3bf6c570d?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Hassan Ali Emon</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58332">
+							<time datetime="২০১৫-১১-১৪T১০:১৮:০৮+০০:০০">
+								নভেম্বর ১৪, ২০১৫ at ১০:১৮ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>vi input e &#8220;২. কোরম্যানের-বই ভর: ৭ইউনিট,৪০০টাকা&#8221; eta koi???</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index92b7.html?p=1072&amp;replytocom=58332#respond' onclick='return addComment.moveForm( "div-comment-58332", "58332", "respond", "1072" )' aria-label='Reply to Hassan Ali Emon'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58375" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58375" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/5e918891b1fe4aa33aa89a9f27e52c50?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/5e918891b1fe4aa33aa89a9f27e52c50?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Md. Shohag Hossen</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58375">
+							<time datetime="২০১৬-০১-০৮T১০:০৪:১৪+০০:০০">
+								জানুয়ারি ৮, ২০১৬ at ১০:০৪ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>// vaiya amar nCr code ki vul hobe ? Please dekhben.<br />
+#include<br />
+using namespace std;</p>
+<p>long int c[1002][1002];<br />
+long int dp(int n,int r)<br />
+{<br />
+    if(n&lt;r) return c[n][r]=0;<br />
+    if(r==0||(n==1 &amp;&amp; r==1)) return c[n][r]=1;<br />
+    if(c[n][r]!=-1)  return c[n][r];<br />
+    else return c[n][r]=dp(n-1,r)+dp(n-1,r-1);<br />
+}<br />
+int main()<br />
+{<br />
+    int n,r;<br />
+    memset(c,-1,sizeof(c));<br />
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;r);<br />
+    dp(n,r);<br />
+    printf(&quot;%d&quot;,c[n][r]);<br />
+    return 0;<br />
+}</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index5d7d.html?p=1072&amp;replytocom=58375#respond' onclick='return addComment.moveForm( "div-comment-58375", "58375", "respond", "1072" )' aria-label='Reply to Md. Shohag Hossen'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58392" class="pingback odd alt thread-even depth-1">
+			<div class="comment-body">
+				Pingback: <a href='indexb703.html?p=1022' rel='external nofollow' class='url'>শাফায়েতের ব্লগ &raquo; Blog Archive</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-58420" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-58420" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/59ba4fcf71a76deded143b099d3d6dd1?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/59ba4fcf71a76deded143b099d3d6dd1?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">shishir</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index4b2e.html?p=1072#comment-58420">
+							<time datetime="২০১৬-০৪-১৩T০১:২৫:৩২+০০:০০">
+								এপ্রিল ১৩, ২০১৬ at ১:২৫ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>4 10 //৫ টা জিনিস, ১০ ক্যাপাসিটি<br />
+ভাই এখানে ৫ না হয়ে ৪ হবে ।<br />
+UVA 10130 supersale problem acceptd ।। 😀</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexb1b3.html?p=1072&amp;replytocom=58420#respond' onclick='return addComment.moveForm( "div-comment-58420", "58420", "respond", "1072" )' aria-label='Reply to shishir'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply to <a href="#comment-3855">IT</a> <small><a rel="nofollow" id="cancel-comment-reply-link" href="index4b2e.html?p=1072#respond">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_3409787"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_3409787', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_30");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_30" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><input id="cptch_input_30" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<span class="cptch_span">&nbsp;&minus;&nbsp;</span>
+					<span class="cptch_span">1</span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span"><img class="cptch_img " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAMAAADDpiTIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFlZWV////aWlpAAAAu7u72traMTEx7+/vMCDW9AAACJ1JREFUeNrs3Ytu47YWQFGKIsX//+NrB2lvp5NMo0di8Zy1URQFChSdcImk7Igqq1JX/AgAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAAA/AgAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAADjbVksprfU+xlj+6vHPvffWSqkVgKgj/xj3/v8x/0O9lboBEKj6GPplb73lURAYwGPGf4z9WI41kiAoYa/8vpyulw2AKUe/jeWiRnQDJeDoL9fWKwAZr/0k00AkANsV6/5nW8INgLsP/7dc/OEJRAFQ+/LdjQJA4uF/I1ABSDz8z+KtA8Xw554EZgewteWHKwDc6cZv+fn6BsBdZv+xvKKxAXCLy78vr6oCcIP/87EsBKQF8MLLP5aA4vLPfTs4J4BteXlRdoKzzgAEJN8DjNcLaAC88iOA1wOI8ZngtH+IGywCywbAC+uvB9ABsAgA4E4AgLx3AgWA3IvA/FPA1ISLKSA3gBvcCQwAki8CFYDci0AHIPedwOzbwNkBVGtAbgA7F4HnaVC1bu/VWks7+0hhA2COO4FePnvIezt1nMgA4P6LQC//NVFvx3/JbAPg3otA++LxDkefMSsA3PhOYNc5T8ceNGkA3HYRKDu36IeeNOwA3HMROHSyz4GtAAC3vBPo5erp5NMAuN8icOJot5rrNiDI0+7lkqv/yEdLs38WGOW4g3HhYU4DgIkXgQuOc6sAzLsIXHJ8R0v0SVCcE2/6dc/sVgDmXAQuO8StAzDjH+W6tXjXjcAAIFybGSB5w11A7joAudtzIzgAiFfxXUDuqm8DAfD7AAAAkBbASPIxAADnZwAAkgPwXEDu20BPBiUH4NnAiLUsWwAAPq5n2QIA8HEjyacAAHzclmYFAODsHnADIPUWYPrzogE4twJUAFLfBE5/TiQAH00AI80WEIBzW8CxAhCvuiSaAABIfQsAwKkdYIj3xwJwfPxDvDgQgMPjH+PVoQD8cgO454GQGK+PBuCf+/89jwTGeHMsAAcv/xB3AAAcHv4wb48H4P3HsPeg6LoCEObaL/tPCK4rADEGv7Z+4IjwOOOfF8BW6+G3xUT6oWUB8PdLgmoprfV+5kVBdQXg7v2+qo+//3b2PXGhxj8PAO8JBOCSF4UGG38A8m7/ANh/+dcVgMQAWsSfFACZL38AkpwIDYDhB8DwA3Bs7Y/9aTkAf774W11XALICaAm+KgPg82t/W1cAcgLoJcXgA3DVa+cBCAZgPP7qLQUDAP68FrToiwEAX9gORkYAwJcMxN0VApD8zgCA5B8LApD8lwIASE4AgOQEADjyJdEGQGoAkX5FBIDkkwAAyXcCACR/SBiA5M+JAZD8USEAkgsAILkAAJLvA6L+4vP2cW9nBJ0+JCjSvUDiY+K2Wg6fE+bVsZEYnJsNOgDzV3cfFRtmGwDAXzPBcQMVgCDzQEt4LwjAL9NASzcFAPCvWaAn2wcC8NtPJNcUAMDvk8DINAUAcImACkAoAfsfGQEg9z5gABCrlmYNAODjDwRGlg+DALhmERgABCvLt8IAXLQLKAAE2wUk2QQA8Fkjx4eBAFy1BgCQ/D5gAyBWe78RqADk3gUWAHLvAgFIDqABAAAAkeoAmAEAACD4R4EAfNpiBgDADJC3agYAAIDEFQBy13wXkLsOQOr2fhkIQLQtwN4nA/w+QO4tgN8ISr4C+J3A3DeBfis4WLuPCPBcQO4JwJNBP7tCf/d/P88ZIXMCaN/8xp4Dp8V5OPSH79G+k8CBg8KmPSZqWgDf+PK+A4dEOSDiNZ/SfMvb+46MvyNiXgPgQaDcYvznfWvA7ACeR7RdevXV5QiAeU+KnB/Ag8AoV12AB0+LnvidAREAvF2ClxioR98dsgHwYgBvdwUn14J6+JURE78xIBCAt/3A8YmgnnhrjNPCbwLgbTFodT+CeupFg/MeFBsRwPtM8PWLcitnXx5XALgZgHcFrf7HZPB8dWBfTrcBcEcA77eIvbdS6oPCv94f2voFQz//e+OiA/hVw8PD9a8PHhsAkwDw/mgAvmECWAFIDaACkBrA5O+OBiD1DhCA5DtAAM7WVgAyAxgrAJkBTL8BACD1HSAAxh+AzDcAABh/ALKPPwCZ138AjD8AWe//ATjx+W+g8Qcg7/YPgGPf/9cVgMQA2roCkBdAtMsfgH2b/4hn6s35ZyrjBcMfavM/OYBzz/K69wsA4PlM53D1ZwbwnAba+Jm1P+zwz39W8PcbaHWNXICNbW3ftx/okS/+KADWK854yDn6a6Tj4uulCMaRg2YAuMFM0K8Y/JJj8OMBeFdQDh/+0VupeQY/KIB3Bs/jf/qXF4XxHPq65iv8K2O2t/OA2hPDs38cHjR6749/8TxAaFvT5p1ByQMAAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAAEgAAQAAJAAAgAASAABIAAEAACQAAIAAEgAASAABAAAkAACAABIAB0Yf8TYACm6X9vInR5PgAAAABJRU5ErkJggg==" alt="image"/></span>
+					<input type="hidden" name="cptch_result" value="GZU=" />
+					<input type="hidden" name="cptch_time" value="1472744877" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1072' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='3855' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="c65d296951" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="97"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_9590702"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_9590702', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=1072&replytocom=3855 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:40:43 GMT -->
+</html>

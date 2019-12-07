@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?paged=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 15:24:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>শাফায়েতের ব্লগ || বাংলায় প্রোগ্রামিং রেফারেন্স ও অ্যালগোরিদম টিউটোরিয়াল  - Part 2</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>শাফায়েতের ব্লগ &#8211; Page 2 &#8211; প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,296] -->
+<link rel='prev' href='index.html' />
+<link rel='next' href='index8a68.html?paged=3' />
+
+<link rel="canonical" href="page/2.html" />
+<meta property="og:title" content="শাফায়েতের ব্লগ" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/page/2" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা শেখা খুবই গুরুত্বপূর্ণ। এই লেখাটা পড়ার আগে তোমাকে গ্রাফ থিওরির বেসিক অ্যালগোরিদমগুলো, বিশেষ করে শর্টেস্ট পাথ বের করার অ্যালগোরিদমগুলো ভালো করে শিখে নিবে। প্রথমেই আমরা দেখি একটি খুবই সাধারণ ম্যাক্স ফ্লো প্রবলেম: চিত্র: ১ তোমাকে চিত্র-১ এর মত একটা গ্রাফ দেয়া আছে। মনে কর গ্রাফের প্রতিটা এজ একটা করে পানির পাইপ। প্রতিটা পাইপ দিয়ে প্রতি সেকেন্ডে কত লিটার পানি প্রবাহিত হতে পারবে সেটার একটা সীমা আছে যেটাকে বলা হয় পাইপের ক্যাপাসিটি। আর কোনো পাইপ দিয়ে সেকেন্ডে যতটুকু পানি যাচ্ছে সেটা হলো পাইপটার ফ্লো। প্রতিটা এজের সাথে &quot;ফ্লো/ক্যাপাসিটি&quot; উল্লেখ করে দেয়া হয়েছে। যেমন A-&gt;B এজ দিয়ে সেকেন্ডে সর্বোচ্চ ২লিটার পানি যেতে পারে এবং এই মুহূর্তে সেকেন্ডে পানি যাচ্ছে ০ লিটার। শুধুমাত্র A নোড দিয়ে পানি প্রবেশ করানো যায় এবং শুধুমাত্র F নোড দিয়ে পানি বের হয়ে যায়। A কে বলা হয় সোর্স এবং F হলো সিংক। তোমাকে বলতে হবে A থেকে F এ প্রতি" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা শেখা খুবই গুরুত্বপূর্ণ। এই লেখাটা পড়ার আগে তোমাকে গ্রাফ থিওরির বেসিক অ্যালগোরিদমগুলো, বিশেষ করে শর্টেস্ট পাথ বের করার অ্যালগোরিদমগুলো ভালো করে শিখে নিবে। প্রথমেই আমরা দেখি একটি খুবই সাধারণ ম্যাক্স ফ্লো প্রবলেম: চিত্র: ১ তোমাকে চিত্র-১ এর মত একটা গ্রাফ দেয়া আছে। মনে কর গ্রাফের প্রতিটা এজ একটা করে পানির পাইপ। প্রতিটা পাইপ দিয়ে প্রতি সেকেন্ডে কত লিটার পানি প্রবাহিত হতে পারবে সেটার একটা সীমা আছে যেটাকে বলা হয় পাইপের ক্যাপাসিটি। আর কোনো পাইপ দিয়ে সেকেন্ডে যতটুকু পানি যাচ্ছে সেটা হলো পাইপটার ফ্লো। প্রতিটা এজের সাথে &quot;ফ্লো/ক্যাপাসিটি&quot; উল্লেখ করে দেয়া হয়েছে। যেমন A-&gt;B এজ দিয়ে সেকেন্ডে সর্বোচ্চ ২লিটার পানি যেতে পারে এবং এই মুহূর্তে সেকেন্ডে পানি যাচ্ছে ০ লিটার। শুধুমাত্র A নোড দিয়ে পানি প্রবেশ করানো যায় এবং শুধুমাত্র F নোড দিয়ে পানি বের হয়ে যায়। A কে বলা হয় সোর্স এবং F হলো সিংক। তোমাকে বলতে হবে A থেকে F এ প্রতি" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="home blog paged paged-2 fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                            <section class="slider-wrapper">
+                          <section id="main-slider" class="slider">
+       <script type="text/javascript">
+            jQuery(function($){
+				$('#main-slider .bx-slider').bxSlider({
+					pager: true,
+					controls: false,
+					mode: 'fade',
+					auto : 'true',
+					pause: '5000',
+					speed: '5000'
+				});
+			});
+        </script>
+                        <div class="bx-slider">
+	                <div class="slides">
+	                <div class="staple-overlay"></div>
+	               	<img src="wp-content/themes/accesspress-staple/images/banner.jpg">
+	               	</div>
+               	</div>
+               			</section>
+                </section>
+                  
+    <section class="our-services wow fadeInUp animated" data-wow-delay="0.8s">
+          <div class="ak-container">  
+        <h2 class="title home-title">নির্বাচিত লেখা</h2>
+        <div class="services-desc home-description"></div>
+        <div class="service-block-wrapper clearfix">
+                        <div class="service-1 service-block">
+                    <figure class="service-icons">
+                        <a href="indexac3e.html?p=2822">
+                                                     <i class="fa fa-desktop"> </i>
+                                                     </a>
+                    </figure>
+                    <div class="service-title">
+                        ফ্লয়েডের সাইকেল ফাইন্ডিং অ্যালগোরিদম                    </div>
+                    <div class="service-content">
+                        তোমাকে একটা লিংকড লিস্ট দেয়া আছে, বলতে হবে লিংকড লিস্টে কোনো সাইকেল আছে নাকি। এটা খুবই কমন একটা ইন্টারভিউ প্রশ্ন, আমরা ফ্লয়েডের সাইকেল ফাইন্ডিং অ্যালগোরিদম দিয়ে এই সমস্যাটা সমাধান করা শিখবো।
+
+ছবির লিংকড লিস্টে দেখা যাচ্ছে ৭ দৈর্ঘ্যের একটা সাইক...                    </div>
+            </div>
+                        <div class="service-2 service-block">
+                    <figure class="service-icons">
+                        <a href="index0a1d.html?p=2608">
+                                                     <i class="fa fa-desktop"> </i>
+                                                     </a>
+                    </figure>
+                    <div class="service-title">
+                        অ্যালগোরিদম গেম থিওরি-২ (নিম গেম)                    </div>
+                    <div class="service-content">
+                        আগের পর্বে গেম থিওরি কিছু বেসিক শিখেছি, এবারের পর্বে আমরা জানবো নিম-গেম নিয়ে। নিম-গেম খুবই গুরুত্বপূর্ণ কারণ অনেক ধরণের গেমকে নিম গেম এ রূপান্তর করে ফেলা যায়।
+
+নিম-গেম এ দুইজন খেলোয়ার আর কিছু পাথরের স্তুপ(pile) থাকে। প্রতি চালে একজন খেলোয়াড় যেকে...                    </div>
+            </div>
+                        <div class="service-3 service-block">
+                    <figure class="service-icons">
+                        <a href="index0f1e.html?p=1500">
+                                                     <i class="fa fa-desktop"> </i>
+                                                     </a>
+                    </figure>
+                    <div class="service-title">
+                        গ্রাফ থিওরিতে হাতেখড়ি-৯ (ডায়াক্সট্রা)                    </div>
+                    <div class="service-content">
+                        আমরা শুরুতেই শিখেছি কিভাবে শর্টেস্ট পাথে এক জায়গা থেকে আরেক জায়গায় যেতে হয়। সেজন্য আমরা শিখেছি ব্রেডথ ফার্স্ট সার্চ নামের একটি সার্চিং অ্যালগোরিদম। অ্যালগোরিদমটি চমৎকার কিন্তু সমস্যা হলো সে ধরে নেয় প্রতিটি রাস্তা দিয়ে যেতে সমান সময় লাগে, মানে ...                    </div>
+            </div>
+                        <div class="service-4 service-block">
+                    <figure class="service-icons">
+                        <a href="indexa7ea.html?p=1400">
+                                                     <i class="fa fa-desktop"> </i>
+                                                     </a>
+                    </figure>
+                    <div class="service-title">
+                        প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি                    </div>
+                    <div class="service-content">
+                        (আমাকে অনেকে মেইল করে জিজ্ঞাসা করে কিভাবে সে প্রোগ্রামিং কনটেস্টের সাথে যুক্ত হতে পারে? তাদের হয়তো কয়েক বাক্যে কিছুটা বুঝিয়ে বলার চেষ্টা করি কিন্তু সব কথা বা গাইডলাইন এভাবে দেয়া সম্ভব হয়না। এই লেখাটা তাদের জন্য যারা সামান্য প্রোগ্রামিং শিখেছে বা শ...                    </div>
+            </div>
+                    </div> 
+
+             
+            <div class="btn-wrapper wow bounce" data-wow-delay="0.5s"><a href="index6dd9.html?cat=145"></a></div>
+              
+        </div>
+    </section>
+    
+
+
+
+ 
+
+        <section class="latest-post" id="blog-post">
+            <div class="ak-container">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-2195" class="post-2195 post type-post status-publish format-standard hentry category-contest category-programming tag-89 tag-26 tag-124">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="indexc292.html?p=2195" rel="bookmark">গ্রাফ থিওরিতে হাতেখড়ি ১২ &#8211; ম্যাক্সিমাম ফ্লো (১)</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="indexc292.html?p=2195" rel="bookmark"><time class="entry-date published" datetime="২০১৫-০১-২৩T১০:৫৪:০৮+০০:০০">জানুয়ারি ২৩, ২০১৫</time><time class="updated" datetime="2015-12-21T19:35:10+00:00">December 21, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index7b83.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab" rel="tag">গ্রাফ</a>, <a href="index127e.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf" rel="tag">গ্রাফ থিওরি</a>, <a href="indexfe40.html?tag=%e0%a6%ae%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%95%e0%a7%8d%e0%a6%b8-%e0%a6%ab%e0%a7%8d%e0%a6%b2%e0%a7%87%e0%a6%be" rel="tag">ম্যাক্স ফ্লো</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        এই লেখায় আমরা গ্রাফে ম্যাক্সিমাম ফ্লো বের করার অ্যালগোরিদম শিখবো। ম্যাক্স ফ্লো এর ধারণাটা ব্যবহার করে বেশ কিছু ইন্টারেস্টিং প্রবলেম সলভ করা যায়, তাই এটা শেখা খুবই গুরুত্বপূর্ণ। এই লেখাটা পড়ার আগে তোমাকে গ্রাফ থিওরির বেসিক অ্যালগোরিদমগুলো, বিশেষ করে শর্টেস্ট পাথ বের করার অ্যালগোরিদমগুলো ভালো করে শিখে নিবে।
+
+প্রথমেই আমরা দেখি একটি খুবই সাধারণ ম্যাক্স ফ্লো প্রবলেম:
+
+
+চিত্র: ১
+তোমাকে চিত্র-১ এর মত একটা গ্রাফ দেয়া আছে। মনে কর গ্রাফের প্রতিটা এজ একটা করে পানির পাইপ। প্রতিটা পাইপ দিয়ে প্রতি সেকেন্ডে কত লিটার পানি প্রবাহিত হতে পারবে সেটার একটা সীমা আছে যেটাকে বলা হয় পাইপের ক্যাপাসিটি...                        </div>
+                        <a href="indexc292.html?p=2195" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-2135" class="post-2135 post type-post status-publish format-standard hentry category-117 tag-143">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="indexbb9e.html?p=2135" rel="bookmark">কোয়ান্টাম কম্পিউটার &#8211; ২ (শক্তি এবং সীমাবদ্ধতা)</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="indexbb9e.html?p=2135" rel="bookmark"><time class="entry-date published" datetime="২০১৪-১০-১৯T১৪:৩৬:৫৯+০০:০০">অক্টোবর ১৯, ২০১৪</time><time class="updated" datetime="2014-10-21T09:14:00+00:00">October 21, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index7390.html?tag=%e0%a6%95%e0%a7%87%e0%a6%be%e0%a7%9f%e0%a6%be%e0%a6%a8%e0%a7%8d%e0%a6%9f%e0%a6%be%e0%a6%ae-%e0%a6%95%e0%a6%ae%e0%a7%8d%e0%a6%aa%e0%a6%bf%e0%a6%89%e0%a6%9f%e0%a6%be%e0%a6%b0" rel="tag">কোয়ান্টাম কম্পিউটার</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        [আমার বর্তমান গবেষণার বিষয় &quot;কোয়ান্টাম কম্পিউটার&quot; নিয়ে ২য় লেখা এটা। কোয়ান্টাম কম্পিউটার কি ধরণের সমস‍্যা সমাধানে ব‍্যবহার করা যাবে এবং এর সীমাবদ্ধতা কোথায় সেগুলো নিয়ে আজকে আলোচনা করব]
+
+কোয়ান্টাম কম্পিউটার কী পারে যেটা সাধারণ কম্পিউটার পারে না? কোয়ান্টাম কম্পিউটার কি সত‍্যি ঝড়ের গতিতে সমস‍্যা সমাধান করে দিতে পারে? রিচার্ড ফাইনম‍্যান কোয়ান্টাম মেকানিক্সকে একধাপ এগিয়ে ধারণা দেন কোয়ান্টাম কম্পিউটারের। এখনো কোয়ান্টাম কম্পিউটার ল‍্যাবে তৈরি করা সম্ভব না হলেও আমরা এরই মধ‍্যে তাত্ত্বিকভাবে অনেক কিছু জেনে গিয়েছি, হয়তো সেই তত্ত্বগুলো বাস্তবে পরিণত হতে খুব বেশি দেরী নেই। কোয়ান্টাম কম্পিউটা...                        </div>
+                        <a href="indexbb9e.html?p=2135" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-2130" class="post-2130 post type-post status-publish format-standard hentry category-117 tag-143">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index8c2a.html?p=2130" rel="bookmark">কোয়ান্টাম কম্পিউটার &#8211; ১ (কোয়ান্টাম কম্পিউটার কী?)</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index8c2a.html?p=2130" rel="bookmark"><time class="entry-date published" datetime="২০১৪-১০-১৮T০৯:৪৪:১০+০০:০০">অক্টোবর ১৮, ২০১৪</time><time class="updated" datetime="2014-10-19T14:39:58+00:00">October 19, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index7390.html?tag=%e0%a6%95%e0%a7%87%e0%a6%be%e0%a7%9f%e0%a6%be%e0%a6%a8%e0%a7%8d%e0%a6%9f%e0%a6%be%e0%a6%ae-%e0%a6%95%e0%a6%ae%e0%a7%8d%e0%a6%aa%e0%a6%bf%e0%a6%89%e0%a6%9f%e0%a6%be%e0%a6%b0" rel="tag">কোয়ান্টাম কম্পিউটার</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        সহজ কথায় কোয়ান্টাম কম্পিউটার হল এমন একটা কম্পিউটার যেটা কোয়ান্টাম মেকানিক্সের বিভিন্ন ধর্মকে সরাসরি কাজে লাগিয়ে সব কাজ করে। আমার বর্তমানের গবেষণার বিষয়বস্তু কোয়ান্টাম কম্পিউটার, ন‍্যাশনাল ইউনিভার্সিটি অফ সিঙ্গাপুরের সেন্টার ফর কোয়ান্টাম টেকনোলজিতে ইন্টার্ন রিসার্চার হিসাবে কাজ করছি। কোয়ান্টাম কম্পিউটার নিয়ে পড়ালেখা করতে গিয়ে মনে হল এগুলো সম্পর্কে কিছু লেখা উচিত। কোয়ান্টাম কম্পিউটার নিয়ে অনেক লেখাই ইন্টারনেটে পাওয়া যায়, সেগুলোর কিছু সত‍্যিই ভালো হলেও বেশিভাগই ভুলে ভরা এবং অবাস্তব সব দাবী করা হয় সেগুলো তে। আমার লেখা রিভিউ করে ভুল-ত্রুটি দূর করতে সাহায‍্য করেছেন আমার সুপারভাইজর তানভীরু...                        </div>
+                        <a href="index8c2a.html?p=2130" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-2044" class="post-2044 post type-post status-publish format-standard hentry category-contest category-programming tag-89 tag-26 tag-116 tag-115">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="indexa318.html?p=2044" rel="bookmark">গ্রাফ থিওরিতে হাতেখড়ি ১১: বেলম‍্যান ফোর্ড</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="indexa318.html?p=2044" rel="bookmark"><time class="entry-date published" datetime="২০১৪-১০-১৭T১২:১৭:১৩+০০:০০">অক্টোবর ১৭, ২০১৪</time><time class="updated" datetime="2016-08-15T16:46:38+00:00">August 15, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index7b83.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab" rel="tag">গ্রাফ</a>, <a href="index127e.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf" rel="tag">গ্রাফ থিওরি</a>, <a href="index21d2.html?tag=%e0%a6%a8%e0%a7%87%e0%a6%97%e0%a7%87%e0%a6%9f%e0%a6%bf%e0%a6%ad-%e0%a6%b8%e0%a6%be%e0%a6%87%e0%a6%95%e0%a7%87%e0%a6%b2" rel="tag">নেগেটিভ সাইকেল</a>, <a href="index13b3.html?tag=%e0%a6%ac%e0%a7%87%e0%a6%b2%e0%a6%ae%e2%80%8d%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%a8-%e0%a6%ab%e0%a7%87%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%a1" rel="tag">বেলম‍্যান ফোর্ড</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        বেলম‍্যান ফোর্ড গ্রাফে শর্টেস্ট পাথ বের করার একটা অ‍্যালগোরিদম। এই অ‍্যালগোরিদম একটা নোডকে সোর্স ধরে সেখান থেকে সব নোডের সংক্ষিপ্ততম বা শর্টেস্ট পথ বের করতে পারে। আমরা একদম শুরুতে এই কাজ করার জন‍্য ব্রেডথ ফার্স্ট সার্চ শিখেছি। কিন্তু বিএফএস(BFS) যেহেতু ওয়েটেড গ্রাফে কাজ করে না তাই এরপর আমরা শিখেছি ডায়াক্সট্রা অ‍্যালগোরিদম। এখন বেলম‍্যান ফোর্ড শিখব কারন আগের কোনো অ‍্যালগোরিদমই নেগেটিভ ওয়েট এর এজ আছে এমন গ্রাফে কাজ করে না।
+
+আমরা ডায়াক্সট্রা শেখার সময় রিল‍্যাক্সেশন নামের একটা ব‍্যাপার শিখেছিলাম। তোমার যদি মনে না থাকে বা ডায়াক্সট্রা না শিখে থাকো তাহলে আমরা প্রথমে একটু ঝালাই করে নেই ...                        </div>
+                        <a href="indexa318.html?p=2044" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1961" class="post-1961 post type-post status-publish format-standard hentry category-contest category-programming tag-75 tag-114">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="indexdf2c.html?p=1961" rel="bookmark">ডাটা স্ট্রাকচার: বাইনারি ইনডেক্সড ট্রি</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="indexdf2c.html?p=1961" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০৮-১৯T১৬:৫৩:৪৫+০০:০০">আগস্ট ১৯, ২০১৪</time><time class="updated" datetime="2015-06-07T15:46:16+00:00">June 7, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="indexd492.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%9f%e0%a6%be-%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0" rel="tag">ডাটা স্ট্রাকচার</a>, <a href="index42c8.html?tag=%e0%a6%ac%e0%a6%be%e0%a6%87%e0%a6%a8%e0%a6%be%e0%a6%b0%e0%a6%bf-%e0%a6%87%e0%a6%a8%e0%a6%a1%e0%a7%87%e0%a6%95%e0%a7%8d%e0%a6%b8%e0%a6%a1-%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%bf" rel="tag">বাইনারি ইনডেক্সড ট্রি</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        বাইনারি ইনডেক্স ট্রি খুবই চমৎকার একটা ডাটা স্ট্রাকচার যার সবথেকে ভালো দিক হলো কয়েক মিনিটেই কোড লিখে ফেলা যায়। আর খারাপ দিক হলো ভিতরে কি হচ্ছে বুঝতে একটু কষ্ট হয়, তবে তুমি লেখাটা মনযোগ দিয়ে পড়লে আমি নিশ্চিত কোন সমস‍্যা হবে না। বাইনারি ইনডেক্সড ট্রি বা BIT এর আরেক নাম হলো ফেনউইক(fenwick) ট্রি। এই লেখাটা পড়ার আগে তোমাকে বিটওয়াইজ অপারেশনগুলো(AND,OR ইত‍্যাদি) সম্পর্কে ভালো জানতে হবে।
+
+আমরা একটা সহজ সমস‍্যা সমাধান করতে করতে বাইনারি ইনডেক্স ট্রি সম্পর্কে জানব। এই লেখায় আমরা ধরে নিব অ‍্যারের ইনডেক্স ১ থেকে শুরু, BIT কিভাবে কাজ করে জানার পরে বুঝতে পারবে এটা কেন গুরুত্বপূর্ণ। তোমাকে একটা অ‍...                        </div>
+                        <a href="indexdf2c.html?p=1961" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1927" class="post-1927 post type-post status-publish format-standard hentry category-programming tag-26 tag-113">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index8e9f.html?p=1927" rel="bookmark">গ্রাফ থিওরিতে হাতেখড়ি ১০: ফ্লয়েড ওয়ার্শল</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index8e9f.html?p=1927" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০৭-২২T১৫:৩০:৪৯+০০:০০">জুলাই ২২, ২০১৪</time><time class="updated" datetime="2016-01-25T23:53:46+00:00">January 25, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index127e.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf" rel="tag">গ্রাফ থিওরি</a>, <a href="indexb152.html?tag=%e0%a6%ab%e0%a7%8d%e0%a6%b2%e0%a7%9f%e0%a7%87%e0%a6%a1-%e0%a6%93%e0%a7%9f%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%b6%e0%a6%b2" rel="tag">ফ্লয়েড ওয়ার্শল</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        ফ্লয়েড ওয়ার্শল সম্ভবত সব থেকে ছোট আকারের গ্রাফ অ‍্যালগোরিদম, মাত্র ৩লাইনে এটা লেখা যায়! তবে ৩ লাইনের এই অ‍্যালগোরিদমেই বোঝার অনেক কিছু আছে। ফ্লয়েড ওয়ার্শলের কাজ হলো গ্রাফের প্রতিটা নোড থেকে অন‍্য সবগুলো নোডের সংক্ষিপ্ততম দুরত্ব বের করা। এ ধরণের অ‍্যালগোরিদমকে বলা হয় &quot;অল-পেয়ার শর্টেস্ট পাথ&quot; অ‍্যালগোরিদম। এই লেখাটা পড়ার আগে অ‍্যাডজেসেন্সি ম‍্যাট্রিক্স সম্পর্কে জানতে হবে।
+
+আমরা একটা গ্রাফের উপর কিছু সিমুলেশন করে সহজেই অ‍্যালগোরিদমটা বুঝতে পারি। নিচের ছবিটা দেখ:
+
+
+ছবিতে চার নোডের একটা ওয়েটেড ডিরেক্টেড গ্রাফ দেখা যাচ্ছে। আর উপরে ডান কোনায় একটা ম‍্যাট্রিক্স। ম‍্যাট্রিক্সের u,v তম ঘ...                        </div>
+                        <a href="index8e9f.html?p=1927" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1885" class="post-1885 post type-post status-publish format-standard hentry category-contest category-programming tag-71 tag-54 tag-112">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index5e30.html?p=1885" rel="bookmark">ডাইনামিক প্রোগ্রামিং: ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index5e30.html?p=1885" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০৬-১৮T১৭:৫০:১২+০০:০০">জুনe ১৮, ২০১৪</time><time class="updated" datetime="2016-03-26T17:43:03+00:00">March 26, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index5305.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%87%e0%a6%a8%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%95-%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%82" rel="tag">ডাইনামিক প্রোগ্রামিং</a>, <a href="indexeedc.html?tag=%e0%a6%a1%e0%a6%bf%e0%a6%aa%e0%a6%bf" rel="tag">ডিপি</a>, <a href="index74e3.html?tag=%e0%a6%ae%e2%80%8d%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%bf%e0%a6%95%e0%a7%8d%e0%a6%b8-%e0%a6%9a%e0%a7%87%e0%a6%87%e0%a6%a8-%e0%a6%ae%e0%a6%be%e0%a6%b2%e0%a7%8d%e0%a6%9f%e0%a6%bf" rel="tag">ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        আমরা এবার আরো একটি ক্লাসিক ডাইনামিক প্রোগ্রামিং প্রবলেম দেখবো যেটার নাম ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন। এটা শেখা খুবই গুরুত্বপূর্ণ কারণ এটার ধারণা ব‍্যবহার করে অনেক ধরণের সমস‍্যা সমাধান করে ফেলা যায়। এই লেখাটা পড়ার আগে তোমার ডাইনামিক প্রোগ্রামিং এর ধারণা থাকতে হবে। এছাড়া ম‍্যাট্রিক্স নিয়েও ধারণা থাকতে হবে।
+
+আমি নিশ্চিত তোমরা সবাই ম‍্যাট্রিক্স গুণের শর্তগুলো জানো, তাও আমি মনে করিয়ে দিতে চাই। ধরি আমাদের দুটি ম‍্যাট্রিক্স আছে $A_1, A_2$ এবং তাদের ডিমেনশন $m * n$ আর $p * q$। তাহলে কয়েকটি প্রোপার্টি আমাদের জন‍্য গুরুত্বপূর্ণ:
+&nbsp;
+
+	ম‍্যাট্রিক্স দুটি গুণ করা যাবে তখনই যদি $n=p$ হয়...                        </div>
+                        <a href="index5e30.html?p=1885" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1862" class="post-1862 post type-post status-publish format-standard hentry category-contest category-programming tag-edist tag-lcs tag-71 tag-54">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index13c2.html?p=1862" rel="bookmark">ডাইনামিক প্রোগ্রামিং: লংগেস্ট কমন সাবসিকোয়েন্স</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index13c2.html?p=1862" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০৪-২৫T১৫:০৮:৪৬+০০:০০">এপ্রিল ২৫, ২০১৪</time><time class="updated" datetime="2014-04-26T22:57:15+00:00">April 26, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index4dae.html?tag=edist" rel="tag">EDIST</a>, <a href="indexa75f.html?tag=lcs" rel="tag">LCS</a>, <a href="index5305.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%87%e0%a6%a8%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%95-%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%82" rel="tag">ডাইনামিক প্রোগ্রামিং</a>, <a href="indexeedc.html?tag=%e0%a6%a1%e0%a6%bf%e0%a6%aa%e0%a6%bf" rel="tag">ডিপি</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        ডাইনামিক প্রোগ্রামিং এর সম্ভবত সবথেকে গুরুত্বপূর্ণ দুটি উদাহরণ হলো লংগেস্ট কমন সাবসিকোয়েন্স এবং এডিট ডিসটেন্স বের করা কারণ এদের অনেক প্র্যাক্টিকাল অ্যাপ্লিকেশন আছে। এই লেখাটা পড়ার আগে আমি আশা করবো তোমরা কিছু বেসিক ডাইনামিক প্রোগ্রামিং যেমন কয়েন চেঞ্জ, ন্যাপস্যাক পারো। যদি না পারো তাহলে আমার আগের লেখাগুলো দেখতে পারো। এই লেখায় লংগেস্ট কমন সাবসিকোয়েন্স বের করা, সলিউশন প্রিন্ট করাএবং সবগুলো সম্ভাব্য সলিউশন বের করা দেখবো। তুমি যদি আগেই এসব টপিক নিয়ে জানো তাহলে লেখার শেষে রিলেটেড প্রবলেম সেকশন দেখো, সেখানকার শেষ ৩টা প্রবলেম সলভ করতে কিছুটা চিন্তা-ভাবনা করা লাগবে।
+সাবসিকোয়েন্স
+মনে ক...                        </div>
+                        <a href="index13c2.html?p=1862" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1831" class="post-1831 post type-post status-publish format-standard hentry category-contest category-programming tag-45 tag-75 tag-109 tag-108">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index5c9a.html?p=1831" rel="bookmark">লোয়েস্ট কমন অ্যানসেস্টর</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index5c9a.html?p=1831" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০৩-১৩T১৪:৩৩:৩২+০০:০০">মার্চ ১৩, ২০১৪</time><time class="updated" datetime="2014-10-19T14:57:36+00:00">October 19, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index5f2b.html?tag=%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%bf" rel="tag">ট্রি</a>, <a href="indexd492.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%9f%e0%a6%be-%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0" rel="tag">ডাটা স্ট্রাকচার</a>, <a href="indexaeaf.html?tag=%e0%a6%b2%e0%a7%87%e0%a6%be%e0%a7%9f%e0%a7%87%e0%a6%b8%e0%a7%8d%e0%a6%9f-%e0%a6%95%e0%a6%ae%e0%a6%a8-%e0%a6%85%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%a8%e0%a6%b8%e0%a7%87%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a6%b0" rel="tag">লোয়েস্ট কমন অ্যানসেস্টর</a>, <a href="index00b1.html?tag=%e0%a6%b8%e0%a7%8d%e0%a6%aa%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%b8-%e0%a6%9f%e0%a7%87%e0%a6%ac%e0%a6%bf%e0%a6%b2" rel="tag">স্পার্স টেবিল</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        লোয়েস্ট কমন অ্যানসেস্টর জিনিসটা শুনতে একটু কঠিন মনে হলেও জিনিসটা সহজ আর খুবই কাজের। বেশ কিছু ধরণের প্রবলেম সলভ করে ফেলা যায় এই অ্যালগোরিদম দিয়ে। আমরা প্রথমে লোয়েস্ট কমন অ্যানসেস্টর বের করার ব্রুটফোর্স অ্যালগোরিদম দেখবো, তারপর স্পার্স টেবিল নামের নতুন একটা ডাটা স্ট্রাকচার শিখে কমপ্লেক্সিটি লগ এ নামিয়ে আনবো।
+
+প্রথমেই আমরা জেনে নেই লোয়েস্ট কমন অ্যানসেস্টর বা এল.সি.এ(LCA) কি সেটা। নিচের ছবিটা দেখ:
+
+&nbsp;
+
+
+
+ছবিতে k আর n নোডের প্যারেন্ট ধরে পিছে যেতে থাকলে তারা i নোডে এসে মিলবে। i হলো k,n এর লোয়েস্ট কমন অ্যানসেস্টর। &#039;a&#039; ও দুইজনের কমন অ্যানসেস্টর কিন্তু i হলো &#039;লোয়েস্ট&#039; বা সবথে...                        </div>
+                        <a href="index5c9a.html?p=1831" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-604" class="post-604 post type-post status-publish format-standard hentry category-contest category-programming tag-26 tag-57">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index1d45.html?p=604" rel="bookmark">গ্রাফ থিওরিতে হাতেখড়ি-৪(ব্রেডথ ফার্স্ট সার্চ)</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index1d45.html?p=604" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০২-২২T১৩:৫৫:৫২+০০:০০">ফেব্রুয়ারি ২২, ২০১৪</time><time class="updated" datetime="2016-08-16T10:48:29+00:00">August 16, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index127e.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf" rel="tag">গ্রাফ থিওরি</a>, <a href="index7cd0.html?tag=%e0%a6%ac%e0%a6%bf%e0%a6%8f%e0%a6%ab%e0%a6%8f%e0%a6%b8" rel="tag">বিএফএস</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        আগের পর্বগুলোতে আমরা দেখেছি কিভাবে ম্যাট্রিক্স বা লিস্ট ব্যবহার করে গ্রাফ স্টোর করতে হয়। এবার আমরা প্রথম অ্যালগোরিদম দেখবো এর দিকে যাবো। শুরুতেই আমরা যে অ্যালগোরিদমটা শিখব তার নাম ব্রেডথ ফার্স্ট সার্চ(breadth first search,bfs)।
+
+বিএফএস এর কাজ হলো গ্রাফে একটা নোড থেকে আরেকটা নোডে যাবার শর্টেস্ট পাথ বের করা। বিএফএস কাজ করবে শুধুমাত্র আন-ওয়েটেড গ্রাফের ক্ষেত্রে, তারমানে সবগুলো এজের কস্ট হবে ১।
+
+বিএফএস অ্যালগোরিদমটা কাজ করে নিচের ধারণারগুলোর উপর ভিত্তি করে:
+১. কোনো নোডে ১ বারের বেশি যাওয়া যাবেনা
+২. সোর্স নোড অর্থাৎ যে নোড থেকে শুরু করছি সেটা ০ নম্বর লেভেলে অবস্থিত।
+৩. সোর...                        </div>
+                        <a href="index1d45.html?p=604" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1756" class="post-1756 post type-post status-publish format-standard hentry category-contest tag-107">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index17bd.html?p=1756" rel="bookmark">মিট ইন দ্যা মিডল টেকনিক</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index17bd.html?p=1756" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০২-০২T২০:৩৫:৫০+০০:০০">ফেব্রুয়ারি ২, ২০১৪</time><time class="updated" datetime="2014-02-06T16:56:47+00:00">February 6, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="indexe943.html?tag=%e0%a6%ae%e0%a6%bf%e0%a6%9f-%e0%a6%87%e0%a6%a8-%e0%a6%a6%e0%a7%8d%e0%a6%af%e0%a6%be-%e0%a6%ae%e0%a6%bf%e0%a6%a1%e0%a6%b2" rel="tag">মিট ইন দ্যা মিডল</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        মিট ইন দ্যা মিডল খুবই এলিগেন্ট একটা প্রবলেম সলভিং টেকনিক। এটার কাজ হলো প্রবলেমটাকে ঠিক দুইভাগে ভাগ করে ফেলে তারপর সেই দুইভাগকে কোনোভাবে মার্জ করে প্রবলেমটা সলভ করা। তবে ডিভাইড এন্ড কনকোয়ারের সাথে এটার পার্থক্য হলো ডিভাইড এন্ড কনকোয়ারে দুই ভাগে ভাগ করার পর ছোট ভাগগুলোকে বারবার ভাগ করা হয়, মিট ইন দ্যা মিডলে আমরা শুধু একবার ভাগ করবো।
+
+আমরা কিছু প্রবলেম দেখবো যেগুলোকে মিট ইন দ্যা মিডলের সাহায্যে সলভ করা সম্ভব।
+
+প্রবলেম ১: সাম অফ ফোর
+(দরকারি নলেজ: বাইনারি সার্চ)
+
+তোমাকে ৪টা n সাইজের অ্যারে A,B,C,D দেয়া আছে। প্রতিটা অ্যারে থেকে এক্স্যাক্টলি একটা করে ভ্যালু সিলেক্ট করতে হবে যেন তা...                        </div>
+                        <a href="index17bd.html?p=1756" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-521" class="post-521 post type-post status-publish format-standard hentry category-contest category-programming tag-26 tag-45 tag-91">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index1b7d.html?p=521" rel="bookmark">ট্রি ডায়ামিটার</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index1b7d.html?p=521" rel="bookmark"><time class="entry-date published" datetime="২০১৪-০১-০৮T০০:৪৫:০৯+০০:০০">জানুয়ারি ৮, ২০১৪</time><time class="updated" datetime="2016-01-27T14:21:36+00:00">January 27, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index127e.html?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf" rel="tag">গ্রাফ থিওরি</a>, <a href="index5f2b.html?tag=%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%bf" rel="tag">ট্রি</a>, <a href="indexbeaa.html?tag=%e0%a6%a1%e0%a6%be%e0%a7%9f%e0%a6%be%e0%a6%ae%e0%a6%bf%e0%a6%9f%e0%a6%be%e0%a6%b0" rel="tag">ডায়ামিটার</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        ট্রি হলো এমন একটা আনডিরেক্টেড গ্রাফ যেটার সব নোড থেকে সব নোডে যাওয়া যায় এবং কোনো সাইকেল নেই। এখন আমাদের ট্রি এর সবথেকে দূরের দুটা নোড খুজে বের করতে হবে, একেই বলা হয় ট্রি এর ডায়ামিটার।
+
+
+মনে করো কিছু কম্পিউটারের মধ্যে নেটওয়ার্ক কেবল লাগানো হয়েছে নিচের ছবির মতো করে। এখন তুমি জানতে চাইতেই পারো কোন দুটি কম্পিউটার সবথেকে দূরে আছে।
+
+
+
+এটা বের করা খুব সহজ, এজন্য তোমার জানতে হবে বিএফএস বা ডিএফএস এর যে কোন একটা। আনডিরেক্টেড ট্রি তে যেকোন নোডকেই রুট ধরা যায়, আমরা মনে করি উপরের ধূসর নোডটা ট্রি এর রুট।
+
+আমাদের প্রথম কাজ কাজ হলো রুট হতে সবথেকে দূরের নোডটা খুজে বের করা। সেই নোডটা...                        </div>
+                        <a href="index1b7d.html?p=521" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1679" class="post-1679 post type-post status-publish format-standard hentry category-contest category-programming tag-104 tag-45 tag-75 tag-105">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="indexad79.html?p=1679" rel="bookmark">ডাটা স্ট্রাকচার: ট্রাই (প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="indexad79.html?p=1679" rel="bookmark"><time class="entry-date published" datetime="২০১৩-১২-২৭T১১:৩৯:২৩+০০:০০">ডিসেম্বর ২৭, ২০১৩</time><time class="updated" datetime="2014-02-04T13:56:15+00:00">February 4, 2014</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index3874.html?tag=%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%87" rel="tag">ট্রাই</a>, <a href="index5f2b.html?tag=%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%bf" rel="tag">ট্রি</a>, <a href="indexd492.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%9f%e0%a6%be-%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0" rel="tag">ডাটা স্ট্রাকচার</a>, <a href="index2cd9.html?tag=%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a6%bf%e0%a6%ab%e0%a6%bf%e0%a6%95%e0%a7%8d%e0%a6%b8-%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%bf" rel="tag">প্রিফিক্স ট্রি</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        ইন্টারনেট যারা ব্যবহার করে তারা সবাই মনে হয় কখনো না কখনো এটা ভেবে অবাক হয়েছে যে গুগলে সার্চ করলে কিভাবে এত তথ্য চোখের নিমিষে সামনে চলে আসে! চিন্তা করে দেখো হাজার কিলোমিটার দূরে দানবাকৃতির ডাটাবেস থেকে প্রয়োজনীয় ডাটা খুঁজে তোমার কাছে পাঠিয়ে দিচ্ছে কয়েক সেকেন্ডের মধ্যে। শুধুমাত্র শক্তিশালী হার্ডওয়্যার, দ্রুতগতির ইন্টারনেট দিয়ে এটা সম্ভব না, এর পিছে আছে দারুণ কিছু সার্চিং অ্যালগোরিদম এবং ডাটা স্ট্রাকচার।  
+
+আমরা সেসব জটিল জিনিসে যাবোনা, আমরা আজকে শিখবো খুব সহজে ইমপ্লিমেন্ট করা যায় এমন একটা ডাটা স্ট্রাকচার যেটা ব্যবহার করে তুমি খুব দ্রুত অনেক অনেক নাম এর মধ্য থেকে একটা নাম খুজে বের করত...                        </div>
+                        <a href="indexad79.html?p=1679" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                <div class="lp-wrap aw-block-wrapper wow fadeInUp" data-wow-delay="0.5s">
+                <article id="post-1642" class="post-1642 post type-post status-publish format-standard hentry category-contest category-programming tag-np-complete tag-np-hard tag-p-np tag-84 tag-100">
+                    <header class="entry-header">
+                        <h2 class="entry-title"><a href="index3515.html?p=1642" rel="bookmark">কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a></h2>
+
+                                                <div class="entry-meta">
+                            <span class="posted-on"><a href="index3515.html?p=1642" rel="bookmark"><time class="entry-date published" datetime="২০১৩-০৮-১৪T১৬:০০:৩১+০০:০০">আগস্ট ১৪, ২০১৩</time><time class="updated" datetime="2016-08-15T14:20:25+00:00">August 15, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>				
+			   @ <a href="index39c2.html?tag=np-complete" rel="tag">NP complete</a>, <a href="index7ddd.html?tag=np-hard" rel="tag">NP Hard</a>, <a href="indexdb3a.html?tag=p-np" rel="tag">P-NP</a>, <a href="index2fcc.html?tag=%e0%a6%85%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%b2%e0%a6%97%e0%a7%87%e0%a6%be%e0%a6%b0%e0%a6%bf%e0%a6%a6%e0%a6%ae" rel="tag">অ্যালগোরিদম</a>, <a href="indexe3ca.html?tag=%e0%a6%9f%e0%a7%81%e0%a6%b0%e0%a6%bf%e0%a6%82-%e0%a6%ae%e0%a7%87%e0%a6%b6%e0%a6%bf%e0%a6%a8" rel="tag">টুরিং মেশিন</a><br /> 
+ 			    
+                        </div><!-- .entry-meta -->
+						   
+                                            </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                                                <div class="short-content">
+                        আমরা যখন প্রবলেম সলভ করতে করতে মাথার চুল ছিড়ে ফেলি তখন প্রায়ই এমন কিছু প্রবলেম সামনে আসে যেগুলো সলভ করতে গেলে সবথেকে শক্তিশালী কম্পিউটারও হাজার হাজার বছর লাগিয়ে দিবে। বড় বড় কম্পিউটার বিজ্ঞানীরা যখন দিন-রাত চিন্তা করেও এগুলো সলভ করতে পারলেননা তখন তারা এই প্রবলেমগুলোকে কিছু ক্যাটাগরিতে ফেলে দিয়ে বললেন “এই ক্যাটাগরির প্রবলেমগুলো সলভ করার সাধ্য এখনো আমাদের হয়নি, তোমরা কেও পারলে সলভ করে দিয়ে ১০ লক্ষ ডলার পুরস্কার নিয়ে যাও”। সেগুলোকেই আমরা NP-complete, NP-hard ইত্যাদি নামে চিনি।
+
+NP ক্যাটাগরির প্রবলেমগুলো কম্পিউটার সায়েন্সে খুব বিখ্যাত। যেমন একটা গ্রাফে সবথেকে লম্বা পথ খুজে বের করা, ৩টা রঙ...                        </div>
+                        <a href="index3515.html?p=1642" class="bttn">বিস্তারিত</a>
+                                            </div><!-- .entry-content -->
+
+                    <footer class="entry-footer">
+                                            </footer><!-- .entry-footer -->
+                                    
+    
+                </article><!-- #post-## -->
+                </div>
+                                	<nav class="navigation paging-navigation" role="navigation">
+		<h1 class="screen-reader-text">Posts navigation</h1>
+		<div class="nav-links">
+
+						<div class="nav-previous"><a href="index8a68.html?paged=3" ><span class="meta-nav">&larr;</span> Older posts</a></div>
+			
+						<div class="nav-next"><a href="index.html" >Newer posts <span class="meta-nav">&rarr;</span></a></div>
+			
+		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+        		                </main><!-- #main -->
+    </div><!-- #primary -->
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+                    <aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_9598464"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_9598464', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>            </div>
+</div>
+        </section>
+
+ 
+ 	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?paged=2 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 15:24:40 GMT -->
+</html>

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=2342 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 15:34:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ডাটা স্ট্রাকচার : স্ট্যাক | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>ডাটা স্ট্রাকচার : স্ট্যাক &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,273] -->
+<meta name="description" itemprop="description" content="যেকোনো ডাটা স্ট্রাকচার কোর্সে একদম শুরুর দিকে যেসব ডাটা স্ট্রাকচার পড়ানো হয় তার মধ্যে স্ট্যাক অন্যতম। স্ট্যাককে বলা হয় LIFO বা লাস্ট-ইন-ফার্স্ট-আউট ডাটা" />
+
+<meta name="keywords" itemprop="keywords" content="ডাটা স্ট্রাকচার,অ্যালগোরিদম,প্রোগ্রামিং,স্ট্যাক" />
+
+<link rel="canonical" href="indexeeae.html?p=2342" />
+<meta property="og:title" content="ডাটা স্ট্রাকচার : স্ট্যাক | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="activity" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=2342" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="যেকোনো ডাটা স্ট্রাকচার কোর্সে একদম শুরুর দিকে যেসব ডাটা স্ট্রাকচার পড়ানো হয় তার মধ্যে স্ট্যাক অন্যতম। স্ট্যাককে বলা হয় LIFO বা লাস্ট-ইন-ফার্স্ট-আউট ডাটা স্ট্রাকচার। তুমি এভাবে চিন্তা করতে পারো, তোমার কাছে অনেকগুলো বই একটার উপর আরেকটা সাজানো আছে, তুমি চাইলে সবার উপরের বইটা সরিয়ে ফেলতে পারো(Pop), অথবা সবার উপরে আরেকটা বই রাখতে পারো(Push)। এটা হলো বইয়ের একটা স্ট্যাক। তুমি এই স্ট্যাকের উপরে ছাড়া কোনো জায়গায় বই ঢুকাতে পারবে না, উপরের বই ছাড়া কোনো বই সরাতে পারবে না, এগুলো করলে সেটা আর স্ট্যাক থাকবে না। স্ট্যাক হলো কিছু বস্তুর(এলিমেন্ট) একটা সংগ্রহ। এখানে দুইরকম অপারেশন করা যায়:  Push(new_element): স্ট্যাকের উপরে নতুন বস্তুটা রাখো। যদি শুরুতে স্ট্যাকটা খালি হয়, তাহলে প্রথম জায়গায় বস্তুটা রাখতে হবে। Pop(): স্ট্যাকের উপরের বস্তুটা সরিয়ে ফেলো। যদি শুরুতে স্ট্যাকটা খালি হয় তাহলে এই অপারেশনটা করা সম্ভব না।  &nbsp;  চিত্র ১: স্ট্যাক এ পুশ এবং পপ অপারেশন (সোর্স: উইকিপিডিয়া) চিত্র ১ এ দেখা যাচ্ছে কিভাবে স্ট্যাকে পুশ এবং পপ অপারেশন করতে হয়। স্ট্যাকে আরেকটা অপারেশন থাকতে পারে Peek()" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="ডাটা স্ট্রাকচার : স্ট্যাক | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="যেকোনো ডাটা স্ট্রাকচার কোর্সে একদম শুরুর দিকে যেসব ডাটা স্ট্রাকচার পড়ানো হয় তার মধ্যে স্ট্যাক অন্যতম। স্ট্যাককে বলা হয় LIFO বা লাস্ট-ইন-ফার্স্ট-আউট ডাটা স্ট্রাকচার। তুমি এভাবে চিন্তা করতে পারো, তোমার কাছে অনেকগুলো বই একটার উপর আরেকটা সাজানো আছে, তুমি চাইলে সবার উপরের বইটা সরিয়ে ফেলতে পারো(Pop), অথবা সবার উপরে আরেকটা বই রাখতে পারো(Push)। এটা হলো বইয়ের একটা স্ট্যাক। তুমি এই স্ট্যাকের উপরে ছাড়া কোনো জায়গায় বই ঢুকাতে পারবে না, উপরের বই ছাড়া কোনো বই সরাতে পারবে না, এগুলো করলে সেটা আর স্ট্যাক থাকবে না। স্ট্যাক হলো কিছু বস্তুর(এলিমেন্ট) একটা সংগ্রহ। এখানে দুইরকম অপারেশন করা যায়:  Push(new_element): স্ট্যাকের উপরে নতুন বস্তুটা রাখো। যদি শুরুতে স্ট্যাকটা খালি হয়, তাহলে প্রথম জায়গায় বস্তুটা রাখতে হবে। Pop(): স্ট্যাকের উপরের বস্তুটা সরিয়ে ফেলো। যদি শুরুতে স্ট্যাকটা খালি হয় তাহলে এই অপারেশনটা করা সম্ভব না।  &nbsp;  চিত্র ১: স্ট্যাক এ পুশ এবং পপ অপারেশন (সোর্স: উইকিপিডিয়া) চিত্র ১ এ দেখা যাচ্ছে কিভাবে স্ট্যাকে পুশ এবং পপ অপারেশন করতে হয়। স্ট্যাকে আরেকটা অপারেশন থাকতে পারে Peek()" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; ডাটা স্ট্রাকচার : স্ট্যাক Comments Feed" href="indexc963.html?feed=rss2&amp;p=2342" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='অ্যালগোরিদম গেম থিওরি &#8211; ১' href='index4d18.html?p=2325' />
+<link rel='next' title='গ্রাফ থিওরিতে হাতেখড়ি ১৩: আর্টিকুলেশন পয়েন্ট এবং ব্রিজ' href='indexe264.html?p=2504' />
+
+<link rel='shortlink' href='indexeeae.html?p=2342' />
+<link rel="alternate" type="application/json+oembed" href="index65ae.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2342" />
+<link rel="alternate" type="text/xml+oembed" href="index9a89.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2342&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-2342 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-2342" class="post-2342 post type-post status-publish format-standard hentry category-programming tag-75 tag-134">
+	<header class="entry-header">
+		<h1 class="main-title"><span>ডাটা স্ট্রাকচার : স্ট্যাক</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="indexeeae.html?p=2342" rel="bookmark"><time class="entry-date published" datetime="২০১৫-১১-১১T১২:২৯:৩৯+০০:০০">নভেম্বর ১১, ২০১৫</time><time class="updated" datetime="2015-11-24T15:31:34+00:00">November 24, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=2342'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%20%3A%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2342&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=2342'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%20%3A%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=2342&amp;summary=%e0%a6%af%e0%a7%87%e0%a6%95%e0%a7%87%e0%a6%be%e0%a6%a8%e0%a7%87%e0%a6%be%20%e0%a6%a1%e0%a6%be%e0%a6%9f%e0%a6%be%20%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0%20%e0%a6%95%e0%a7%87%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%b8%e0%a7%87%20%e0%a6%8f%e0%a6%95%e0%a6%a6...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p>যেকোনো ডাটা স্ট্রাকচার কোর্সে একদম শুরুর দিকে যেসব ডাটা স্ট্রাকচার পড়ানো হয় তার মধ্যে স্ট্যাক অন্যতম। স্ট্যাককে বলা হয় <b>LIFO</b> বা লাস্ট-ইন-ফার্স্ট-আউট ডাটা স্ট্রাকচার। তুমি এভাবে চিন্তা করতে পারো, তোমার কাছে অনেকগুলো বই একটার উপর আরেকটা সাজানো আছে, তুমি চাইলে সবার উপরের বইটা সরিয়ে ফেলতে পারো(Pop), অথবা সবার উপরে আরেকটা বই রাখতে পারো(Push)। এটা হলো বইয়ের একটা স্ট্যাক। তুমি এই স্ট্যাকের উপরে ছাড়া কোনো জায়গায় বই ঢুকাতে পারবে না, উপরের বই ছাড়া কোনো বই সরাতে পারবে না, এগুলো করলে সেটা আর স্ট্যাক থাকবে না।</p>
+<p>স্ট্যাক হলো কিছু বস্তুর(এলিমেন্ট) একটা সংগ্রহ। এখানে দুইরকম অপারেশন করা যায়:</p>
+<ul>
+<li>Push(new_element): স্ট্যাকের উপরে নতুন বস্তুটা রাখো। যদি শুরুতে স্ট্যাকটা খালি হয়, তাহলে প্রথম জায়গায় বস্তুটা রাখতে হবে।</li>
+<li>Pop(): স্ট্যাকের উপরের বস্তুটা সরিয়ে ফেলো। যদি শুরুতে স্ট্যাকটা খালি হয় তাহলে এই অপারেশনটা করা সম্ভব না।</li>
+</ul>
+<p>&nbsp;</p>
+<p><a href="wp-content/uploads/2015/11/Lifo_stack.png"><img class="aligncenter wp-image-2343" src="wp-content/uploads/2015/11/Lifo_stack.png" alt="Lifo_stack" width="543" height="379" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/11/Lifo_stack.png 773w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/11/Lifo_stack-300x210.png 300w" sizes="(max-width: 543px) 100vw, 543px" /></a></p>
+<p style="text-align: center;">চিত্র ১: স্ট্যাক এ পুশ এবং পপ অপারেশন (সোর্স: উইকিপিডিয়া)</p>
+<p style="text-align: left;">চিত্র ১ এ দেখা যাচ্ছে কিভাবে স্ট্যাকে পুশ এবং পপ অপারেশন করতে হয়। স্ট্যাকে আরেকটা অপারেশন থাকতে পারে Peek(), যেটা ব্যবহার করে সবার উপরের বস্তুটা কি জানা যাবে বস্তুটা পপ না করেই।</p>
+<p style="text-align: left;">স্ট্যাকের আকার যদি সীমিত হয়, যেমন যদি ১০টার বেশি বস্তু রাখার সামর্থ কোনো স্ট্যাকের না থাকে তাহলে ১১তম বস্তু পুশ করলে স্ট্যাকটা &#8220;ওভারফ্লো&#8221; স্টেট এ চলে যাবে এবং তোমার প্রোগ্রাম ক্র্যাশ করবে। একই ভাবে খালি স্ট্যাক থেকে কিছু পপ করার চেষ্টা করলে স্ট্যাক &#8216;আন্ডারফ্লো&#8217; স্টেটে চলে যাবে এবং প্রোগ্রাম ক্র্যাশ করবে। স্ট্যাক ব্যবহারের সময় এই দুই ব্যাপারে খুব সতর্ক থাকতে হয়।</p>
+<p style="text-align: left;">স্ট্যাক ইমপ্লিমেন্ট করা খুব সহজ। সাধারণ অ্যারে ব্যবহার করেই নির্দিষ্ট আকারের স্ট্যাক ইমপ্লিমেন্ট করা যায়।  সবার উপরের এলিমেন্টটা কোন ইনডেক্সে আছে সেটা একটা অতিরিক্ত ভ্যারিয়েবলে সেভ করে রাখতে হবে। নিচে পাইথনে একটা ইমপ্লিমেন্টেশন দেখানো হলো, একই ভাবে সি++ এও তুমি করতে পারবে:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c847fb61cdb308279844" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+class Stack:
+	def __init__(self,max_size): #initialize a stack of max_size
+		self.top_pointer=-1 #Keep track of top element using this
+		self.stack=[None for x in range(max_size)]  #create a list of max_size
+	
+	def push(self,new_element):
+		self.top_pointer=self.top_pointer+1 #Move the pointer
+		self.stack[self.top_pointer]=new_element #Add the new_element to the top
+	
+	def pop(self):
+		last_element=self.stack[self.top_pointer]
+		self.top_pointer=self.top_pointer-1 #Move the pointer
+		return last_element #Pop the last element
+	
+	def peek(self):
+		return self.stack[self.top_pointer]
+
+	def is_empty(self):</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-2">2</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-4">4</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-6">6</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-8">8</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-10">10</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-12">12</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-14">14</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-16">16</div><div class="crayon-num" data-line="crayon-57c847fb61cdb308279844-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cdb308279844-18">18</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c847fb61cdb308279844-1"><span class="crayon-t">class</span><span class="crayon-h"> </span><span class="crayon-v">Stack</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-2"><span class="crayon-h">	</span><span class="crayon-e">def </span><span class="crayon-e">__init__</span><span class="crayon-sy">(</span><span class="crayon-r">self</span><span class="crayon-sy">,</span><span class="crayon-v">max_size</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-p">#initialize a stack of max_size</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-3"><span class="crayon-h">		</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-o">=</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-h"> </span><span class="crayon-p">#Keep track of top element using this</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-4"><span class="crayon-h">		</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">stack</span><span class="crayon-o">=</span><span class="crayon-sy">[</span><span class="crayon-e">None </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-i">x</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">range</span><span class="crayon-sy">(</span><span class="crayon-v">max_size</span><span class="crayon-sy">)</span><span class="crayon-sy">]</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-p">#create a list of max_size</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-5"><span class="crayon-h">	</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-6"><span class="crayon-h">	</span><span class="crayon-e">def </span><span class="crayon-e">push</span><span class="crayon-sy">(</span><span class="crayon-r">self</span><span class="crayon-sy">,</span><span class="crayon-v">new_element</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-7"><span class="crayon-h">		</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-o">=</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-o">+</span><span class="crayon-cn">1</span><span class="crayon-h"> </span><span class="crayon-p">#Move the pointer</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-8"><span class="crayon-h">		</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">stack</span><span class="crayon-sy">[</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-sy">]</span><span class="crayon-o">=</span><span class="crayon-v">new_element</span><span class="crayon-h"> </span><span class="crayon-p">#Add the new_element to the top</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-9"><span class="crayon-h">	</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-10"><span class="crayon-h">	</span><span class="crayon-e">def </span><span class="crayon-e">pop</span><span class="crayon-sy">(</span><span class="crayon-r">self</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-11"><span class="crayon-h">		</span><span class="crayon-v">last_element</span><span class="crayon-o">=</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">stack</span><span class="crayon-sy">[</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-sy">]</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-12"><span class="crayon-h">		</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-o">=</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-o">-</span><span class="crayon-cn">1</span><span class="crayon-h"> </span><span class="crayon-p">#Move the pointer</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-13"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">last_element</span><span class="crayon-h"> </span><span class="crayon-p">#Pop the last element</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-14"><span class="crayon-h">	</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-15"><span class="crayon-h">	</span><span class="crayon-e">def </span><span class="crayon-e">peek</span><span class="crayon-sy">(</span><span class="crayon-r">self</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-16"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">stack</span><span class="crayon-sy">[</span><span class="crayon-r">self</span><span class="crayon-sy">.</span><span class="crayon-v">top_pointer</span><span class="crayon-sy">]</span></div><div class="crayon-line" id="crayon-57c847fb61cdb308279844-17">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cdb308279844-18"><span class="crayon-h">	</span><span class="crayon-e">def </span><span class="crayon-e">is_empty</span><span class="crayon-sy">(</span><span class="crayon-r">self</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0052 seconds] -->
+<p>এই কোডে আমি কোনো ওভারফ্লো বা আন্ডারফ্লো হ্যান্ডেল করি নি। তুমি কোডটার উন্নতি করতে চাইলে এ ব্যাপারগুলো নিয়ে কাজ করতে পারো। যদি তুমি নির্দিষ্ট আকারের স্ট্যাক না চাও তাহলে লিংকড-লিস্ট ব্যবহার করতে হবে।</p>
+<p>স্ট্যাকে প্রতিটা অপারেশনের কমপ্লেক্সিটি O(1)</p>
+<p style="text-align: left;"><strong>স্ট্যাকের ব্যবহার:</strong></p>
+<p style="text-align: left;">আমরা ব্রাউজারে প্রায়ই আগের ওয়েবসাইটে ফিরে যেতে &#8220;Back&#8221; বোতামে চাপ দেই। এটাও স্ট্যাক ব্যবহার করে তৈরি করা যায়। যখন নতুন ওয়েবসাইটে যাবে তখন আগের ওয়েবসাইটটাকে স্ট্যাকের উপরে রেখে দাও, ফিরে যেতে চাইলে স্ট্যাকের উপরের ওয়েব সাইটে ফেরত গিয়ে স্ট্যাক থেকে পপ করে দাও। এভাবে তুমি তোমার সফটওয়্যারে &#8220;undo&#8221; ফিচার বানাতে পারো।</p>
+<p>প্রোগ্রামিং ল্যাংগুয়েজে ফাংশন কল করার সময় স্ট্যাকের খুব গুরুত্বপূর্ণ ব্যবহার আছে। মনে করো তুমি একটা ফাংশন func1 থেকে func2 কল করছো, সেখান থেকে আবার func3 কল করছো:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c847fb61cf3562188372" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+def func_3():
+	return 42
+
+def func_2():
+	x=20
+	y=func3()
+	return x+y
+
+def func_1():
+	x=10
+	y=func2()
+	return x+y
+
+
+print func1()</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-2">2</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-4">4</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-6">6</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-8">8</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-10">10</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-12">12</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61cf3562188372-14">14</div><div class="crayon-num" data-line="crayon-57c847fb61cf3562188372-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c847fb61cf3562188372-1"><span class="crayon-r">def</span><span class="crayon-h"> </span><span class="crayon-e">func_3</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-2"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-cn">42</span></div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-4"><span class="crayon-r">def</span><span class="crayon-h"> </span><span class="crayon-e">func_2</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-5"><span class="crayon-h">	</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-cn">20</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-6"><span class="crayon-h">	</span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-e">func3</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-7"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">x</span><span class="crayon-o">+</span><span class="crayon-i">y</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-8">&nbsp;</div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-9"><span class="crayon-r">def</span><span class="crayon-h"> </span><span class="crayon-e">func_1</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-10"><span class="crayon-h">	</span><span class="crayon-v">x</span><span class="crayon-o">=</span><span class="crayon-cn">10</span></div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-11"><span class="crayon-h">	</span><span class="crayon-v">y</span><span class="crayon-o">=</span><span class="crayon-e">func2</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-12"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">x</span><span class="crayon-o">+</span><span class="crayon-i">y</span></div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61cf3562188372-14">&nbsp;</div><div class="crayon-line" id="crayon-57c847fb61cf3562188372-15"><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-e">func1</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0077 seconds] -->
+<p>func_1() এ কিছু লোকাল ভ্যারিয়েবল আছে। তুমি যখন func_1() থেকে func_2() কে কল করছো তখন func_1() এর সব তথ্য একটা স্ট্যাকে ঢুকিয়ে রেখে নতুন ফাংশন func_2() কে লোড করা হয়। আবার যখন func_3() কে কল করছো তখন func_2() কে স্ট্যাকে ঢুকিয়ে রাখে হবে। যদি n+1 টা ফাংশন থাকে তাহলে যখন n তম ফাংশন টা n+1 তম ফাংশনকে কল করবে তখন স্ট্যাকের চেহারাটা হবে এরকম:</p>
+<p><a href="wp-content/uploads/2015/11/stack.png"><img class="aligncenter size-full wp-image-2416" src="wp-content/uploads/2015/11/stack.png" alt="stack" width="254" height="294" /></a></p>
+<p>func_3() এর কাজ শেষ হবার পর আবার func2() কে মেমরিতে লোড করা হবে এবং স্ট্যাক থেকে পপ করে দেয়া হবে। এটাকে কল-স্ট্যাক বলা হয়। রিকার্সিভ ফাংশনও এভাবে আগের স্টেটগুলোকে স্ট্যাকে ঢুকিয়ে রাখে।</p>
+<p>হ্যাকাররা এক ধরণের আক্রমণ মাঝে মাঝে ব্যবহার করে যাকে বলা হয় &#8220;স্ট্যাক স্ম্যাশিং&#8221;। আগ্রহী হলে এই <a href="https://en.wikipedia.org/wiki/Stack_buffer_overflow" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://en.wikipedia.org/wiki/Stack_buffer_overflow', 'আর্টিকেলটা');">আর্টিকেলটা</a> পড়তে পারো।</p>
+<p style="text-align: left;">স্ট্যাকের খুবই কমন একটা ব্যবহার হলো ব্রাকেট এর ব্যালেন্স বা ভারসাম্য ঠিক আছে সেটা পরীক্ষা করা (Parenthesis Balance)। মনে করো তোমাকে একটা ব্রাকেট সিকোয়েন্স S দেয়া হলো এরকম &#8220;(({})&#8221;। তোমাকে বলতে হবে সিকোয়েন্সটার ব্যালেন্স ঠিক আছে নাকি নেই। ব্যালেন্স ঠিক থাকবে যদি নিচের শর্ত গুলো পূরণ হয়:</p>
+<ul>
+<ul>
+<li style="text-align: left;">যদি S একটা ০ দৈর্ঘ্যের স্ট্রিং হয়।</li>
+<li style="text-align: left;">যদি A আর B দুইটা ব্যালেন্সড সিকোয়েন্স হয় তাহলে AB ও একটা ব্যালেন্সড সিকোয়েন্স। যেমন GA=&#8221;(){}&#8221; এবং B=&#8221;()&#8221; দুইটা ব্যালেন্সড সিকোয়েন্স হলে AB=&#8221;(){}()&#8221; ও ব্যালেন্সড।</li>
+<li style="text-align: left;">যদি S একটা ব্যালেন্সড সিকোয়েন্স হয় তাহলে (S) অথবা {S} ও ব্যালেন্সড। যেমন S=&#8221;{}()&#8221; ব্যালেন্সড হলে (S)=({}()) এটাও একটা ব্যালেন্সড সিকোয়েন্স।</li>
+</ul>
+</ul>
+<p>কিছু ভারসাম্যহীন সিকোয়েন্স হলো &#8220;((&#8221; , &#8220;({)}&#8221;, ()(}&#8221; ইত্যাদি।</p>
+<p><strong>&#8220;(&#8220;</strong> আর <strong>&#8220;{&#8220;</strong> কে আমরা বলবো &#8220;ওপেন ব্রাকেট&#8221;, আর <strong>&#8220;)&#8221;</strong> এবং <strong>&#8220;}&#8221;</strong> কে বলবো &#8220;ক্লোজিং ব্রাকেট&#8221;।</p>
+<p>এখন আমরা S=&#8221;(({})&#8221; ব্যালেন্সড নাকি পরীক্ষা করবো স্ট্যাক ব্যবহার করে। আমরা বাম থেকে ডানে একটা একটা ক্যারেকটার নিয়ে কাজ করবো। কোনো &#8220;ওপেন ব্রাকেট&#8221; পেলেই সেটাকে স্ট্যাকে পুশ করবো।</p>
+<p>এই সিকোয়েন্সের প্রথম ক্যারেকটার <strong>&#8220;(&#8220;</strong>, আমরা এটাকে একটা স্ট্যাকে পুশ করবো।</p>
+<p><a href="wp-content/uploads/2015/11/stack21.png"><img class="aligncenter size-full wp-image-2418" src="wp-content/uploads/2015/11/stack21.png" alt="stack2(1)" width="274" height="64" /></a></p>
+<p>২য় এবং ৩য় ক্যারেকটার হলো <strong>&#8220;(&#8220;</strong> এবং <strong>&#8220;{&#8220;</strong>। এদেরকেও পুশ করবো:<br />
+<a href="wp-content/uploads/2015/11/stack6.png"><img class="aligncenter size-full wp-image-2421" src="wp-content/uploads/2015/11/stack6.png" alt="stack6" width="703" height="278" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/11/stack6.png 703w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/11/stack6-300x119.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></a></p>
+<p>পরের ক্যারেকটারটা হলো <strong>&#8220;}&#8221;</strong>। ক্লোজিং ব্রাকেট যখন পাবো তখন আমরা দেখবো স্ট্যাকের উপরে কি আছে:</p>
+<ul>
+<li>যদি স্ট্যাকটা খালি হয় তাহলে সিকোয়েন্সটা ব্যালেন্সড না।</li>
+<li>যদি বর্তমান ক্যারেকটারটা <strong>&#8220;}&#8221;</strong> হয় তাহলে স্ট্যাকের উপরে অবশ্যই <strong>&#8220;{&#8220;</strong> থাকতে হবে।</li>
+<li>যদি বর্তমান ক্যারেকটারটা <strong>&#8220;)&#8221;</strong> হয় তাহলে স্ট্যাকের উপরে অবশ্যই <strong>&#8220;(&#8220;</strong> থাকতে হবে।</li>
+</ul>
+<p>আমাদের স্ট্যাকের উপরে <strong>&#8220;{&#8220;</strong> আছে যেটা <strong>&#8220;}&#8221;</strong> এর সাথে ম্যাচ করে। আমরা <strong>&#8220;}&#8221;</strong> নিয়ে কিছু করবো না কিন্তু <strong>&#8220;{&#8220;</strong> কে স্ট্যাকের উপর থেকে পপ করে দিবো।</p>
+<p><a href="wp-content/uploads/2015/11/stack3.png"><img class="aligncenter size-full wp-image-2419" src="wp-content/uploads/2015/11/stack3.png" alt="stack3" width="274" height="154" /></a></p>
+<p>শেষ ক্যারেকটারটা হলো <strong>&#8220;)&#8221;</strong> যেটা <strong>&#8220;(&#8220;</strong> এর সাথে ম্যাচ করে, আবার আমরা পপ করবো:</p>
+<p><a href="wp-content/uploads/2015/11/stack21.png"><img class="aligncenter size-full wp-image-2418" src="wp-content/uploads/2015/11/stack21.png" alt="stack2(1)" width="274" height="64" /></a></p>
+<p>সব কাজ শেষে দেখা যাচ্ছে স্ট্যাকে এখনো একটা ব্রাকেট থেকে গেছে যেটা কারো সাথে মিলানো যাচ্ছে না! তারমানে আমাদের ব্রাকেট সিকোয়েন্সটা ব্যালেন্সড না। ব্যালেন্সড হলে সব ক্যারেকটার নিয়ে কাজ করার পর অবশ্যই স্ট্যাক খালি হয়ে যেত।</p>
+<p>আমরা স্ট্যাক এর কোড ইতিমধ্যেই লিখেছি, এবার ব্রাকেট ব্যালেন্স করার কোডটা লিখে ফেলি:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c847fb61d07370716130" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+def checkBalance(s):
+	mystack=Stack(len(s))
+	if s=="":
+		return True
+	for c in s:
+		if c=="(" or c=="{": 
+			mystack.push(c) #push the opening bracket
+		else:
+			if mystack.is_empty(): 
+				return False
+			if c=="{" and mystack.peek()!="}": #the brackets dont match
+				return False
+			if c=="(" and mystack.peek()!=")": #the brackets dont matchs
+				return False
+			mystack.pop() #pop matching brackets
+	
+	if mystack.is_empty(): #stack must be empty at the end
+		return True
+	return False
+
+
+
+print checkBalance("(){}")
+print checkBalance("()(((")
+print checkBalance("()(}")</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-2">2</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-4">4</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-6">6</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-8">8</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-10">10</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-12">12</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-14">14</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-16">16</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-18">18</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-20">20</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-22">22</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c847fb61d07370716130-24">24</div><div class="crayon-num" data-line="crayon-57c847fb61d07370716130-25">25</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c847fb61d07370716130-1"><span class="crayon-r">def</span><span class="crayon-h"> </span><span class="crayon-e">checkBalance</span><span class="crayon-sy">(</span><span class="crayon-v">s</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-2"><span class="crayon-h">	</span><span class="crayon-v">mystack</span><span class="crayon-o">=</span><span class="crayon-e">Stack</span><span class="crayon-sy">(</span><span class="crayon-k ">len</span><span class="crayon-sy">(</span><span class="crayon-v">s</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-3"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">s</span><span class="crayon-o">==</span><span class="crayon-s">""</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-4"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">True</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-5"><span class="crayon-h">	</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-i">c</span><span class="crayon-h"> </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">s</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-6"><span class="crayon-h">		</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">c</span><span class="crayon-o">==</span><span class="crayon-s">"("</span><span class="crayon-h"> </span><span class="crayon-st">or</span><span class="crayon-h"> </span><span class="crayon-v">c</span><span class="crayon-o">==</span><span class="crayon-s">"{"</span><span class="crayon-o">:</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-7"><span class="crayon-h">			</span><span class="crayon-v">mystack</span><span class="crayon-sy">.</span><span class="crayon-e">push</span><span class="crayon-sy">(</span><span class="crayon-v">c</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c">#push the opening bracket</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-8"><span class="crayon-h">		</span><span class="crayon-st">else</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-9"><span class="crayon-h">			</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">mystack</span><span class="crayon-sy">.</span><span class="crayon-e">is_empty</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-10"><span class="crayon-h">				</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">False</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-11"><span class="crayon-h">			</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">c</span><span class="crayon-o">==</span><span class="crayon-s">"{"</span><span class="crayon-h"> </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-v">mystack</span><span class="crayon-sy">.</span><span class="crayon-e">peek</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">!=</span><span class="crayon-s">"}"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-c">#the brackets dont match</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-12"><span class="crayon-h">				</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">False</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-13"><span class="crayon-h">			</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">c</span><span class="crayon-o">==</span><span class="crayon-s">"("</span><span class="crayon-h"> </span><span class="crayon-st">and</span><span class="crayon-h"> </span><span class="crayon-v">mystack</span><span class="crayon-sy">.</span><span class="crayon-e">peek</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">!=</span><span class="crayon-s">")"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-c">#the brackets dont matchs</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-14"><span class="crayon-h">				</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">False</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-15"><span class="crayon-h">			</span><span class="crayon-v">mystack</span><span class="crayon-sy">.</span><span class="crayon-e">pop</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-c">#pop matching brackets</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-16"><span class="crayon-h">	</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-17"><span class="crayon-h">	</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">mystack</span><span class="crayon-sy">.</span><span class="crayon-e">is_empty</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-c">#stack must be empty at the end</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-18"><span class="crayon-h">		</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">True</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-19"><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-t">False</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-20">&nbsp;</div><div class="crayon-line" id="crayon-57c847fb61d07370716130-21">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-22">&nbsp;</div><div class="crayon-line" id="crayon-57c847fb61d07370716130-23"><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-e">checkBalance</span><span class="crayon-sy">(</span><span class="crayon-s">"(){}"</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c847fb61d07370716130-24"><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-e">checkBalance</span><span class="crayon-sy">(</span><span class="crayon-s">"()((("</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c847fb61d07370716130-25"><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-e">checkBalance</span><span class="crayon-sy">(</span><span class="crayon-s">"()(}"</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0172 seconds] -->
+<p>&nbsp;</p>
+<p>অ্যালগোরিদমটা বুঝেছো নাকি পরীক্ষা করতে <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=614" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=614', 'UVA 674');">UVA 674</a> প্রবলেমটা সমাধান করে ফেলো।</p>
+<p>স্ট্যাকের আরেকটা গুরুত্বপূর্ণ ব্যবহার হলো গাণিতিক ইকুয়েশনের মান বের করা, যেমন (1+(2+5)*3)+(5*7) এরকম একটা ইকুয়েশন দেয়া থাকলে মান বের করা খুব সহজ না। কিন্তু <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://en.wikipedia.org/wiki/Reverse_Polish_notation', 'রিভার্স পলিশ নোটেশনে');">রিভার্স পলিশ নোটেশনে</a> লিখলে স্ট্যাক দিয়ে খুব সহজে মান বের করা যায়। এটা এখন তুমি সহজেই উইকিপিডিয়া থেকে শিখে ফেলতে পারবে, আমি বিস্তারিত লিখবো না, আমার কাজ শুধু বেসিক জিনিসগুলো তোমাকে জানানো, কিন্তু ভালো করতে হলে নিজে কষ্ট করে শেখার কোনো বিকল্প নেই 🙂</p>
+<p>হ্যাপি কোডিং।</p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=indexeeae.html?p=2342></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=2342" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=2342'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%20%3A%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2342&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=2342'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%A1%E0%A6%BE%E0%A6%9F%E0%A6%BE%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%20%3A%20%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=2342&amp;summary=%e0%a6%af%e0%a7%87%e0%a6%95%e0%a7%87%e0%a6%be%e0%a6%a8%e0%a7%87%e0%a6%be%20%e0%a6%a1%e0%a6%be%e0%a6%9f%e0%a6%be%20%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0%20%e0%a6%95%e0%a7%87%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%b8%e0%a7%87%20%e0%a6%8f%e0%a6%95%e0%a6%a6...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="indexb31a.html?cat=1" rel="category">প্রোগ্রামিং</a></span><span class="tags-links">Tagged <a href="indexd492.html?tag=%e0%a6%a1%e0%a6%be%e0%a6%9f%e0%a6%be-%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%95%e0%a6%9a%e0%a6%be%e0%a6%b0" rel="tag">ডাটা স্ট্রাকচার</a>, <a href="indexa9b9.html?tag=%e0%a6%b8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%af%e0%a6%be%e0%a6%95" rel="tag">স্ট্যাক</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="index4d18.html?p=2325" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;অ্যালগোরিদম গেম থিওরি &#8211; ১</a></div><div class="nav-next"><a href="indexe264.html?p=2504" rel="next">গ্রাফ থিওরিতে হাতেখড়ি ১৩: আর্টিকুলেশন পয়েন্ট এবং ব্রিজ&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			One thought on &ldquo;<span>ডাটা স্ট্রাকচার : স্ট্যাক</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-58362" class="comment even thread-even depth-1">
+			<article id="div-comment-58362" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/a92a1fce799611c4bca5b2091e9edce4?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/a92a1fce799611c4bca5b2091e9edce4?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Arghya</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexeeae.html?p=2342#comment-58362">
+							<time datetime="২০১৫-১২-০৮T১৩:৩৯:১১+০০:০০">
+								ডিসেম্বর ৮, ২০১৫ at ১:৩৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>That problem number is &#8220;673&#8221; not &#8220;674&#8221;.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexa62d.html?p=2342&amp;replytocom=58362#respond' onclick='return addComment.moveForm( "div-comment-58362", "58362", "respond", "2342" )' aria-label='Reply to Arghya'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="indexeeae.html?p=2342#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_8101084"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_8101084', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_37");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_37" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><img class="cptch_img " src="data:image/png;base64,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" alt="image"/></span>
+					<span class="cptch_span">&nbsp;&minus;&nbsp;</span>
+					<span class="cptch_span"><img class="cptch_img " src="data:image/png;base64,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" alt="image"/></span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span"><input id="cptch_input_37" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<input type="hidden" name="cptch_result" value="guo=" />
+					<input type="hidden" name="cptch_time" value="1472743419" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='2342' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0856445504" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="141"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_6425564"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_6425564', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=2342 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 15:35:01 GMT -->
+</html>

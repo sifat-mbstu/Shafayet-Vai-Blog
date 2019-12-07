@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: ডাটা স্ট্রাকচার: ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</title>
+	<atom:link href="http://www.shafaetsplanet.com/planetcoding/?feed=rss2&#038;p=763" rel="self" type="application/rss+xml" />
+	<link>http://www.shafaetsplanet.com/planetcoding/?p=763</link>
+	<description>প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</description>
+	<lastBuildDate>Sun, 28 Aug 2016 10:10:28 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	
+	<item>
+		<title>By: সাইফ_নিলয়</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58400</link>
+		<dc:creator><![CDATA[সাইফ_নিলয়]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58400</guid>
+		<description><![CDATA[স্যার, Path Compression এর যে চিত্রটা দেখানো হয়েছে, যেখানে নিচের প্রতিটা nodes তাদের parent হিসেবে representative কে assigne করছে সেখানটাই কি e নোড ও একই ভাবে তাদের মত করে representative হিসেবে b কে ধরে নিবে না? এমন হলে সেটার depth আরো ১ কমে আসে না কি?
+
+
+#অসংখ্য ধন্যবাদ গুছানো সুন্দর টিউটোরিয়ালগুলোর জন্য।]]></description>
+		<content:encoded><![CDATA[<p>স্যার, Path Compression এর যে চিত্রটা দেখানো হয়েছে, যেখানে নিচের প্রতিটা nodes তাদের parent হিসেবে representative কে assigne করছে সেখানটাই কি e নোড ও একই ভাবে তাদের মত করে representative হিসেবে b কে ধরে নিবে না? এমন হলে সেটার depth আরো ১ কমে আসে না কি?</p>
+<p>#অসংখ্য ধন্যবাদ গুছানো সুন্দর টিউটোরিয়ালগুলোর জন্য।</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েতের ব্লগ</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58391</link>
+		<dc:creator><![CDATA[শাফায়েতের ব্লগ]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58391</guid>
+		<description><![CDATA[[&#8230;]  লিংকড লিস্ট(নতুন) স্ট্যাক ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড) ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি) [&#8230;]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;]  লিংকড লিস্ট(নতুন) স্ট্যাক ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড) ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি) [&#8230;]</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Shuvro</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58291</link>
+		<dc:creator><![CDATA[Shuvro]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58291</guid>
+		<description><![CDATA[#include 
+#define Max 100
+
+int parent[Max];
+int size;
+void makeSet(int n)
+{
+    parent[n]=n;
+    
+}
+
+int Find(int reprasentative)
+{
+    if (parent[reprasentative] == reprasentative)
+    {
+        return reprasentative;
+    }
+    return parent[reprasentative] = Find(parent[reprasentative]);
+}
+void Union(int a,int b)
+{
+    int u = Find(a);
+    int v = Find(b);
+    if(u == v)
+    {
+        printf(&quot;Frnds&quot;);
+    }
+    else parent[u]=v;
+}
+int main(int argc, const char * argv[])
+{
+    
+    for (int i=0; i &#060; size; i++)
+    {
+        makeSet(i);
+    }
+    
+    return 0;
+}]]></description>
+		<content:encoded><![CDATA[<p>#include<br />
+#define Max 100</p>
+<p>int parent[Max];<br />
+int size;<br />
+void makeSet(int n)<br />
+{<br />
+    parent[n]=n;</p>
+<p>}</p>
+<p>int Find(int reprasentative)<br />
+{<br />
+    if (parent[reprasentative] == reprasentative)<br />
+    {<br />
+        return reprasentative;<br />
+    }<br />
+    return parent[reprasentative] = Find(parent[reprasentative]);<br />
+}<br />
+void Union(int a,int b)<br />
+{<br />
+    int u = Find(a);<br />
+    int v = Find(b);<br />
+    if(u == v)<br />
+    {<br />
+        printf(&#8220;Frnds&#8221;);<br />
+    }<br />
+    else parent[u]=v;<br />
+}<br />
+int main(int argc, const char * argv[])<br />
+{</p>
+<p>    for (int i=0; i &lt; size; i++)<br />
+    {<br />
+        makeSet(i);<br />
+    }</p>
+<p>    return 0;<br />
+}</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: asif</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58257</link>
+		<dc:creator><![CDATA[asif]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58257</guid>
+		<description><![CDATA[Could you please give me c++ implementation??]]></description>
+		<content:encoded><![CDATA[<p>Could you please give me c++ implementation??</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Nayan Ghosh</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58242</link>
+		<dc:creator><![CDATA[Nayan Ghosh]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58242</guid>
+		<description><![CDATA[I want c++]]></description>
+		<content:encoded><![CDATA[<p>I want c++</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Abdulla</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58199</link>
+		<dc:creator><![CDATA[Abdulla]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58199</guid>
+		<description><![CDATA[Please help.....
+What&#039;s wrong with my code?
+
+http://pastebin.com/nyMEgfcQ]]></description>
+		<content:encoded><![CDATA[<p>Please help&#8230;..<br />
+What&#8217;s wrong with my code?</p>
+<p><a href="http://pastebin.com/nyMEgfcQ" rel="nofollow">http://pastebin.com/nyMEgfcQ</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Joy Iftekhar</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58167</link>
+		<dc:creator><![CDATA[Joy Iftekhar]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-58167</guid>
+		<description><![CDATA[can you give me the c++ code ?]]></description>
+		<content:encoded><![CDATA[<p>can you give me the c++ code ?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: অর্নব সাজ্জাদ</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-4301</link>
+		<dc:creator><![CDATA[অর্নব সাজ্জাদ]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-4301</guid>
+		<description><![CDATA[যদিও গালে তুলে খাইয়ে দেয়া হয় তবুও একটা প্রবলেম এ এটার ব্যবহার দেখায়ে দিলে কেমন হয়?]]></description>
+		<content:encoded><![CDATA[<p>যদিও গালে তুলে খাইয়ে দেয়া হয় তবুও একটা প্রবলেম এ এটার ব্যবহার দেখায়ে দিলে কেমন হয়?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: mbesuwas</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-541</link>
+		<dc:creator><![CDATA[mbesuwas]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-541</guid>
+		<description><![CDATA[valo lkisen aro kisu details likle valo hoto......]]></description>
+		<content:encoded><![CDATA[<p>valo lkisen aro kisu details likle valo hoto&#8230;&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: ডাটা স্ট্রাকচার: ডিসজয়েন্ট সেট &#187; OnnoRokom Software Ltd.</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=763#comment-539</link>
+		<dc:creator><![CDATA[ডাটা স্ট্রাকচার: ডিসজয়েন্ট সেট &#187; OnnoRokom Software Ltd.]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=763#comment-539</guid>
+		<description><![CDATA[[...] আরে জানতে চাইলে দেখুন: topcoder wiki shafaetsplanet [...]]]></description>
+		<content:encoded><![CDATA[<p>[&#8230;] আরে জানতে চাইলে দেখুন: topcoder wiki shafaetsplanet [&#8230;]</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

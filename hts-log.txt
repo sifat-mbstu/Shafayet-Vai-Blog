@@ -1,0 +1,294 @@
+HTTrack3.48-22+htsswf+htsjava launched on Thu, 01 Sep 2016 21:21:46 at http://www.shafaetsplanet.com/planetcoding/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://www.shafaetsplanet.com/planetcoding/ -O1 "C:\My Web Sites\Algo" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+21:22:01	Warning: 	Note: due to www.shafaetsplanet.com remote robots.txt rules, links beginning with these path will be forbidden: /muri/, /scr/ (see in the options to disable this)
+21:24:21	Error: 	"Method Not Allowed" (405) at link www.shafaetsplanet.com/planetcoding/xmlrpc.php (from www.shafaetsplanet.com/planetcoding/)
+21:28:20	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/POST (from www.shafaetsplanet.com/planetcoding/)
+21:28:20	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/GET (from www.shafaetsplanet.com/planetcoding/)
+21:32:11	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?author=1 (from www.shafaetsplanet.com/planetcoding/)
+21:38:00	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/planetcoding/?p=2822 (from www.shafaetsplanet.com/planetcoding/)
+22:01:11	Warning: 	file not stored in cache due to bogus state (broken size, expected 372426 got 372137): www.shafaetsplanet.com/planetcoding/wp-content/uploads/2014/08/2014-08-19-12.22.10.jpg
+22:04:25	Warning: 	file not stored in cache due to bogus state (broken size, expected 283370 got 282348): www.shafaetsplanet.com/planetcoding/wp-content/uploads/2014/08/2014-08-19-17.29.35.jpg
+22:07:56	Warning: 	file not stored in cache due to bogus state (broken size, expected 242890 got 240948): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58306
+22:09:06	Warning: 	file not stored in cache due to bogus state (broken size, expected 202410 got 198155): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=4986
+22:10:47	Warning: 	file not stored in cache due to bogus state (broken size, expected 105258 got 105179): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=4992
+22:11:52	Warning: 	file not stored in cache due to bogus state (broken size, expected 178122 got 176836): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58307
+22:13:46	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/page/2 (from www.shafaetsplanet.com/planetcoding/?paged=2)
+22:19:35	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/wp-content/themes/accesspress-staple/img/close-btn.svg (from www.shafaetsplanet.com/planetcoding/wp-content/themes/accesspress-staple/css/responsive-nav.css)
+22:19:36	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/wp-content/themes/accesspress-staple/img/close-btn.png (from www.shafaetsplanet.com/planetcoding/wp-content/themes/accesspress-staple/css/responsive-nav.css)
+22:19:40	Warning: 	File not parsed, looks like binary: www.shafaetsplanet.com/planetcoding/wp-content/themes/accesspress-staple/fonts/fontawesome-webfont.woff2?v=4.4.0
+22:19:48	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2804
+22:19:48	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2804 to http://www.shafaetsplanet.com/planetcoding/?page_id=2804
+22:19:52	Warning: 	Retry after error -5 (error:00000001:lib(0):func(0):reason(1)) at link https://d3nekkt1lmmhms.cloudfront.net/printfriendly.js (from www.shafaetsplanet.com/planetcoding/?page_id=2804)
+22:19:56	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2
+22:19:56	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2 to http://www.shafaetsplanet.com/planetcoding/?page_id=2
+22:20:39	Warning: 	file not stored in cache due to bogus state (broken size, expected 153232 got 134227): www.shafaetsplanet.com/planetcoding/?p=1831&replytocom=57800
+22:23:57	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/www.shafaetsplanet.com/planetcoding/?p=604 (from www.shafaetsplanet.com/planetcoding/?p=1500)
+22:24:13	Error: 	"Not Found" (404) at link www.infopulse.com//Global/News_2012/%d0%90%d0%a1%d0%9c-%d0%86%d0%a1%d0%a0%d0%a1/IMG_1953.jpg (from www.shafaetsplanet.com/planetcoding/?p=1400)
+22:24:13	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?p=879 (from www.shafaetsplanet.com/planetcoding/?p=1400)
+22:24:13	Error: 	"Forbidden" (403) at link www.shafaetsplanet.com/planetcoding/lightoj.com (from www.shafaetsplanet.com/planetcoding/?p=1400)
+22:26:33	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/Triangle partitioning (from www.shafaetsplanet.com/planetcoding/?p=2295)
+22:26:36	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/(http://www.nhspc.org/how-to) (from www.shafaetsplanet.com/planetcoding/?p=2252)
+22:26:37	Error: 	"Not Found" (404) at link www.mpower-social.com/sites/default/files/styles/thumbnail/public/15_dr._mehdi_hasan_1.jpg (from www.shafaetsplanet.com/planetcoding/?p=1437)
+22:37:31	Error: 	"Not Found" (404) at link gezeiten.org/public/tikz/graphviz-digraph.png (from www.shafaetsplanet.com/planetcoding/?p=211)
+22:37:50	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/www.shafaetsplanet.com/planetcoding/?p=2044 (from www.shafaetsplanet.com/planetcoding/?p=604)
+22:37:51	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?p=639 (from www.shafaetsplanet.com/planetcoding/?p=604)
+22:39:03	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/www.shafaetsplanet.com/planetcoding/?page_id=2 (from www.shafaetsplanet.com/planetcoding/?p=2195)
+22:39:59	Warning: 	Retry after error -4 (No data (connection closed)) at link www.shafaetsplanet.com/planetcoding/?p=521&replytocom=5100 (from www.shafaetsplanet.com/planetcoding/?p=521)
+22:44:01	Warning: 	Retry after error -4 (Incorrect length (198155 Bytes, 202410 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=4986 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:44:01	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=4991 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:44:01	Warning: 	Retry after error -4 (Incorrect length (105179 Bytes, 105258 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=4992 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:44:06	Warning: 	Retry after error -4 (Incorrect length (377404 Bytes, 406994 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=57798 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:45:02	Warning: 	Retry after error -4 (Incorrect length (240948 Bytes, 242890 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58306 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:46:01	Warning: 	Retry after error -4 (Incorrect length (176836 Bytes, 178122 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58307 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:47:33	Warning: 	Retry after error -4 (Incorrect length (146348 Bytes, 153834 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58434 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+22:49:06	Warning: 	Retry after error -4 (Incorrect length (31238 Bytes, 33112 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=57809 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:49:43	Warning: 	Retry after error -4 (No data (connection closed)) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=57861 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:49:48	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=57863 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:49:55	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=57862 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:50:08	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=57946 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:50:17	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=57990 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:50:30	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58019 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:50:38	Warning: 	file not stored in cache due to bogus state (broken size, expected 323850 got 319076): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=57798
+22:50:39	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58033 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:05	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58055 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:11	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58056 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:15	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58324 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:21	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58325 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:24	Warning: 	file not stored in cache due to bogus state (broken size, expected 178122 got 175988): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58434
+22:51:24	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58327 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:29	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58386 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:31	Warning: 	Retry after error -4 (Connect Error) at link www.shafaetsplanet.com/planetcoding/?p=1557&replytocom=58422 (from www.shafaetsplanet.com/planetcoding/?p=1557)
+22:51:40	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/www.shafaetsplanet.com/planetcoding/?p=1557 (from www.shafaetsplanet.com/planetcoding/?p=1591)
+22:53:12	Warning: 	file not stored in cache due to bogus state (broken size, expected 404730 got 378044): www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58306
+22:53:15	Warning: 	Retry after error -4 (Incorrect length (134227 Bytes, 153232 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1831&replytocom=57800 (from www.shafaetsplanet.com/planetcoding/?p=1831)
+22:53:30	Warning: 	Retry after error -4 (Incorrect length (372137 Bytes, 372426 expected)) at link www.shafaetsplanet.com/planetcoding/wp-content/uploads/2014/08/2014-08-19-12.22.10.jpg (from www.shafaetsplanet.com/planetcoding/?p=1961)
+22:53:30	Warning: 	Retry after error -4 (Incorrect length (282348 Bytes, 283370 expected)) at link www.shafaetsplanet.com/planetcoding/wp-content/uploads/2014/08/2014-08-19-17.29.35.jpg (from www.shafaetsplanet.com/planetcoding/?p=1961)
+22:55:26	Error: 	"Not Found" (404) at link www1.cs.columbia.edu/~zeph/3203s04/images/EratosthenesSieve.gif (from www.shafaetsplanet.com/planetcoding/?p=624)
+22:55:51	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/www.topcoder.com/stat?c=problem_statement&pm=2013 (from www.shafaetsplanet.com/planetcoding/?p=600)
+22:56:20	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/wp-content/uploads/2014/10/Quantum_entangled_zps6af353df.jpg (from www.shafaetsplanet.com/planetcoding/?p=2130)
+22:56:22	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/ (from connect.facebook.net/en_US/sdk.js)
+22:56:22	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/dialog/ (from connect.facebook.net/en_US/sdk.js)
+22:56:22	Error: 	"Bad Request" (400) at link www.shafaetsplanet.com/planetcoding/%s/profile.php?id=%s (from connect.facebook.net/en_US/sdk.js)
+22:56:26	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/page/3 (from www.shafaetsplanet.com/planetcoding/?paged=3)
+22:56:26	Warning: 	Retry after error -5 (error:00000001:lib(0):func(0):reason(1)) at link https://d3nekkt1lmmhms.cloudfront.net/printfriendly.js (from www.shafaetsplanet.com/planetcoding/?page_id=2804)
+22:56:32	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2823
+22:56:32	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2823 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2823&feed=rss2
+22:56:33	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2823
+22:56:33	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2823 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2823
+22:56:34	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2824
+22:56:34	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2824 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2824&feed=rss2
+22:56:35	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2824
+22:56:35	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2824 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2824
+22:56:36	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2825
+22:56:36	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2825 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2825&feed=rss2
+22:56:38	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2825
+22:56:38	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2825 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2825
+22:56:39	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2826
+22:56:39	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2826 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2826&feed=rss2
+22:56:39	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2826
+22:56:39	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2826 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2826
+22:56:41	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2828
+22:56:41	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2828 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2828&feed=rss2
+22:56:41	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2828
+22:56:41	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2828 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2828
+22:56:41	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2835
+22:56:41	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2835 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2835&feed=rss2
+22:56:43	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2835
+22:56:43	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2835 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2835
+22:57:04	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2623
+22:57:04	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2623 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2623&feed=rss2
+22:57:06	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2623
+22:57:06	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2623 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2623
+22:57:06	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2626
+22:57:06	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2626 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2626&feed=rss2
+22:57:08	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2626
+22:57:08	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2626 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2626
+22:57:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2627
+22:57:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2627 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2627&feed=rss2
+22:57:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2627
+22:57:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2627 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2627
+22:57:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1403
+22:57:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1403 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1403&feed=rss2
+22:57:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1403
+22:57:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1403 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1403
+22:57:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1408
+22:57:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1408 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1408&feed=rss2
+22:57:14	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1408
+22:57:14	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1408 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1408
+22:57:19	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1410
+22:57:19	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1410 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1410&feed=rss2
+22:57:19	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1410
+22:57:19	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1410 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1410
+22:57:19	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1412
+22:57:19	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1412 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1412&feed=rss2
+22:57:19	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1412
+22:57:19	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1412 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1412
+22:57:19	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1414
+22:57:19	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1414 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1414&feed=rss2
+22:57:19	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1414
+22:57:19	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1414 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1414
+22:57:20	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?tag=%e0%a6%97%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%ab-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a6%bf/page/2 (from www.shafaetsplanet.com/planetcoding/?tag=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB-%E0%A6%A5%E0%A6%BF%E0%A6%93%E0%A6%B0%E0%A6%BF&paged=2)
+22:57:26	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2783
+22:57:26	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2783 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2783&feed=rss2
+22:57:26	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2783
+22:57:26	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2783 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2783
+22:57:26	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2788
+22:57:26	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2788 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2788&feed=rss2
+22:57:26	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2788
+22:57:26	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2788 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2788
+22:57:26	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2748
+22:57:26	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2748 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2748&feed=rss2
+22:57:27	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2748
+22:57:27	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2748 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2748
+22:57:27	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2764
+22:57:27	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2764 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2764&feed=rss2
+22:57:28	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2764
+22:57:28	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2764 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2764
+22:57:30	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2694
+22:57:30	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2694 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2694&feed=rss2
+22:57:30	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2694
+22:57:30	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2694 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2694
+22:57:31	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2695
+22:57:31	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2695 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2695&feed=rss2
+22:57:32	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2695
+22:57:32	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2695 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2695
+22:57:33	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2698
+22:57:33	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2698 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2698&feed=rss2
+22:57:34	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2698
+22:57:34	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2698 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2698
+22:57:36	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2703
+22:57:36	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2703 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2703&feed=rss2
+22:57:36	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2703
+22:57:36	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2703 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2703
+22:57:36	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2706
+22:57:36	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2706 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2706&feed=rss2
+22:57:37	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2706
+22:57:37	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2706 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2706
+22:57:39	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1444
+22:57:39	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1444 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1444&feed=rss2
+22:57:39	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1444
+22:57:39	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1444 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1444
+22:57:39	Warning: 	Retry after error -2 (Receive Time Out) at link tlab.it/en/allegati/help_en_online/tlab_image/in_out_degree.jpg (from www.shafaetsplanet.com/planetcoding/?p=2000)
+22:57:52	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2657
+22:57:52	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2657 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2657&feed=rss2
+22:57:53	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2657
+22:57:53	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2657 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2657
+22:57:56	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/wp-content/uploads/2010/12/list21-300x96.png (from www.shafaetsplanet.com/planetcoding/?attachment_id=2657)
+22:57:57	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2662
+22:57:57	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2662 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2662&feed=rss2
+22:58:01	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2662
+22:58:01	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2662 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2662
+22:58:08	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?p=388 (from www.shafaetsplanet.com/planetcoding/?p=353)
+22:58:20	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/?p=353&replytocom=60 (from www.shafaetsplanet.com/planetcoding/?p=353)
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2658
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2658 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2658&feed=rss2
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2658
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2658 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2658
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2667
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2667 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2667&feed=rss2
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2667
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2667 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2667
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2670
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2670 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2670&feed=rss2
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2670
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2670 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2670
+23:00:02	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2671
+23:00:02	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2671 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2671&feed=rss2
+23:00:05	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2671
+23:00:05	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2671 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2671
+23:00:05	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2672
+23:00:05	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2672 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2672&feed=rss2
+23:00:06	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2672
+23:00:06	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2672 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2672
+23:00:09	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2769
+23:00:09	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2769 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2769&feed=rss2
+23:00:09	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2769
+23:00:09	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2769 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2769
+23:00:09	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2770
+23:00:09	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2770 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2770&feed=rss2
+23:00:09	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2770
+23:00:09	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2770 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2770
+23:00:09	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2771
+23:00:09	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2771 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2771&feed=rss2
+23:00:10	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2771
+23:00:10	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2771 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2771
+23:00:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2772
+23:00:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2772 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2772&feed=rss2
+23:00:12	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2772
+23:00:12	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2772 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2772
+23:00:13	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2676
+23:00:13	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2676 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2676&feed=rss2
+23:00:18	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2676
+23:00:18	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2676 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2676
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2678
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2678 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2678&feed=rss2
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2678
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2678 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2678
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2679
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2679 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2679&feed=rss2
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2679
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2679 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2679
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2685
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2685 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2685&feed=rss2
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2685
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2685 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2685
+23:00:21	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2686
+23:00:21	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2686 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2686&feed=rss2
+23:00:25	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2686
+23:00:25	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2686 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2686
+23:00:30	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1483
+23:00:30	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1483 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1483&feed=rss2
+23:00:30	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1483
+23:00:30	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1483 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1483
+23:00:30	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1520
+23:00:30	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1520 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1520&feed=rss2
+23:00:30	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1520
+23:00:30	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1520 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1520
+23:00:38	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=4991 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+23:00:42	Warning: 	Retry after error -4 (Incorrect length (319076 Bytes, 323850 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=57798 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+23:00:42	Warning: 	Retry after error -4 (Incorrect length (378044 Bytes, 404730 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58306 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+23:00:42	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58307 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+23:01:47	Warning: 	Retry after error -4 (Incorrect length (175988 Bytes, 178122 expected)) at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58434 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+23:03:41	Warning: 	Retry after error -4 (Connect Error) at link seagullfiles.phpkitchen.com/images/PSG_MVC.gif (from www.shafaetsplanet.com/planetcoding/?p=870)
+23:05:08	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1532
+23:05:08	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1532 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1532&feed=rss2
+23:05:08	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1532
+23:05:08	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1532 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1532
+23:05:08	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1459
+23:05:08	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=1459 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1459&feed=rss2
+23:05:08	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=1459
+23:05:08	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=1459 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=1459
+23:05:10	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/page/4 (from www.shafaetsplanet.com/planetcoding/?paged=4)
+23:05:10	Error: 	"error:00000001:lib(0):func(0):reason(1)" (-5) after 2 retries at link https://d3nekkt1lmmhms.cloudfront.net/printfriendly.js (from www.shafaetsplanet.com/planetcoding/?page_id=2804)
+23:05:10	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2813
+23:05:10	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2813 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2813&feed=rss2
+23:05:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2813
+23:05:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2813 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2813
+23:05:11	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2815
+23:05:11	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2815 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2815&feed=rss2
+23:05:13	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2815
+23:05:13	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2815 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2815
+23:05:14	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2814
+23:05:14	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?feed=rss2&p=2814 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2814&feed=rss2
+23:05:14	Warning: 	Moved Permanently for www.shafaetsplanet.com/planetcoding/?p=2814
+23:05:14	Warning: 	File has moved from www.shafaetsplanet.com/planetcoding/?p=2814 to http://www.shafaetsplanet.com/planetcoding/?attachment_id=2814
+23:05:35	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?cat=35/page/2 (from www.shafaetsplanet.com/planetcoding/?cat=35&paged=2)
+23:05:38	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?cat=1/page/2 (from www.shafaetsplanet.com/planetcoding/?cat=1&paged=2)
+23:07:02	Warning: 	Retry after error -2 (Receive Time Out) at link www.shafaetsplanet.com/planetcoding/?p=506&replytocom=72 (from www.shafaetsplanet.com/planetcoding/?p=506)
+23:08:54	Error: 	"Receive Time Out" (-2) after 2 retries at link www.shafaetsplanet.com/planetcoding/?p=1679&replytocom=58307 (from www.shafaetsplanet.com/planetcoding/?p=1679)
+23:10:18	Warning: 	Retry after error -4 (Connect Error) at link seagullfiles.phpkitchen.com/images/PSG_MVC.gif (from www.shafaetsplanet.com/planetcoding/?p=870)
+23:10:19	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/page/5 (from www.shafaetsplanet.com/planetcoding/?paged=5)
+23:10:41	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?cat=35/page/3 (from www.shafaetsplanet.com/planetcoding/?cat=35&paged=3)
+23:10:42	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?cat=1/page/3 (from www.shafaetsplanet.com/planetcoding/?cat=1&paged=3)
+23:11:26	Error: 	"Connect Error" (-4) after 2 retries at link seagullfiles.phpkitchen.com/images/PSG_MVC.gif (from www.shafaetsplanet.com/planetcoding/?p=870)
+23:11:29	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?cat=35/page/4 (from www.shafaetsplanet.com/planetcoding/?cat=35&paged=4)
+23:11:33	Error: 	"Not Found" (404) at link www.shafaetsplanet.com/planetcoding/?cat=1/page/5 (from www.shafaetsplanet.com/planetcoding/?cat=1&paged=5)
+
+HTTrack Website Copier/3.48-22 mirror complete in 1 hours 49 minutes 47 seconds : 1889 links scanned, 1713 files written (141669872 bytes overall) [47488547 bytes received at 7209 bytes/sec], 141305339 bytes transferred using HTTP compression in 1696 files, ratio 30%, 7.8 requests per connection
+(39 errors, 244 warnings, 0 messages)

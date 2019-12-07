@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC)</title>
+	<atom:link href="http://www.shafaetsplanet.com/planetcoding/?feed=rss2&#038;p=870" rel="self" type="application/rss+xml" />
+	<link>http://www.shafaetsplanet.com/planetcoding/?p=870</link>
+	<description>প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</description>
+	<lastBuildDate>Sun, 28 Aug 2016 10:10:28 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	
+	<item>
+		<title>By: Mashpy Says</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-418</link>
+		<dc:creator><![CDATA[Mashpy Says]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-418</guid>
+		<description><![CDATA[ব্লগের পোস্টটি এবং মন্তব্যগুলো MVC সম্পর্কে ক্লিয়ার ধারনা নিতে সাহায্য করেছে। ধন্যবাদ।]]></description>
+		<content:encoded><![CDATA[<p>ব্লগের পোস্টটি এবং মন্তব্যগুলো MVC সম্পর্কে ক্লিয়ার ধারনা নিতে সাহায্য করেছে। ধন্যবাদ।</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Md. Abdul Munim Dibosh</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-262</link>
+		<dc:creator><![CDATA[Md. Abdul Munim Dibosh]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-262</guid>
+		<description><![CDATA[Well,discussions always help us to learn in a right way :) Please take a look at the stanford lecture given here: http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259
+I learned MVC primarily from there videos and lectures and tried to incorporate it with my ASP.NET developments.Well things need to be clarified,to me what I meant was databases or data sources are perfectly meant to be models.Yes if we think of a class that handles all the data specific operation as Model,I must say you are right.But I extracted that class from Model and added it to Controller as it also does the same,some logic needed to manipulate data perfectly.Let me explain what I said a bit clearly.
+View:User interaction/UX
+Controller: all logic goes here
+Model:only the data providers(e.g.database,a stack/queue)
+I didn&#039;t mean Model to have the class to access it should have been associated with it rather encapsulated that inside of controller.
+That&#039;s why the confusion arises.And after all these discussions I learned what you meant to say and must say yes this is the right way of course :)
+And just to add Mr.Rondhro,this is the more specific way that we follow in our office,this is nothing like so called Fat/thin,rather we consider the class responsible for Model also to be included in Controller bundle.And believe me it&#039;s the most followed practical approach. By the way thanks for your clarification.
+And Shafayet bro,keep these discussions up,this will certainly help us to become matured in tech-life.Good luck.]]></description>
+		<content:encoded><![CDATA[<p>Well,discussions always help us to learn in a right way 🙂 Please take a look at the stanford lecture given here: <a href="http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259" rel="nofollow">http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259</a><br />
+I learned MVC primarily from there videos and lectures and tried to incorporate it with my ASP.NET developments.Well things need to be clarified,to me what I meant was databases or data sources are perfectly meant to be models.Yes if we think of a class that handles all the data specific operation as Model,I must say you are right.But I extracted that class from Model and added it to Controller as it also does the same,some logic needed to manipulate data perfectly.Let me explain what I said a bit clearly.<br />
+View:User interaction/UX<br />
+Controller: all logic goes here<br />
+Model:only the data providers(e.g.database,a stack/queue)<br />
+I didn&#8217;t mean Model to have the class to access it should have been associated with it rather encapsulated that inside of controller.<br />
+That&#8217;s why the confusion arises.And after all these discussions I learned what you meant to say and must say yes this is the right way of course 🙂<br />
+And just to add Mr.Rondhro,this is the more specific way that we follow in our office,this is nothing like so called Fat/thin,rather we consider the class responsible for Model also to be included in Controller bundle.And believe me it&#8217;s the most followed practical approach. By the way thanks for your clarification.<br />
+And Shafayet bro,keep these discussions up,this will certainly help us to become matured in tech-life.Good luck.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Rondhro</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-256</link>
+		<dc:creator><![CDATA[Rondhro]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-256</guid>
+		<description><![CDATA[As far I am aware Model and Controller can be defined in multiple ways based on the logic you are planning to manipulate. You could probably choose a Fat Model and a Thin Controller or a Thin Model and Fat Controller. 
+
+A Fat model means you are allowing the model to manipulate more instructions on processing (Not only storing data) while using a less control instructions for controller (Lets say simply letting it to perform the communications while required only). On the other hand Thin Model and Fat Controller would do the opposite. When you put your more power in controller, you actually make your controller bulky and heavy to operate. Controller is the least re-usable part of MVC (In theory). I have no idea why would someone use a Framework if anyone planning to use a Thin Model and Fat Controller as the primary objective is just the opposite of it&#039;s advantage. If I have to make another controller to make my framework reusable (Fat Controller Architecture), it probably worth nothing to me.  
+
+On the other hand, A Fat Model provides more control over your data, manipulation and re-usability while letting the Controller performing least tasks for you. 
+
+I have never seen anyone defining MVC, strictly as Thin Model &#038; Fat Controller architecture like Mr. Dibosh has said. Good luck Shafaet.]]></description>
+		<content:encoded><![CDATA[<p>As far I am aware Model and Controller can be defined in multiple ways based on the logic you are planning to manipulate. You could probably choose a Fat Model and a Thin Controller or a Thin Model and Fat Controller. </p>
+<p>A Fat model means you are allowing the model to manipulate more instructions on processing (Not only storing data) while using a less control instructions for controller (Lets say simply letting it to perform the communications while required only). On the other hand Thin Model and Fat Controller would do the opposite. When you put your more power in controller, you actually make your controller bulky and heavy to operate. Controller is the least re-usable part of MVC (In theory). I have no idea why would someone use a Framework if anyone planning to use a Thin Model and Fat Controller as the primary objective is just the opposite of it&#8217;s advantage. If I have to make another controller to make my framework reusable (Fat Controller Architecture), it probably worth nothing to me.  </p>
+<p>On the other hand, A Fat Model provides more control over your data, manipulation and re-usability while letting the Controller performing least tasks for you. </p>
+<p>I have never seen anyone defining MVC, strictly as Thin Model &amp; Fat Controller architecture like Mr. Dibosh has said. Good luck Shafaet.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েত</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-255</link>
+		<dc:creator><![CDATA[শাফায়েত]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-255</guid>
+		<description><![CDATA[http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1
+
+এখানে লিখেছে: 
+&quot;&quot;The controller does not display the data in the model, it only triggers methods in the model which modify the data, and then pass the model into the view which displays the data.&quot;&quot;
+
+এটাই আমি বলতে চাচ্ছিলাম। মডেলে কিছু ম্যাথড থাকে যেগুলো ডাটা প্রসেস করে,কন্ট্রোলার প্যারামিটার পাঠিয়ে মেথডগুলো কল করে আর আউটপুট নিয়ে আসে। মডেলের কাজ শুধু ডাটা সংরক্ষণ না।
+
+(ছবিটা পাল্টে দিয়েছি,এখনকার ছবিটা বেশি পরিষ্কার)]]></description>
+		<content:encoded><![CDATA[<p><a href="http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1" rel="nofollow">http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1</a></p>
+<p>এখানে লিখেছে:<br />
+&#8220;&#8221;The controller does not display the data in the model, it only triggers methods in the model which modify the data, and then pass the model into the view which displays the data.&#8221;&#8221;</p>
+<p>এটাই আমি বলতে চাচ্ছিলাম। মডেলে কিছু ম্যাথড থাকে যেগুলো ডাটা প্রসেস করে,কন্ট্রোলার প্যারামিটার পাঠিয়ে মেথডগুলো কল করে আর আউটপুট নিয়ে আসে। মডেলের কাজ শুধু ডাটা সংরক্ষণ না।</p>
+<p>(ছবিটা পাল্টে দিয়েছি,এখনকার ছবিটা বেশি পরিষ্কার)</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: শাফায়েত</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-254</link>
+		<dc:creator><![CDATA[শাফায়েত]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-254</guid>
+		<description><![CDATA[Thanks a lot for your comment,i greatly appreciate criticisms,we all learn from mistakes.
+
+I&#039;ve taken the pic from another site. After reading your comments i&#039;ve google more and found arrow from model to view in almost every pic including wiki. According to wiki model--&gt;view association is indirect via an observer. 
+
+Now see whats written in developer.apple.com:
+
+&quot;&quot;Model objects encapsulate the data specific to an application and define the logic and computation that manipulate and process that data. &quot;&quot;
+
+and also:
+&quot;Controller objects are thus a conduit through which view objects learn about changes in model objects and vice versa. &quot;
+
+So as far as i understand model contain some methods that process the data,controller just get data from model and send it to view. Where am i wrong? Please give me some reference.
+
+Sorry if &quot;তুমি format&quot; offended you,i greatly respect my seniors for sure.]]></description>
+		<content:encoded><![CDATA[<p>Thanks a lot for your comment,i greatly appreciate criticisms,we all learn from mistakes.</p>
+<p>I&#8217;ve taken the pic from another site. After reading your comments i&#8217;ve google more and found arrow from model to view in almost every pic including wiki. According to wiki model&#8211;>view association is indirect via an observer. </p>
+<p>Now see whats written in developer.apple.com:</p>
+<p>&#8220;&#8221;Model objects encapsulate the data specific to an application and define the logic and computation that manipulate and process that data. &#8220;&#8221;</p>
+<p>and also:<br />
+&#8220;Controller objects are thus a conduit through which view objects learn about changes in model objects and vice versa. &#8221;</p>
+<p>So as far as i understand model contain some methods that process the data,controller just get data from model and send it to view. Where am i wrong? Please give me some reference.</p>
+<p>Sorry if &#8220;তুমি format&#8221; offended you,i greatly respect my seniors for sure.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Md. Abdul Munim Dibosh</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-253</link>
+		<dc:creator><![CDATA[Md. Abdul Munim Dibosh]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-253</guid>
+		<description><![CDATA[Good work.But let me notify the actual mistake in your concept.The image you have shown is not right.Model cant directly pass datas to view(no interconnection),but you showed an arrow from model to view.And model never process any data it just stores them,its the controller which takes the data from model,processes it and shows it on your view.But in controller part you said model processes data.This model is also described as:View(Presentation layer),Controller(Logic/Business layer),Model(Data layer).So all processing logic goes inside of controller.&quot;চাইলে মডেলকেও কয়েক ভাগে ভাগ করে নেয়া যায়,এক অংশে হয়তো থাকবে অ্যালগোরিদম,আরেক অংশে ডাটাবেস,ফলে কাজে আরও সুবিধা হবে।&quot;-The actual MVC pattern doesn&#039;t tell anything like this,there can&#039;t be any algo inside of model.Please learn the basics perfectly before you approach to let it learn.And also please make your blog readable for everyone.There&#039;s a little chance that each visitor is junior than you and seniors would not wish to learn from your blog.So please remove the তুমি  format! :) None of these are anything that meant to hurt you.Thanks for your great initiative.Keep it up. :D]]></description>
+		<content:encoded><![CDATA[<p>Good work.But let me notify the actual mistake in your concept.The image you have shown is not right.Model cant directly pass datas to view(no interconnection),but you showed an arrow from model to view.And model never process any data it just stores them,its the controller which takes the data from model,processes it and shows it on your view.But in controller part you said model processes data.This model is also described as:View(Presentation layer),Controller(Logic/Business layer),Model(Data layer).So all processing logic goes inside of controller.&#8221;চাইলে মডেলকেও কয়েক ভাগে ভাগ করে নেয়া যায়,এক অংশে হয়তো থাকবে অ্যালগোরিদম,আরেক অংশে ডাটাবেস,ফলে কাজে আরও সুবিধা হবে।&#8221;-The actual MVC pattern doesn&#8217;t tell anything like this,there can&#8217;t be any algo inside of model.Please learn the basics perfectly before you approach to let it learn.And also please make your blog readable for everyone.There&#8217;s a little chance that each visitor is junior than you and seniors would not wish to learn from your blog.So please remove the তুমি  format! 🙂 None of these are anything that meant to hurt you.Thanks for your great initiative.Keep it up. 😀</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: সঞ্জয় সাহা</title>
+		<link>http://www.shafaetsplanet.com/planetcoding/?p=870#comment-235</link>
+		<dc:creator><![CDATA[সঞ্জয় সাহা]]></dc:creator>
+		<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+		<guid isPermaLink="false">http://www.shafaetsplanet.com/planetcoding/?p=870#comment-235</guid>
+		<description><![CDATA[উপকারী লেখা। :)]]></description>
+		<content:encoded><![CDATA[<p>উপকারী লেখা। 🙂</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

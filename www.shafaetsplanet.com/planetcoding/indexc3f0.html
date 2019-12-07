@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=855 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 15:56:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>বিটওয়াইজ্ সিভ(Bitwise sieve) | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>বিটওয়াইজ্ সিভ(Bitwise sieve) &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,276] -->
+<meta name="description" itemprop="description" content="বিটওয়াইজ সিভ প্রাইম সংখ্যা বের করার জন্য প্রচলিত অ্যালগোরিদম Sieve of Eratosthene এ মেমরির ব্যবহার অনেক কমিয়ে আনা যায়! সাধারণ সিভে N পর্যন্ত প্রাইম জেনারেট" />
+
+<meta name="keywords" itemprop="keywords" content="গণিত,নাম্বার থিওরী,প্রাইম,বিটওয়াইজ,সিভ,অ্যালগোরিদম/প্রবলেম সলভিং,প্রোগ্রামিং" />
+
+<link rel="canonical" href="indexc3f0.html?p=855" />
+<meta property="og:title" content="বিটওয়াইজ্ সিভ(Bitwise sieve) | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=855" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="বিটওয়াইজ সিভ প্রাইম সংখ্যা বের করার জন্য প্রচলিত অ্যালগোরিদম Sieve of Eratosthene এ মেমরির ব্যবহার অনেক কমিয়ে আনা যায়! সাধারণ সিভে N পর্যন্ত প্রাইম জেনারেট করলে N সাইজের একটি অ্যারে ডিক্লেয়ার করতে হয়। অ্যরের প্রতিটি এলিমেন্ট একটি করে ফ্ল্যাগ হিসাবে কাজ করে যেটা দেখে আমরা বুঝি একটি সংখ্যা প্রাইম নাকি কম্পোজিট। বিটওয়াইজ্ সিভে আমরা ফ্ল্যাগ হিসাবে ইন্টিজার বা বুলিয়ান এর বদলে সরাসরি বিট ব্যবহার করবো। এ টিউটোরিয়াল পড়ার আগে দুটি বিষয় তোমাকে জেনে আসতে হবে ১. Sieve of Eratosthene এর সাধারণ ভার্সণ,তুমি এটা আমার এই পোস্টটি পড়ে শিখতে পারবে সহজেই। ২. সি/সি++ এ বিটওয়াইজ্ অপারেটরের ব্যবহার। এটাও খুব সহজে শিখতে পারবে এখান থেকে। টিউটোরিয়ালটির ১ম ২টি অংশ খুব ভালো করে পড়ে ফেলো,বিটমাস্ক ডিপি,বিএফএস যখন শিখবে তখন অনেক কাজে লাগবে। আশা করি এখন তুমি বিটওয়াইজ্ অপারেটর সম্পর্কে অনেক কিছু জানো,সাধারণ সিভ লিখতে কোনো সমস্যা হয়না তোমার। এবার আমরা শিখবো বিটওয়াইজ সিভ। সাধারণ সিভে status বা flag অ্যারেটার কাজ কি? এই অ্যারের ইনডেক্সের মান দেখে আমরা বলতে পারি একটি সংখ্যা প্রাইম কিনা। ধরলাম তোমার status" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="বিটওয়াইজ্ সিভ(Bitwise sieve) | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="বিটওয়াইজ সিভ প্রাইম সংখ্যা বের করার জন্য প্রচলিত অ্যালগোরিদম Sieve of Eratosthene এ মেমরির ব্যবহার অনেক কমিয়ে আনা যায়! সাধারণ সিভে N পর্যন্ত প্রাইম জেনারেট করলে N সাইজের একটি অ্যারে ডিক্লেয়ার করতে হয়। অ্যরের প্রতিটি এলিমেন্ট একটি করে ফ্ল্যাগ হিসাবে কাজ করে যেটা দেখে আমরা বুঝি একটি সংখ্যা প্রাইম নাকি কম্পোজিট। বিটওয়াইজ্ সিভে আমরা ফ্ল্যাগ হিসাবে ইন্টিজার বা বুলিয়ান এর বদলে সরাসরি বিট ব্যবহার করবো। এ টিউটোরিয়াল পড়ার আগে দুটি বিষয় তোমাকে জেনে আসতে হবে ১. Sieve of Eratosthene এর সাধারণ ভার্সণ,তুমি এটা আমার এই পোস্টটি পড়ে শিখতে পারবে সহজেই। ২. সি/সি++ এ বিটওয়াইজ্ অপারেটরের ব্যবহার। এটাও খুব সহজে শিখতে পারবে এখান থেকে। টিউটোরিয়ালটির ১ম ২টি অংশ খুব ভালো করে পড়ে ফেলো,বিটমাস্ক ডিপি,বিএফএস যখন শিখবে তখন অনেক কাজে লাগবে। আশা করি এখন তুমি বিটওয়াইজ্ অপারেটর সম্পর্কে অনেক কিছু জানো,সাধারণ সিভ লিখতে কোনো সমস্যা হয়না তোমার। এবার আমরা শিখবো বিটওয়াইজ সিভ। সাধারণ সিভে status বা flag অ্যারেটার কাজ কি? এই অ্যারের ইনডেক্সের মান দেখে আমরা বলতে পারি একটি সংখ্যা প্রাইম কিনা। ধরলাম তোমার status" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; বিটওয়াইজ্ সিভ(Bitwise sieve) Comments Feed" href="index3897.html?feed=rss2&amp;p=855" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='গ্রাফ থিওরিতে হাতেখড়ি ৭:টপোলোজিকাল সর্ট' href='indexab1b.html?p=848' />
+<link rel='next' title='সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC)' href='index9af7.html?p=870' />
+
+<link rel='shortlink' href='indexc3f0.html?p=855' />
+<link rel="alternate" type="application/json+oembed" href="indexc3d3.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D855" />
+<link rel="alternate" type="text/xml+oembed" href="index3d1f.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D855&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-855 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-855" class="post-855 post type-post status-publish format-standard hentry category-contest category-programming tag-142 tag-76 tag-61 tag-99 tag-58">
+	<header class="entry-header">
+		<h1 class="main-title"><span>বিটওয়াইজ্ সিভ(Bitwise sieve)</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="indexc3f0.html?p=855" rel="bookmark"><time class="entry-date published" datetime="২০১১-১১-০৫T১৯:১৯:৩৯+০০:০০">নভেম্বর ৫, ২০১১</time><time class="updated" datetime="2013-07-24T18:26:50+00:00">July 24, 2013</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=855'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%AC%E0%A6%BF%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%87%E0%A6%9C%E0%A7%8D%20%E0%A6%B8%E0%A6%BF%E0%A6%AD%28Bitwise%20sieve%29&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D855&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=855'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%AC%E0%A6%BF%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%87%E0%A6%9C%E0%A7%8D%20%E0%A6%B8%E0%A6%BF%E0%A6%AD%28Bitwise%20sieve%29&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=855&amp;summary=%e0%a6%ac%e0%a6%bf%e0%a6%9f%e0%a6%93%e0%a7%9f%e0%a6%be%e0%a6%87%e0%a6%9c%20%e0%a6%b8%e0%a6%bf%e0%a6%ad%20%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%87%e0%a6%ae%20%e0%a6%b8%e0%a6%82%e0%a6%96%e0%a7%8d%e0%a6%af%e0%a6%be%20%e0%a6%ac%e0%a7%87%e0%a6%b0%20%e0%a6%95%e0%a6%b0%e0%a6%be%e0%a6%b0%20%e0%a6%9c%e0...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p>বিটওয়াইজ সিভ প্রাইম সংখ্যা বের করার জন্য প্রচলিত অ্যালগোরিদম <a href="index5a14.html?p=624">Sieve of Eratosthene</a> এ মেমরির ব্যবহার অনেক কমিয়ে আনা যায়! সাধারণ সিভে N পর্যন্ত প্রাইম জেনারেট করলে N সাইজের একটি অ্যারে ডিক্লেয়ার করতে হয়। অ্যরের প্রতিটি এলিমেন্ট একটি করে ফ্ল্যাগ হিসাবে কাজ করে যেটা দেখে আমরা বুঝি একটি সংখ্যা প্রাইম নাকি কম্পোজিট। বিটওয়াইজ্ সিভে আমরা ফ্ল্যাগ হিসাবে ইন্টিজার বা বুলিয়ান এর বদলে সরাসরি বিট ব্যবহার করবো।</p>
+<p>এ টিউটোরিয়াল পড়ার আগে দুটি বিষয় তোমাকে জেনে আসতে হবে<br />
+১. Sieve of Eratosthene এর সাধারণ ভার্সণ,তুমি এটা আমার <a href="index5a14.html?p=624" title='সিভ,প্রাইম'>এই পোস্টটি</a> পড়ে শিখতে পারবে সহজেই।</p>
+<p>২. সি/সি++ এ বিটওয়াইজ্ অপারেটরের ব্যবহার। এটাও খুব সহজে শিখতে পারবে <a href="http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html', 'এখান থেকে');">এখান থেকে</a>। টিউটোরিয়ালটির ১ম ২টি অংশ খুব ভালো করে পড়ে ফেলো,বিটমাস্ক ডিপি,বিএফএস যখন শিখবে তখন অনেক কাজে লাগবে। </p>
+<p>আশা করি এখন তুমি বিটওয়াইজ্ অপারেটর সম্পর্কে অনেক কিছু জানো,সাধারণ সিভ লিখতে কোনো সমস্যা হয়না তোমার। এবার আমরা শিখবো বিটওয়াইজ সিভ।</p>
+<p>সাধারণ সিভে status বা flag অ্যারেটার কাজ কি? এই অ্যারের ইনডেক্সের মান দেখে আমরা বলতে পারি একটি সংখ্যা প্রাইম কিনা। ধরলাম তোমার status অ্যারেটা ইন্টিজার টাইপের। প্রতিটি ইন্টিজারের মধ্য আছে ৩২টি বিট। আমরা কেনো এতগুলো বিট ব্যবহার করবো খালি ০ বা ১ নির্দেশ করতে? আমরা অ্যারের যেকোনো ইনডেক্সের প্রতিটি বিট দিয়ে একটি সংখ্যা নির্দেশ করতে পারি।</p>
+<p>তুমি যখন ইন্টিজার অ্যারেতে ১-৭ পর্যন্ত প্রাইম জেনারেট কর, তোমার অ্যারের অবস্থা বাইনারিতে থাকে এরকম:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c848aa8daa6366683063" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+status[১]=০০০........০০(৩২টি শূন্য)
+status[২]=০০০........০১(৩১টি শূন্য,১টি ১)
+status[৩]=০০০........০১(৩১টি শূন্য,১টি ১)
+status[৪]=০০০........০০(৩২টি শূন্য)
+status[৫]=০০০........০১(৩১টি শূন্য,১টি ১)
+status[৬]=০০০........০০(৩২টি শূন্য)
+status[৭]=০০০........০১(৩১টি শূন্য,১টি ১)</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c848aa8daa6366683063-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8daa6366683063-2">2</div><div class="crayon-num" data-line="crayon-57c848aa8daa6366683063-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8daa6366683063-4">4</div><div class="crayon-num" data-line="crayon-57c848aa8daa6366683063-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8daa6366683063-6">6</div><div class="crayon-num" data-line="crayon-57c848aa8daa6366683063-7">7</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c848aa8daa6366683063-1"><span class="crayon-v">status</span><span class="crayon-sy">[</span>১<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০০<span class="crayon-sy">(</span>৩২টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8daa6366683063-2"><span class="crayon-v">status</span><span class="crayon-sy">[</span>২<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০১<span class="crayon-sy">(</span>৩১টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">,</span>১টি<span class="crayon-h"> </span>১<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8daa6366683063-3"><span class="crayon-v">status</span><span class="crayon-sy">[</span>৩<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০১<span class="crayon-sy">(</span>৩১টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">,</span>১টি<span class="crayon-h"> </span>১<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8daa6366683063-4"><span class="crayon-v">status</span><span class="crayon-sy">[</span>৪<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০০<span class="crayon-sy">(</span>৩২টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8daa6366683063-5"><span class="crayon-v">status</span><span class="crayon-sy">[</span>৫<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০১<span class="crayon-sy">(</span>৩১টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">,</span>১টি<span class="crayon-h"> </span>১<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8daa6366683063-6"><span class="crayon-v">status</span><span class="crayon-sy">[</span>৬<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০০<span class="crayon-sy">(</span>৩২টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8daa6366683063-7"><span class="crayon-v">status</span><span class="crayon-sy">[</span>৭<span class="crayon-sy">]</span><span class="crayon-o">=</span>০০০<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span>০১<span class="crayon-sy">(</span>৩১টি<span class="crayon-h"> </span>শূন্য<span class="crayon-sy">,</span>১টি<span class="crayon-h"> </span>১<span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0062 seconds] -->
+<p></p>
+<p>প্রতিটি ইনডেক্সে ৩১টি বিট কোনো কাজে লাগছেনা অথচ এই বিশাল সংখ্যক অব্যবহৃত বিট আমরা সহজেই কাজে লাগাতে পারি। আমরা ধরে নিবো:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c848aa8dac8539935550" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+status[০] এর
+    &gt;&gt;&gt; শূন্যতম বিট ০ এর প্রাইমালিটি নির্দেশ করে (সবথেকে ডানের বিট==০ তম বিট)    
+    &gt;&gt;&gt; ১ম বিট ১ এর প্রাইমালিটি নির্দেশ করে (সবথেকে ডানের বিট==০ তম বিট)
+    &gt;&gt;&gt; ২য় বিট ২ এর প্রাইমালিটি নির্দেশ করে
+    &gt;&gt;&gt; ৩য় বিট ৩ এর প্রাইমালিটি নির্দেশ করে 
+   .........................
+    &gt;&gt;&gt; ৩১তম বিট ৩১ এর প্রাইমালিটি নির্দেশ করে 
+
+status[১] এর
+    &gt;&gt;&gt; শূন্যতম বিট ৩২ এর প্রাইমালিটি নির্দেশ করে
+    &gt;&gt;&gt; ১ম বিট ৩৩ এর প্রাইমালিটি নির্দেশ করে
+   ...............
+
+status[২] এর
+       &gt;&gt;&gt; শূন্যতম বিট ৬৪ এর প্রাইমালিটি নির্দেশ করে 
+      &gt;&gt;&gt; ১ম বিট ৬৫ এর প্রাইমালিটি নির্দেশ করে </textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-2">2</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-4">4</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-6">6</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-8">8</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-10">10</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-12">12</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-14">14</div><div class="crayon-num" data-line="crayon-57c848aa8dac8539935550-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dac8539935550-16">16</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c848aa8dac8539935550-1"><span class="crayon-v">status</span><span class="crayon-sy">[</span>০<span class="crayon-sy">]</span><span class="crayon-h"> </span>এর</div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>শূন্যতম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>০<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে<span class="crayon-h"> </span><span class="crayon-sy">(</span>সবথেকে<span class="crayon-h"> </span>ডানের<span class="crayon-h"> </span>বিট<span class="crayon-o">==</span>০<span class="crayon-h"> </span>তম<span class="crayon-h"> </span>বিট<span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>১ম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>১<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে<span class="crayon-h"> </span><span class="crayon-sy">(</span>সবথেকে<span class="crayon-h"> </span>ডানের<span class="crayon-h"> </span>বিট<span class="crayon-o">==</span>০<span class="crayon-h"> </span>তম<span class="crayon-h"> </span>বিট<span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>২য়<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>২<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে</div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>৩য়<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>৩<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-6"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>৩১তম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>৩১<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-8">&nbsp;</div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-9"><span class="crayon-v">status</span><span class="crayon-sy">[</span>১<span class="crayon-sy">]</span><span class="crayon-h"> </span>এর</div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>শূন্যতম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>৩২<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে</div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>১ম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>৩৩<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে</div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-12"><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-14"><span class="crayon-v">status</span><span class="crayon-sy">[</span>২<span class="crayon-sy">]</span><span class="crayon-h"> </span>এর</div><div class="crayon-line" id="crayon-57c848aa8dac8539935550-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>শূন্যতম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>৬৪<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে<span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dac8539935550-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&gt;&gt;&gt;</span><span class="crayon-h"> </span>১ম<span class="crayon-h"> </span>বিট<span class="crayon-h"> </span>৬৫<span class="crayon-h"> </span>এর<span class="crayon-h"> </span>প্রাইমালিটি<span class="crayon-h"> </span>নির্দেশ<span class="crayon-h"> </span>করে<span class="crayon-h"> </span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0107 seconds] -->
+<p></p>
+<p>তাহলে ১-৭ পর্যন্ত প্রাইম জেনারেট করলে তোমার অ্যারের অবস্থা দাড়াবে:</p>
+<blockquote><p>status[১]= ০০০০&#8230;&#8230;.১০১০১১০০(মোট ৩২টি বিট) (সবথেকে ডানের বিট==০ তম বিট)</p></blockquote>
+<p>৭টি সংখ্যার কাজ একটি ইনডেক্সেই শেষ!!। শুধু ৭টি নয়,আসলে ৩১টি সংখ্যার কাজ শেষ হবে ১টি ইনডেক্স(কারণ প্রতি ইনডেক্সের ৩১টি বিট ব্যবহার করছি আমরা)। এখন প্রশ্ন হলো কোনো সংখ্যার প্রাইমালিটি কত নম্বর ইনডেক্সের কত নম্বর বিট দিয়ে নির্দেশ করা হবে? খুব সহজ, সংখ্যাটি i হলে i/৩২ নম্বর ইনডেক্সের i%৩২ নম্বর বিট আমাদের চেক করতে হবে। তাহলে i=১ হলে চেক করবো ০ নম্বর ইনডেক্সের ১ নম্বর বিট, i=৩৩ হলে চেক করবো ১ নম্বর ইনডেক্সের ১ নম্বর বিট ইত্যাদি। (শুন্য বেসড ইনডেক্সিং)</p>
+<p>কোডিং অংশ একদম সহজ। তুমি যেহেতু বিটওয়াজ অপারেটরের ব্যবহার জানো,কোনো সংখ্যার pos তম বিটে ১ বা ০ আছে নাকি সহজেই চেক করতে পারবে। pos তম বিটে নিজের ইচ্ছামত ১ বা ০ বসাতেই পারবে। আমাদের এখানে ০ বসানো দরকার নেই,১ বসাতে পারলেই চলবে। দুটি ফাংশন লিখে ফেলি:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c848aa8dafa354850529" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+bool Check(int N,int pos){return (bool)(N &amp; (1&lt;&lt;pos));}
+int Set(int N,int pos){	return N=N | (1&lt;&lt;pos);}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c848aa8dafa354850529-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8dafa354850529-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c848aa8dafa354850529-1"><span class="crayon-t">bool</span><span class="crayon-h"> </span><span class="crayon-e">Check</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-sy">,</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">pos</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-t">bool</span><span class="crayon-sy">)</span><span class="crayon-sy">(</span><span class="crayon-v">N</span><span class="crayon-h"> </span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-o">&lt;&lt;</span><span class="crayon-v">pos</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8dafa354850529-2"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-e">Set</span><span class="crayon-sy">(</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-sy">,</span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">pos</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span><span class="crayon-h">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-o">=</span><span class="crayon-v">N</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-cn">1</span><span class="crayon-o">&lt;&lt;</span><span class="crayon-v">pos</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0028 seconds] -->
+<p>এবার সিভ লিখে ফেলি:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c848aa8db02493242592" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+int N =100,prime[100]; 
+int status[100/32];
+void sieve()
+{
+     int i, j, sqrtN; 
+     sqrtN = int( sqrt( N ) );
+     for( i = 3; i &lt;= sqrtN; i += 2 ) 
+     {
+		 if( check(status[i/32],i%32)==0)
+		 {
+	 		 for( j = i*i; j &lt;= N; j += 2*i )
+			 {
+				 status[j/32]=Set(status[j/32],j % 32)   ;
+	 		 }
+		 }
+	 }
+	 puts("2");
+	 for(i=3;i&lt;=N;i+=2)
+		 if( check(status[i/32],i%32)==0)
+	 	 printf("%d\n",i);
+	 	
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-2">2</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-4">4</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-6">6</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-8">8</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-10">10</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-12">12</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-14">14</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-16">16</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-18">18</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-20">20</div><div class="crayon-num" data-line="crayon-57c848aa8db02493242592-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db02493242592-22">22</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c848aa8db02493242592-1"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-cn">100</span><span class="crayon-sy">,</span><span class="crayon-v">prime</span><span class="crayon-sy">[</span><span class="crayon-cn">100</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-2"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-cn">100</span><span class="crayon-o">/</span><span class="crayon-cn">32</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-3"><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">sieve</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-4"><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">sqrtN</span><span class="crayon-sy">;</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">sqrtN</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-e">sqrt</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-i">N</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-v">sqrtN</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-9"><span class="crayon-h">		 </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-e">check</span><span class="crayon-sy">(</span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-o">/</span><span class="crayon-cn">32</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-o">%</span><span class="crayon-cn">32</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-10"><span class="crayon-h">		 </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-11"><span class="crayon-h">	 		 </span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-o">*</span><span class="crayon-v">i</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-o">*</span><span class="crayon-i">i</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-12"><span class="crayon-h">			 </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-13"><span class="crayon-h">				 </span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">j</span><span class="crayon-o">/</span><span class="crayon-cn">32</span><span class="crayon-sy">]</span><span class="crayon-o">=</span><span class="crayon-e">Set</span><span class="crayon-sy">(</span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">j</span><span class="crayon-o">/</span><span class="crayon-cn">32</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-cn">32</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-14"><span class="crayon-h">	 		 </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-15"><span class="crayon-h">		 </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-16"><span class="crayon-h">	 </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-17"><span class="crayon-h">	 </span><span class="crayon-e">puts</span><span class="crayon-sy">(</span><span class="crayon-s">"2"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-18"><span class="crayon-h">	 </span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-o">=</span><span class="crayon-cn">3</span><span class="crayon-sy">;</span><span class="crayon-v">i</span><span class="crayon-o">&lt;=</span><span class="crayon-v">N</span><span class="crayon-sy">;</span><span class="crayon-v">i</span><span class="crayon-o">+=</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-19"><span class="crayon-h">		 </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-e">check</span><span class="crayon-sy">(</span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-o">/</span><span class="crayon-cn">32</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-o">%</span><span class="crayon-cn">32</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-20"><span class="crayon-h">	 	 </span><span class="crayon-e">printf</span><span class="crayon-sy">(</span><span class="crayon-s">"%d\n"</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c848aa8db02493242592-21"><span class="crayon-h">	 	</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db02493242592-22"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0087 seconds] -->
+<p></p>
+<p>লক্ষ্য করো,আমরা সাধারণ সিভের মত করেই সব লিখেছি,তবে status[i] এর মান চেক করার বদলে status[i/32] এর i%32 নম্বর বিটের মান চেক করেছি।<br />
+বিটওয়াইজ সিভ ব্যবহার করে ১০^৮ পর্যন্ত প্রাইম তুমি জেনারেট করে ফেলতে পারবে। সাধারণ সিভের থেকে সময় + মেমরি কম লাগবে। সাধারণ গুণ,ভাগ অপারেশনের থেকে বিটের অপারেশনগুলো দ্রুত কাজ করে। আমরা আরো কিছু অপটিমাইজেশন করতে পারি। যেমন তুমি উপরে দেয়া <a href="http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html', 'টিউটোরিয়াল');">টিউটোরিয়াল</a> পড়ে থাকলে জানো যে কাওকে ২ দিয়ে গুণ করা আর সংখ্যাটির বাইনারিকে ১ ঘর বামে শিফট করা একই কথা। আবার ২ দিয়ে ভাগ করা আর ১ ঘর ডানে শিফট করা একই কথা,৩২ দিয়ে mod করা আর ৩১ দিয়ে AND করা একই কথা। তাহলে আমরা নিচের মত করে কোডটি লিখতে পারি:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c848aa8db15085314006" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">C++</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+int status[(mx/32)+2];
+void sieve()
+{
+	 int i, j, sqrtN; 
+     sqrtN = int( sqrt( N ) );
+     for( i = 3; i &lt;= sqrtN; i += 2 ) 
+     {
+		 if( Check(status[i&gt;&gt;5],i&amp;31)==0)
+		 {
+	 		 for( j = i*i; j &lt;= N; j += (i&lt;&lt;1) )
+			 {
+				 status[j&gt;&gt;5]=Set(status[j&gt;&gt;5],j &amp; 31)   ;
+	 		 }
+		 }
+	 }
+	
+	 puts("2");
+	 for(i=3;i&lt;=N;i+=2)
+		 if( Check(status[i&gt;&gt;5],i&amp;31)==0)
+	 	 printf("%d\n",i);
+}</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-2">2</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-4">4</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-6">6</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-8">8</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-10">10</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-12">12</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-14">14</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-16">16</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-18">18</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c848aa8db15085314006-20">20</div><div class="crayon-num" data-line="crayon-57c848aa8db15085314006-21">21</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c848aa8db15085314006-1"><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-sy">(</span><span class="crayon-v">mx</span><span class="crayon-o">/</span><span class="crayon-cn">32</span><span class="crayon-sy">)</span><span class="crayon-o">+</span><span class="crayon-cn">2</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-2"><span class="crayon-t">void</span><span class="crayon-h"> </span><span class="crayon-e">sieve</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-3"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-4"><span class="crayon-h">	 </span><span class="crayon-t">int</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">sqrtN</span><span class="crayon-sy">;</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">sqrtN</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">int</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-e">sqrt</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-i">N</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-v">sqrtN</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-h"> </span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-8"><span class="crayon-h">		 </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-e">Check</span><span class="crayon-sy">(</span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-o">&gt;&gt;</span><span class="crayon-cn">5</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-o">&amp;</span><span class="crayon-cn">31</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-9"><span class="crayon-h">		 </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-10"><span class="crayon-h">	 		 </span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-o">*</span><span class="crayon-v">i</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-v">N</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">+=</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-o">&lt;&lt;</span><span class="crayon-cn">1</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-11"><span class="crayon-h">			 </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-12"><span class="crayon-h">				 </span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">j</span><span class="crayon-o">&gt;&gt;</span><span class="crayon-cn">5</span><span class="crayon-sy">]</span><span class="crayon-o">=</span><span class="crayon-e">Set</span><span class="crayon-sy">(</span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">j</span><span class="crayon-o">&gt;&gt;</span><span class="crayon-cn">5</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-v">j</span><span class="crayon-h"> </span><span class="crayon-o">&amp;</span><span class="crayon-h"> </span><span class="crayon-cn">31</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-13"><span class="crayon-h">	 		 </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-14"><span class="crayon-h">		 </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-15"><span class="crayon-h">	 </span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-16"><span class="crayon-h">	</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-17"><span class="crayon-h">	 </span><span class="crayon-e">puts</span><span class="crayon-sy">(</span><span class="crayon-s">"2"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-18"><span class="crayon-h">	 </span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-o">=</span><span class="crayon-cn">3</span><span class="crayon-sy">;</span><span class="crayon-v">i</span><span class="crayon-o">&lt;=</span><span class="crayon-v">N</span><span class="crayon-sy">;</span><span class="crayon-v">i</span><span class="crayon-o">+=</span><span class="crayon-cn">2</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-19"><span class="crayon-h">		 </span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-e">Check</span><span class="crayon-sy">(</span><span class="crayon-v">status</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-o">&gt;&gt;</span><span class="crayon-cn">5</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-o">&amp;</span><span class="crayon-cn">31</span><span class="crayon-sy">)</span><span class="crayon-o">==</span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c848aa8db15085314006-20"><span class="crayon-h">	 	 </span><span class="crayon-e">printf</span><span class="crayon-sy">(</span><span class="crayon-s">"%d\n"</span><span class="crayon-sy">,</span><span class="crayon-v">i</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-57c848aa8db15085314006-21"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0083 seconds] -->
+<p></p>
+<p>ফাংশন ব্যবহার না করে ম্যাক্রো ব্যবহার করলে আরো কম সময় লাগবে। <a href="index9ad7.html?cat=35">প্রোগ্রামিং কনটেস্টে </a>খুব কমই বিটওয়াইজ সিভ ব্যবহার করা দরকার হয়,সাধারণ সিভেই কাজ চলে। তারপরেও এটা শিখলে বিটের কনসেপ্ট গুলো কিছুটা পরিস্কার হবে,অন্য কোনো প্রবলেমে হয়তো মেমরি কমিয়ে ফেলতে পারবে। ডাইনামিক প্রোগ্রামিং এ আমরা প্রায়ই বিটমাস্কের ব্যবহার করি মূলত মেমরি কমানোর জন্য।</p>
+<p>তোমার ইম্প্লিমেন্টেশন সঠিক নাকি চেক করতে নিচের সমস্যাটি সমাধান করে ফেলো:<br />
+<a href="http://www.spoj.pl/problems/TDPRIMES/" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.spoj.pl/problems/TDPRIMES/', 'http://www.spoj.pl/problems/TDPRIMES/');">http://www.spoj.pl/problems/TDPRIMES/</a></p>
+<p>(নোট: অনেকের ভূল ধারণা আছে যে bool টাইপের ভ্যারিয়েবলের আকার ১বিট। আসলে bool এর আকার ৮বিট বা এক বাইট,char এর সমান। এর কারণ হলো কম্পিউটার ১ বাইটের ছোটো মেমরি সেগমেন্টকে অ্যাড্রেস করতে পারেনা, তাই ভ্যারিয়েবলের নূন্যতম আকার ১ বাইট)</p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=indexc3f0.html?p=855></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=855" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=855'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%AC%E0%A6%BF%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%87%E0%A6%9C%E0%A7%8D%20%E0%A6%B8%E0%A6%BF%E0%A6%AD%28Bitwise%20sieve%29&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D855&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=855'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%AC%E0%A6%BF%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A6%BE%E0%A6%87%E0%A6%9C%E0%A7%8D%20%E0%A6%B8%E0%A6%BF%E0%A6%AD%28Bitwise%20sieve%29&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=855&amp;summary=%e0%a6%ac%e0%a6%bf%e0%a6%9f%e0%a6%93%e0%a7%9f%e0%a6%be%e0%a6%87%e0%a6%9c%20%e0%a6%b8%e0%a6%bf%e0%a6%ad%20%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%87%e0%a6%ae%20%e0%a6%b8%e0%a6%82%e0%a6%96%e0%a7%8d%e0%a6%af%e0%a6%be%20%e0%a6%ac%e0%a7%87%e0%a6%b0%20%e0%a6%95%e0%a6%b0%e0%a6%be%e0%a6%b0%20%e0%a6%9c%e0...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="index9ad7.html?cat=35" rel="category">অ্যালগোরিদম/প্রবলেম সলভিং</a>, <a href="indexb31a.html?cat=1" rel="category">প্রোগ্রামিং</a></span><span class="tags-links">Tagged <a href="indexf489.html?tag=%e0%a6%97%e0%a6%a3%e0%a6%bf%e0%a6%a4" rel="tag">গণিত</a>, <a href="index6e07.html?tag=%e0%a6%a8%e0%a6%be%e0%a6%ae%e0%a7%8d%e0%a6%ac%e0%a6%be%e0%a6%b0-%e0%a6%a5%e0%a6%bf%e0%a6%93%e0%a6%b0%e0%a7%80" rel="tag">নাম্বার থিওরী</a>, <a href="indexe8ef.html?tag=%e0%a6%aa%e0%a7%8d%e0%a6%b0%e0%a6%be%e0%a6%87%e0%a6%ae" rel="tag">প্রাইম</a>, <a href="index8671.html?tag=%e0%a6%ac%e0%a6%bf%e0%a6%9f%e0%a6%93%e0%a7%9f%e0%a6%be%e0%a6%87%e0%a6%9c" rel="tag">বিটওয়াইজ</a>, <a href="indexc0f7.html?tag=%e0%a6%b8%e0%a6%bf%e0%a6%ad" rel="tag">সিভ</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="indexab1b.html?p=848" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;গ্রাফ থিওরিতে হাতেখড়ি ৭:টপোলোজিকাল সর্ট</a></div><div class="nav-next"><a href="index9af7.html?p=870" rel="next">সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC)&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			12 thoughts on &ldquo;<span>বিটওয়াইজ্ সিভ(Bitwise sieve)</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-745" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-745" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/2343585338ff01372f6a862e0348149a?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/2343585338ff01372f6a862e0348149a?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">হাসান</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-745">
+							<time datetime="২০১২-০৮-১৫T১৮:২১:৪১+০০:০০">
+								আগস্ট ১৫, ২০১২ at ৬:২১ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া, খুবই দারুণ একটা পোস্ট।<br />
+UVA 10311 (Goldbach and Euler) এবার করে ফেলা যাবে!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexbd88.html?p=855&amp;replytocom=745#respond' onclick='return addComment.moveForm( "div-comment-745", "745", "respond", "855" )' aria-label='Reply to হাসান'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-746" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-746" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-746">
+							<time datetime="২০১২-০৮-১৫T২১:৩৭:৪১+০০:০০">
+								আগস্ট ১৫, ২০১২ at ৯:৩৭ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ধন্যবাদ। 10311 এ অবশ্য bitwise sieve দরকার হয়নি আমার।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index7c65.html?p=855&amp;replytocom=746#respond' onclick='return addComment.moveForm( "div-comment-746", "746", "respond", "855" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-987" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-987" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/15c623e712feacf52512379e0ac4d11d?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/15c623e712feacf52512379e0ac4d11d?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">অনিন্দ্য</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-987">
+							<time datetime="২০১২-১০-২৩T০২:১১:৫৪+০০:০০">
+								অক্টোবর ২৩, ২০১২ at ২:১১ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাই, ১৫ তম লাইনে j%31 এর পরিবর্তে j%32 হবে না? j%32 এবং j&amp;31 একই হবার কথা। যদি P=2^x হয়, তাহলে n%p = n&amp;(p-1) হওয়ার কথা। এটা নিয়ে একটু confusion হচ্ছে।  🙁</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexe973.html?p=855&amp;replytocom=987#respond' onclick='return addComment.moveForm( "div-comment-987", "987", "respond", "855" )' aria-label='Reply to অনিন্দ্য'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-991" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-991" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-991">
+							<time datetime="২০১২-১০-২৩T১২:৪৮:১৬+০০:০০">
+								অক্টোবর ২৩, ২০১২ at ১২:৪৮ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>হ্যা j%32 হবে, আমি ঠিক করে দিচ্ছি। যদিও j%31 লিখলেও কোডটা কাজ করে এজন্য হয়তো খেয়াল করিনি ঠিকমত তাই কনফিউশন তৈরি হয়েছে।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index9132.html?p=855&amp;replytocom=991#respond' onclick='return addComment.moveForm( "div-comment-991", "991", "respond", "855" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-1013" class="comment even thread-even depth-1">
+			<article id="div-comment-1013" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/f370c20f2dcf0b1d8218f94dccd3f8cc?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/f370c20f2dcf0b1d8218f94dccd3f8cc?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://www.kaidul.web44.net/' rel='external nofollow' class='url'>কাইদুল</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-1013">
+							<time datetime="২০১২-১০-২৭T১৬:৩১:১৮+০০:০০">
+								অক্টোবর ২৭, ২০১২ at ৪:৩১ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>int(signed integer) এর left Most bit যেহেতু sign bit, তাই আমরা যখন একে left shifting করি তখন left most বিটে 1 পুশ করলে সংখ্যাটা নেগেটিভ হওয়ার সম্ভাবনা থাকে। তাই i&lt;&lt;1 ব্যবহার করা কি ঠিক হবে?<br />
+আমি ভুল হতে পারি, for( j = i*i; j &lt;= N; j += 2*i ) লাইনের মাধ্যমে কি সব মাল্টিপল বের হবে? for( j = 2*i; j &lt;= N; j += i ) দিলে হবার কথা !<br />
+i%31 গুলোকে i%32 দিয়ে রিপ্লেস করলে ভাল হত। কিছুটা কনফিউজিং লাগছে 🙂</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index0b87.html?p=855&amp;replytocom=1013#respond' onclick='return addComment.moveForm( "div-comment-1013", "1013", "respond", "855" )' aria-label='Reply to কাইদুল'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-1029" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1029" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-1029">
+							<time datetime="২০১২-১০-৩০T১৬:৩৯:২৫+০০:০০">
+								অক্টোবর ৩০, ২০১২ at ৪:৩৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>টেকনিক্যাল কিছু সমস্যার জন্য কোড এডিট করতে পারছিনা, ঠিক হলে রিপ্লেস করে দিবো।<br />
+i*i দিলেও কাজ হবে, <a href="http://www.lightoj.com/article_show.php?article=100" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://www.lightoj.com/article_show.php?article=100', 'http://www.lightoj.com/article_show.php?article=100');" rel="nofollow">http://www.lightoj.com/article_show.php?article=100</a>1 এই লিংকটা দেখেন।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexb1ce.html?p=855&amp;replytocom=1029#respond' onclick='return addComment.moveForm( "div-comment-1029", "1029", "respond", "855" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-3484" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-3484" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/1f714b9829850a6897f82cb8a65b1a52?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/1f714b9829850a6897f82cb8a65b1a52?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://onlyprogramming.wordpress.com/' rel='external nofollow' class='url'>আলিম</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-3484">
+							<time datetime="২০১৩-০৪-১১T১৪:৩১:০১+০০:০০">
+								এপ্রিল ১১, ২০১৩ at ২:৩১ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ভাইয়া, এই প্রবলেম এর ক্ষেত্রে কিভাবে প্রাইম Generate করব?<br />
+<a href="http://www.spoj.com/problems/KPRIMES2/" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://www.spoj.com/problems/KPRIMES2/', 'http://www.spoj.com/problems/KPRIMES2/');" rel="nofollow">http://www.spoj.com/problems/KPRIMES2/</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexd565.html?p=855&amp;replytocom=3484#respond' onclick='return addComment.moveForm( "div-comment-3484", "3484", "respond", "855" )' aria-label='Reply to আলিম'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-3491" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt depth-2">
+			<article id="div-comment-3491" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-3491">
+							<time datetime="২০১৩-০৪-১২T০২:২১:১০+০০:০০">
+								এপ্রিল ১২, ২০১৩ at ২:২১ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>এটায় মনে হচ্ছে আরো অ্যাডভান্সড কিছু লাগবে, এই থ্রেডটা দেখো : <a href="http://apps.topcoder.com/forums/?module=Thread&amp;threadID=698955&amp;start=0&amp;mc=5#1335192" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://apps.topcoder.com/forums/?module=Thread&amp;threadID=698955&amp;start=0&amp;mc=5#1335192', 'http://apps.topcoder.com/forums/?module=Thread&amp;threadID=698955&amp;start=0&amp;mc=5#1335192');" rel="nofollow">http://apps.topcoder.com/forums/?module=Thread&#038;threadID=698955&#038;start=0&#038;mc=5#1335192</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index9ce4.html?p=855&amp;replytocom=3491#respond' onclick='return addComment.moveForm( "div-comment-3491", "3491", "respond", "855" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-4947" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-4947" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/ba94bf845640215878e0b835c8cd0599?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/ba94bf845640215878e0b835c8cd0599?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Maruf Tuhin</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-4947">
+							<time datetime="২০১৩-১২-০৮T০৫:৫৭:১৪+০০:০০">
+								ডিসেম্বর ৮, ২০১৩ at ৫:৫৭ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>583 &#8211; Prime Factors</p>
+<p>For this problem i got 0.912 runtime for normal sieve. <a href="http://ideone.com/CoWXez" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://ideone.com/CoWXez', 'http://ideone.com/CoWXez');" rel="nofollow">http://ideone.com/CoWXez</a></p>
+<p>I converted the sieve portion to bitwise sieve, and got 2.485 runtime!!!! <a href="http://ideone.com/HH3LwY" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://ideone.com/HH3LwY', 'http://ideone.com/HH3LwY');" rel="nofollow">http://ideone.com/HH3LwY</a></p>
+<p>Why????????????????</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexce2a.html?p=855&amp;replytocom=4947#respond' onclick='return addComment.moveForm( "div-comment-4947", "4947", "respond", "855" )' aria-label='Reply to Maruf Tuhin'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-57850" class="comment byuser comment-author-mahmudul-hasan odd alt thread-even depth-1 parent">
+			<article id="div-comment-57850" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/6be8999f0cb58ecec4638a256c9467ff?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/6be8999f0cb58ecec4638a256c9467ff?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='https://www.google.com/profiles/115152071623039092892' rel='external nofollow' class='url'>Mahmudul Hasan</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-57850">
+							<time datetime="২০১৪-১০-০৬T১৬:৫৯:০২+০০:০০">
+								অক্টোবর ৬, ২০১৪ at ৪:৫৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>একটা বিষয়ে সমস্যা হচ্ছে, আপনি এখানে status এরেকে গ্লোবাল ধরে নিয়েছেন, এবং N এর মানকেও গ্লোবালি ইনিশিয়ালাইজ করেছেন, আমি যদি status কে লোকাল ভ্যারিয়েবল(মনে করি, সীভ ফাংশনের ভেতর) হিসেবে ইনিশিয়ালাইজ করি, এবং N কে আর্গুমেন্ট আকারে মেইন ফাংশন থেকে পাস করে দেই, তাহলে কিছু প্রাইম জেনারেট হচ্ছে না। এই সমস্যা সমাধান জানালে উপকৃত হতাম 🙂</p>
+<p>কোডটার একটা রাফ ভার্সনঃ<br />
+<a href="http://paste.ubuntu.com/8506585/" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://paste.ubuntu.com/8506585/', 'http://paste.ubuntu.com/8506585/');" rel="nofollow">http://paste.ubuntu.com/8506585/</a></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index8a20.html?p=855&amp;replytocom=57850#respond' onclick='return addComment.moveForm( "div-comment-57850", "57850", "respond", "855" )' aria-label='Reply to Mahmudul Hasan'>Reply</a></div>			</article><!-- .comment-body -->
+<ol class="children">
+		<li id="comment-57851" class="comment byuser comment-author-Shafaet_amarsite bypostauthor even depth-2">
+			<article id="div-comment-57851" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexc3f0.html?p=855#comment-57851">
+							<time datetime="২০১৪-১০-০৭T১০:১৬:০৯+০০:০০">
+								অক্টোবর ৭, ২০১৪ at ১০:১৬ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>নিচের লাইনটা যোগ করে নাও ডিক্লারেশন এর পরে:<br />
+memset(refr,0,sizeof refr); //need cstring header file<br />
+লোকাল ভ‍্যারিয়েবল ০ দিয়ে initialize করা থাকেনা, গার্বেজ ভ‍্যালু থাকে, তাই সমস‍্যা হচ্ছে।<br />
+আরেকটা কথা, অ‍্য‍ারের সাইজ বেশি বড় হয়ে গেলে লোকাল ভ‍্যারিয়েবল রানটাইম ইরোর দিতে পারে, তবে লোকাল ভ‍্যারিয়েবলের এক্সেস টাইম গ্লোবালের থেকে কম।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index9ffb.html?p=855&amp;replytocom=57851#respond' onclick='return addComment.moveForm( "div-comment-57851", "57851", "respond", "855" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-58349" class="pingback odd alt thread-odd thread-alt depth-1">
+			<div class="comment-body">
+				Pingback: <a href='https://nlognblog.wordpress.com/2015/12/01/light-oj1289-lcm-from-1-to-n/' rel='external nofollow' class='url'>light oj:1289 &#8211; LCM from 1 to n | nlogn</a> 			</div>
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="indexc3f0.html?p=855#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_7616559"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_7616559', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_56");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_56" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><input id="cptch_input_56" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<span class="cptch_span">&nbsp;&minus;&nbsp;</span>
+					<span class="cptch_span">5</span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span">4</span>
+					<input type="hidden" name="cptch_result" value="i7g=" />
+					<input type="hidden" name="cptch_time" value="1472743594" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='855' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="033307d91c" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="182"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_2755498"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_2755498', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=855 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 15:56:46 GMT -->
+</html>

@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=870&replytocom=255 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 17:05:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC) | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC) &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,297] -->
+<meta name="description" itemprop="description" content="মডেল-ভিউ-কন্ট্রোলার(MVC) একটি পরিচিত সফটওয়্যার আর্কিটেকচার। সফটওয়্যার/ওয়েব অ্যাপ ডেভেলপমেন্টে (MVC) আর্কিটেকচার ব্যবহার করে অনেক সুবিধা পাওয়া সম্ভব। MVC তে" />
+
+<meta name="keywords" itemprop="keywords" content="mvc,ফ্রেমওয়ার্ক,জাভা,জাভাস্ক্রিপ্ট,পাইথন,পিএইচপি,প্রোগ্রামিং,সি/সি++" />
+
+<link rel="canonical" href="index9af7.html?p=870" />
+<meta property="og:title" content="সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC) | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=870" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="মডেল-ভিউ-কন্ট্রোলার(MVC) একটি পরিচিত সফটওয়্যার আর্কিটেকচার। সফটওয়্যার/ওয়েব অ্যাপ ডেভেলপমেন্টে (MVC) আর্কিটেকচার ব্যবহার করে অনেক সুবিধা পাওয়া সম্ভব। MVC তে আমরা আমাদের ডেভেলপমেন্টকে ৩টি ভাগে ভাগ করবো,মডেল,ভিউ এবং কনট্রোলার। আমরা ইউজার ইন্টারফেসের কোড এবং অন্যান্য কোড যেমন বিভিন্ন ফাংশন,ডাটাবেস কুয়েরি পুরোপুরি আলাদা করে ফেলবো যাতে প্রতিটি অংশ নিয়ে আলাদা ভাবে কাজ করা যায় অন্য কোনো অংশের উপর প্রভাব না ফেলে। ভিউ: এ অংশের কোডে থাকবে শুধুমাত্র ইউজার ইন্টারফেসের কোড,অন্য কোনো কিছু না। যেমন: ওয়েব ডেভেলপিং এর ক্ষেত্রে MVC আর্কিটেকচারের ভিউ অংশে থাকবে শুধুমাত্র HTML/XHTML কোড, ফ্ল্যাশ অ্যানিমেশন । অবশ্যই একটি মডেলের জন্য একাধিক ভিউ ফাইল থাকতে পারে কিন্তু লজিকাল কোনো ব্যাপার ভিউতে থাকবেনা। মডেল: এ অংশে থাকবে আপনার সমস্ত ফাংশন,ডাটাবেস কুয়েরি ইত্যাদি। এখানে ডিসপ্লের কোনো প্রকার কাজ হবেনা,আপনাকে কিছু ভ্যারিয়েবল প্যারামিটার হিসাবে পাঠানো হতে পারে,নাও পারে,আপনি ফাংশনে আপনার প্রয়োজনীয় কাজ করে কনট্রোলারকে রিটার্ন করবেন। মডেল যে ডাটা রিটার্ণ করে সেগুলো &quot;display-neutral&quot;, অর্থাত" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC) | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="মডেল-ভিউ-কন্ট্রোলার(MVC) একটি পরিচিত সফটওয়্যার আর্কিটেকচার। সফটওয়্যার/ওয়েব অ্যাপ ডেভেলপমেন্টে (MVC) আর্কিটেকচার ব্যবহার করে অনেক সুবিধা পাওয়া সম্ভব। MVC তে আমরা আমাদের ডেভেলপমেন্টকে ৩টি ভাগে ভাগ করবো,মডেল,ভিউ এবং কনট্রোলার। আমরা ইউজার ইন্টারফেসের কোড এবং অন্যান্য কোড যেমন বিভিন্ন ফাংশন,ডাটাবেস কুয়েরি পুরোপুরি আলাদা করে ফেলবো যাতে প্রতিটি অংশ নিয়ে আলাদা ভাবে কাজ করা যায় অন্য কোনো অংশের উপর প্রভাব না ফেলে। ভিউ: এ অংশের কোডে থাকবে শুধুমাত্র ইউজার ইন্টারফেসের কোড,অন্য কোনো কিছু না। যেমন: ওয়েব ডেভেলপিং এর ক্ষেত্রে MVC আর্কিটেকচারের ভিউ অংশে থাকবে শুধুমাত্র HTML/XHTML কোড, ফ্ল্যাশ অ্যানিমেশন । অবশ্যই একটি মডেলের জন্য একাধিক ভিউ ফাইল থাকতে পারে কিন্তু লজিকাল কোনো ব্যাপার ভিউতে থাকবেনা। মডেল: এ অংশে থাকবে আপনার সমস্ত ফাংশন,ডাটাবেস কুয়েরি ইত্যাদি। এখানে ডিসপ্লের কোনো প্রকার কাজ হবেনা,আপনাকে কিছু ভ্যারিয়েবল প্যারামিটার হিসাবে পাঠানো হতে পারে,নাও পারে,আপনি ফাংশনে আপনার প্রয়োজনীয় কাজ করে কনট্রোলারকে রিটার্ন করবেন। মডেল যে ডাটা রিটার্ণ করে সেগুলো &quot;display-neutral&quot;, অর্থাত" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC) Comments Feed" href="index11e2.html?feed=rss2&amp;p=870" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='বিটওয়াইজ্ সিভ(Bitwise sieve)' href='indexc3f0.html?p=855' />
+<link rel='next' title='মডুলার অ্যারিথমেটিক' href='indexb648.html?p=936' />
+
+<link rel='shortlink' href='index9af7.html?p=870' />
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/json+oembed" href="index3590.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D870" />
+<link rel="alternate" type="text/xml+oembed" href="indexf57a.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D870&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-870 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-870" class="post-870 post type-post status-publish format-standard hentry category-catagory category-js category-51 category-php category-programming category-ccpp tag-mvc tag-64">
+	<header class="entry-header">
+		<h1 class="main-title"><span>সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC)</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="index9af7.html?p=870" rel="bookmark"><time class="entry-date published" datetime="২০১১-১১-২৭T২১:৩৪:৫৮+০০:০০">নভেম্বর ২৭, ২০১১</time><time class="updated" datetime="2011-12-22T01:21:20+00:00">December 22, 2011</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=870'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%B8%E0%A6%AB%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%20%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A6%BF%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%3A%20%E0%A6%AE%E0%A6%A1%E0%A7%87%E0%A6%B2-%E0%A6%AD%E0%A6%BF%E0%A6%89-%E0%A6%95%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B0%20%28MVC%29&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D870&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=870'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%B8%E0%A6%AB%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%20%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A6%BF%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%3A%20%E0%A6%AE%E0%A6%A1%E0%A7%87%E0%A6%B2-%E0%A6%AD%E0%A6%BF%E0%A6%89-%E0%A6%95%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B0%20%28MVC%29&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=870&amp;summary=%e0%a6%ae%e0%a6%a1%e0%a7%87%e0%a6%b2-%e0%a6%ad%e0%a6%bf%e0%a6%89-%e0%a6%95%e0%a6%a8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%b2%e0%a6%be%e0%a6%b0(MVC)%20%e0%a6%8f%e0%a6%95%e0%a6%9f%e0%a6%bf%20%e0%a6%aa%e0%a6%b0%e0%a6%bf%e0%a6%9a%e0%a6%bf%e0%a6%a4%20%e0%a6%b8%e0%a6%ab...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p>মডেল-ভিউ-কন্ট্রোলার(MVC) একটি পরিচিত সফটওয়্যার আর্কিটেকচার। সফটওয়্যার/ওয়েব অ্যাপ ডেভেলপমেন্টে (MVC) আর্কিটেকচার ব্যবহার করে অনেক সুবিধা পাওয়া সম্ভব।</p>
+<p>MVC তে আমরা আমাদের ডেভেলপমেন্টকে ৩টি ভাগে ভাগ করবো,মডেল,ভিউ এবং কনট্রোলার। আমরা ইউজার ইন্টারফেসের কোড এবং অন্যান্য কোড যেমন বিভিন্ন ফাংশন,ডাটাবেস কুয়েরি পুরোপুরি আলাদা করে ফেলবো যাতে প্রতিটি অংশ নিয়ে আলাদা ভাবে কাজ করা যায় অন্য কোনো অংশের উপর প্রভাব না ফেলে।</p>
+<p><strong>ভিউ:</strong> এ অংশের কোডে থাকবে শুধুমাত্র ইউজার ইন্টারফেসের কোড,অন্য কোনো কিছু না। যেমন: ওয়েব ডেভেলপিং এর ক্ষেত্রে MVC আর্কিটেকচারের ভিউ অংশে থাকবে শুধুমাত্র HTML/XHTML কোড, ফ্ল্যাশ অ্যানিমেশন । অবশ্যই একটি মডেলের জন্য একাধিক ভিউ ফাইল থাকতে পারে কিন্তু লজিকাল কোনো ব্যাপার ভিউতে থাকবেনা।</p>
+<p><strong>মডেল:</strong> এ অংশে থাকবে আপনার সমস্ত ফাংশন,ডাটাবেস কুয়েরি ইত্যাদি। এখানে ডিসপ্লের কোনো প্রকার কাজ হবেনা,আপনাকে কিছু ভ্যারিয়েবল প্যারামিটার হিসাবে পাঠানো হতে পারে,নাও পারে,আপনি ফাংশনে আপনার প্রয়োজনীয় কাজ করে কনট্রোলারকে রিটার্ন করবেন। মডেল যে ডাটা রিটার্ণ করে সেগুলো &#8220;display-neutral&#8221;, অর্থাত কোনো ডিসপ্লে ফরমেটিং থাকেনা সেগুলোতো।</p>
+<p><strong>কন্ট্রোলার:</strong> কন্ট্রোলার মডেল আর ভিউ অংশের সমন্বয় করে। সকল ইউজার ইনপুট কন্ট্রোলারের কাছে যায়,কন্ট্রোলার ইনপুট পাবার পর প্যারামিটার হিসাবে পাঠিয়ে দেয় মডেলের কাছে,মডেল সেটাকে প্রসেস করে কিছু ডাটা রিটার্ণ করে,এবার সেই ডাটাকে কন্ট্রোলার আবার পাঠিয়ে দেয় ভিউ এর কাছে। ভিউ তখন ডাটা গুলো প্রদর্শন। করে।</p>
+<p><img src="../../seagullfiles.phpkitchen.com/images/PSG_MVC.gif" alt="mvc,shafaetsblog" /></p>
+<p>তাহলে ইউজার যা দেখছে সেটা ভিউ,ইউজারের ইনপুট গ্রহণ করছে কন্ট্রোলার,সে ইনপুট মডেলে পাঠিয়ে প্রসেস করছে,পরে প্রসেস করা ডাটা আবার ভিউতে পাঠিয়ে ইউজারকে প্রদর্শন করছে।</p>
+<p>আমরা যখন সাধারণ ভাবে একটি জাভা কোড লিখি আমরা ডাটা প্রসেসিং অংশ,গ্রাফিক্সের অংশ একসাথে রেখে দেই। এতে আমাদের যখন খালি গ্রাফিক্স নিয়ে কাজ করতে হয় তখন অন্যান্য কোডও আমাদের দেখতে হয়। কিন্তু MVC তে আমার জানাও দরকার নেই অন্যান্য কাজ কিভাবে হচ্ছে,আমার গ্রাফিক্সের অংশের কোড নিয়েই শুধু কাজ করতে পারি। একই ভাবে যে ডাটাবেস অংশ করবে সে শুধুমাত্র মডেল নিয়ে কাজ করতে পারে। চাইলে মডেলকেও কয়েক ভাগে ভাগ করে নেয়া যায়,এক অংশে হয়তো থাকবে অ্যালগোরিদম,আরেক অংশে ডাটাবেস,ফলে কাজে আরও সুবিধা হবে। </p>
+<p>কন্ট্রোলারের কনসেপ্টটাও গুরুত্বপূর্ণ। অ্যাপ্লিকেশনের কন্ট্রোলার যার হাতে থাকবে সে একাধিক মডেল বা ভিউ হতে ইচ্ছামত নির্বাচন করতে পারবে। ধরো তুমি তোমার সাইটের ডিজাইন টেমপ্লেট পাল্টাতে চাও,তোমার HTML/XHTML আর PHP/ASP/Python কোড একসাথে থাকলে কি ঘটবে? তোমাকে নতুন টেম্প্লেটের ভিতর আবার ফাংশন গুলো বসাতে হবে যা অনেক সময়সাপেক্ষ। কিন্তু MVC তে তুমি খালি ভিউ ফাইলটা বদলে দিবে,কাজ শেষ।</p>
+<p>একটা  MVC অ্যাপ্লিকেশনে অনেকগুলো মডেল-ভিউ-কন্ট্রোলারের সমষ্টিও হতে পারে। জাভার সুইং লাইব্রেরির প্রতিটা কম্পোনেন্ট আলাদা MVC ব্যবহার করে। </p>
+<p>তবে MVC কখন ব্যবহার করবে আর কখন করবেনা সেটাও মাথায় রাখতে হবে। ছোট ১০০ লাইনের একটা অ্যাপ্লিকেশনের জন্য MVC ব্যবহারের কোনো প্রয়োজন নেই। MVC ব্যবহার করতে বেশ পরিকল্পনার দরকার আছে যা সময়সামেক্ষ। ছোট অ্যাপ্লিকেশনে এ সময় ব্যয় করা অর্থহীন। তবে বড় প্রজেক্টের ক্ষেত্রে MVC তোমাকে বিশাল অ্যাডভান্টেজ দিবে,তুমি খুব সহজে প্রজেক্ট মেইনটেইন করতে পারবে।</p>
+<p>MVC কিভাবে ব্যাবহার করবে? ১টি উপায় হলো নিজেই MVC আর্কিটেকচারের মূলনীতিগুলো মেনে কোডিং করা। আরো সহজ উপায় হলো ফ্রেমওয়ার্ক ব্যবহার করে। ওয়েবে খুব জনপ্রিয় একটি পিএইচপি ফ্রেমওয়ার্ক হলো কোডইগনাইটার। ফ্রেমওয়ার্ক তোমাকে মডেল-ভিউ-কন্ট্রোলার সবগুলোর জন্য আলাদা ফ্রেম তৈরি করে দিবে,তুমি শুধু ফ্রেমগুলোতে কোড লিখবে। এছাড়া বেশীভাগ ফ্রেমওয়ার্ক আরো কিছু সুবিধা দেয়। যেমন ডাটাবেসে সহজে কুয়েরির জন্য কিছু লাইব্রেরি। পাইথনের django সহ অন্যান্য কিছু ফ্রেমওয়ার্কে এমন লাইব্রেরি আছে যা স্বয়ংক্রিয় ভাবে HTML কোড জেনারেট করবে,আপনাকে খালি পাইথনের সিনট্যাক্সে কোড লিখতে হবে। জাভা,সি++ সবকিছুর জন্যই MVC ফ্রেমওয়ার্ক পাওয়া যায়। চাইলে নিজেরই একটা ফ্রেমওয়ার্ক বানিয়ে নিতে পারো :)।</p>
+<p>রেফারেন্স:<br />
+<a href="http://en.wikipedia.org/wiki/Model–view–controller#C.2B.2B" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://en.wikipedia.org/wiki/Model–view–controller#C.2B.2B', 'http://www.techrepublic.com/article/mvc-design-pattern-brings-about-better-organization-and-code-reuse/1049862');">http://www.techrepublic.com/article/mvc-design-pattern-brings-about-better-organization-and-code-reuse/1049862</a></p>
+<p><a href="http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1', 'http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1');">http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1</a><br />
+<a href="http://developer.apple.com/library/mac/#documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://developer.apple.com/library/mac/#documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html', 'http://developer.apple.com/library/mac/#documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html');">http://developer.apple.com/library/mac/#documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html</a></p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=index9af7.html?p=870></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=870" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=870'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%B8%E0%A6%AB%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%20%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A6%BF%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%3A%20%E0%A6%AE%E0%A6%A1%E0%A7%87%E0%A6%B2-%E0%A6%AD%E0%A6%BF%E0%A6%89-%E0%A6%95%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B0%20%28MVC%29&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D870&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=870'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%B8%E0%A6%AB%E0%A6%9F%E0%A6%93%E0%A7%9F%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B0%20%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A6%BF%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A6%9A%E0%A6%BE%E0%A6%B0%3A%20%E0%A6%AE%E0%A6%A1%E0%A7%87%E0%A6%B2-%E0%A6%AD%E0%A6%BF%E0%A6%89-%E0%A6%95%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%B0%20%28MVC%29&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=870&amp;summary=%e0%a6%ae%e0%a6%a1%e0%a7%87%e0%a6%b2-%e0%a6%ad%e0%a6%bf%e0%a6%89-%e0%a6%95%e0%a6%a8%e0%a7%8d%e0%a6%9f%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%be%e0%a6%b2%e0%a6%be%e0%a6%b0(MVC)%20%e0%a6%8f%e0%a6%95%e0%a6%9f%e0%a6%bf%20%e0%a6%aa%e0%a6%b0%e0%a6%bf%e0%a6%9a%e0%a6%bf%e0%a6%a4%20%e0%a6%b8%e0%a6%ab...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="indexa88f.html?cat=36" rel="category">জাভা</a>, <a href="indexb60a.html?cat=27" rel="category">জাভাস্ক্রিপ্ট</a>, <a href="indexfa15.html?cat=51" rel="category">পাইথন</a>, <a href="index49ce.html?cat=14" rel="category">পিএইচপি</a>, <a href="indexb31a.html?cat=1" rel="category">প্রোগ্রামিং</a>, <a href="indexaa1e.html?cat=4" rel="category">সি/সি++</a></span><span class="tags-links">Tagged <a href="index49a8.html?tag=mvc" rel="tag">MVC</a>, <a href="index1063.html?tag=%e0%a6%ab%e0%a7%8d%e0%a6%b0%e0%a7%87%e0%a6%ae%e0%a6%93%e0%a7%9f%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%95" rel="tag">ফ্রেমওয়ার্ক</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="indexc3f0.html?p=855" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;বিটওয়াইজ্ সিভ(Bitwise sieve)</a></div><div class="nav-next"><a href="indexb648.html?p=936" rel="next">মডুলার অ্যারিথমেটিক&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			7 thoughts on &ldquo;<span>সফটওয়্যার আর্কিটেকচার: মডেল-ভিউ-কন্ট্রোলার (MVC)</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-235" class="comment even thread-even depth-1">
+			<article id="div-comment-235" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://1.gravatar.com/avatar/130d2c85385f601f0f764401f9b6cb18?s=32&amp;d=monsterid&amp;r=g' srcset='http://1.gravatar.com/avatar/130d2c85385f601f0f764401f9b6cb18?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">সঞ্জয় সাহা</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-235">
+							<time datetime="২০১১-১১-২৭T২২:৪৯:৫৫+০০:০০">
+								নভেম্বর ২৭, ২০১১ at ১০:৪৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>উপকারী লেখা। 🙂</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index8de4.html?p=870&amp;replytocom=235#respond' onclick='return addComment.moveForm( "div-comment-235", "235", "respond", "870" )' aria-label='Reply to সঞ্জয় সাহা'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-253" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-253" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/b4f5a10543741cbc61e96d5cdbec3b1d?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/b4f5a10543741cbc61e96d5cdbec3b1d?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://facebook.com/idibosh/' rel='external nofollow' class='url'>Md. Abdul Munim Dibosh</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-253">
+							<time datetime="২০১১-১২-২১T২১:১৩:৫৪+০০:০০">
+								ডিসেম্বর ২১, ২০১১ at ৯:১৩ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Good work.But let me notify the actual mistake in your concept.The image you have shown is not right.Model cant directly pass datas to view(no interconnection),but you showed an arrow from model to view.And model never process any data it just stores them,its the controller which takes the data from model,processes it and shows it on your view.But in controller part you said model processes data.This model is also described as:View(Presentation layer),Controller(Logic/Business layer),Model(Data layer).So all processing logic goes inside of controller.&#8221;চাইলে মডেলকেও কয়েক ভাগে ভাগ করে নেয়া যায়,এক অংশে হয়তো থাকবে অ্যালগোরিদম,আরেক অংশে ডাটাবেস,ফলে কাজে আরও সুবিধা হবে।&#8221;-The actual MVC pattern doesn&#8217;t tell anything like this,there can&#8217;t be any algo inside of model.Please learn the basics perfectly before you approach to let it learn.And also please make your blog readable for everyone.There&#8217;s a little chance that each visitor is junior than you and seniors would not wish to learn from your blog.So please remove the তুমি  format! 🙂 None of these are anything that meant to hurt you.Thanks for your great initiative.Keep it up. 😀</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexea16.html?p=870&amp;replytocom=253#respond' onclick='return addComment.moveForm( "div-comment-253", "253", "respond", "870" )' aria-label='Reply to Md. Abdul Munim Dibosh'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-254" class="comment byuser comment-author-Shafaet_amarsite bypostauthor even thread-even depth-1">
+			<article id="div-comment-254" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-254">
+							<time datetime="২০১১-১২-২২T০১:০৯:১১+০০:০০">
+								ডিসেম্বর ২২, ২০১১ at ১:০৯ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks a lot for your comment,i greatly appreciate criticisms,we all learn from mistakes.</p>
+<p>I&#8217;ve taken the pic from another site. After reading your comments i&#8217;ve google more and found arrow from model to view in almost every pic including wiki. According to wiki model&#8211;>view association is indirect via an observer. </p>
+<p>Now see whats written in developer.apple.com:</p>
+<p>&#8220;&#8221;Model objects encapsulate the data specific to an application and define the logic and computation that manipulate and process that data. &#8220;&#8221;</p>
+<p>and also:<br />
+&#8220;Controller objects are thus a conduit through which view objects learn about changes in model objects and vice versa. &#8221;</p>
+<p>So as far as i understand model contain some methods that process the data,controller just get data from model and send it to view. Where am i wrong? Please give me some reference.</p>
+<p>Sorry if &#8220;তুমি format&#8221; offended you,i greatly respect my seniors for sure.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexa858.html?p=870&amp;replytocom=254#respond' onclick='return addComment.moveForm( "div-comment-254", "254", "respond", "870" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-255" class="comment byuser comment-author-Shafaet_amarsite bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-255" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://graph.facebook.com/376414802552864/picture?type=square" class="avatar avatar-social-login avatar-32 photo" height="32" width="32" />						<b class="fn">শাফায়েত</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-255">
+							<time datetime="২০১১-১২-২২T০১:১৯:০৮+০০:০০">
+								ডিসেম্বর ২২, ২০১১ at ১:১৯ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p><a href="http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1', 'http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1');" rel="nofollow">http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_1</a></p>
+<p>এখানে লিখেছে:<br />
+&#8220;&#8221;The controller does not display the data in the model, it only triggers methods in the model which modify the data, and then pass the model into the view which displays the data.&#8221;&#8221;</p>
+<p>এটাই আমি বলতে চাচ্ছিলাম। মডেলে কিছু ম্যাথড থাকে যেগুলো ডাটা প্রসেস করে,কন্ট্রোলার প্যারামিটার পাঠিয়ে মেথডগুলো কল করে আর আউটপুট নিয়ে আসে। মডেলের কাজ শুধু ডাটা সংরক্ষণ না।</p>
+<p>(ছবিটা পাল্টে দিয়েছি,এখনকার ছবিটা বেশি পরিষ্কার)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index69db.html?p=870&amp;replytocom=255#respond' onclick='return addComment.moveForm( "div-comment-255", "255", "respond", "870" )' aria-label='Reply to শাফায়েত'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-256" class="comment even thread-even depth-1">
+			<article id="div-comment-256" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/f14b782d3a541481fed9d9c4da47086f?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/f14b782d3a541481fed9d9c4da47086f?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">Rondhro</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-256">
+							<time datetime="২০১১-১২-২২T০১:৫৪:১০+০০:০০">
+								ডিসেম্বর ২২, ২০১১ at ১:৫৪ am							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>As far I am aware Model and Controller can be defined in multiple ways based on the logic you are planning to manipulate. You could probably choose a Fat Model and a Thin Controller or a Thin Model and Fat Controller. </p>
+<p>A Fat model means you are allowing the model to manipulate more instructions on processing (Not only storing data) while using a less control instructions for controller (Lets say simply letting it to perform the communications while required only). On the other hand Thin Model and Fat Controller would do the opposite. When you put your more power in controller, you actually make your controller bulky and heavy to operate. Controller is the least re-usable part of MVC (In theory). I have no idea why would someone use a Framework if anyone planning to use a Thin Model and Fat Controller as the primary objective is just the opposite of it&#8217;s advantage. If I have to make another controller to make my framework reusable (Fat Controller Architecture), it probably worth nothing to me.  </p>
+<p>On the other hand, A Fat Model provides more control over your data, manipulation and re-usability while letting the Controller performing least tasks for you. </p>
+<p>I have never seen anyone defining MVC, strictly as Thin Model &amp; Fat Controller architecture like Mr. Dibosh has said. Good luck Shafaet.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index2057.html?p=870&amp;replytocom=256#respond' onclick='return addComment.moveForm( "div-comment-256", "256", "respond", "870" )' aria-label='Reply to Rondhro'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-262" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-262" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/b4f5a10543741cbc61e96d5cdbec3b1d?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/b4f5a10543741cbc61e96d5cdbec3b1d?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://facebook.com/idibosh' rel='external nofollow' class='url'>Md. Abdul Munim Dibosh</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-262">
+							<time datetime="২০১১-১২-২৯T১৫:০০:৫৮+০০:০০">
+								ডিসেম্বর ২৯, ২০১১ at ৩:০০ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Well,discussions always help us to learn in a right way 🙂 Please take a look at the stanford lecture given here: <a href="http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259" onclick="__gaTracker('send', 'event', 'outbound-comment', 'http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259', 'http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259');" rel="nofollow">http://www.stanford.edu/class/cs193p/cgi-bin/drupal/node/259</a><br />
+I learned MVC primarily from there videos and lectures and tried to incorporate it with my ASP.NET developments.Well things need to be clarified,to me what I meant was databases or data sources are perfectly meant to be models.Yes if we think of a class that handles all the data specific operation as Model,I must say you are right.But I extracted that class from Model and added it to Controller as it also does the same,some logic needed to manipulate data perfectly.Let me explain what I said a bit clearly.<br />
+View:User interaction/UX<br />
+Controller: all logic goes here<br />
+Model:only the data providers(e.g.database,a stack/queue)<br />
+I didn&#8217;t mean Model to have the class to access it should have been associated with it rather encapsulated that inside of controller.<br />
+That&#8217;s why the confusion arises.And after all these discussions I learned what you meant to say and must say yes this is the right way of course 🙂<br />
+And just to add Mr.Rondhro,this is the more specific way that we follow in our office,this is nothing like so called Fat/thin,rather we consider the class responsible for Model also to be included in Controller bundle.And believe me it&#8217;s the most followed practical approach. By the way thanks for your clarification.<br />
+And Shafayet bro,keep these discussions up,this will certainly help us to become matured in tech-life.Good luck.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index0944.html?p=870&amp;replytocom=262#respond' onclick='return addComment.moveForm( "div-comment-262", "262", "respond", "870" )' aria-label='Reply to Md. Abdul Munim Dibosh'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-418" class="comment even thread-even depth-1">
+			<article id="div-comment-418" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://0.gravatar.com/avatar/f8ce4f74cb3159cd12c4e61d4cfb9824?s=32&amp;d=monsterid&amp;r=g' srcset='http://0.gravatar.com/avatar/f8ce4f74cb3159cd12c4e61d4cfb9824?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://www.technologybasic.com/' rel='external nofollow' class='url'>Mashpy Says</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="index9af7.html?p=870#comment-418">
+							<time datetime="২০১২-০৩-৩১T১৬:৩৯:১৩+০০:০০">
+								মার্চ ৩১, ২০১২ at ৪:৩৯ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>ব্লগের পোস্টটি এবং মন্তব্যগুলো MVC সম্পর্কে ক্লিয়ার ধারনা নিতে সাহায্য করেছে। ধন্যবাদ।</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexc775.html?p=870&amp;replytocom=418#respond' onclick='return addComment.moveForm( "div-comment-418", "418", "respond", "870" )' aria-label='Reply to Mashpy Says'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply to <a href="#comment-255">শাফায়েত</a> <small><a rel="nofollow" id="cancel-comment-reply-link" href="index9af7.html?p=870#respond">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_3599310"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_3599310', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_48");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_48" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><input id="cptch_input_48" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<span class="cptch_span">&nbsp;&times;&nbsp;</span>
+					<span class="cptch_span"><img class="cptch_img " src="data:image/png;base64,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" alt="image"/></span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span">fifteen</span>
+					<input type="hidden" name="cptch_result" value="JGA=" />
+					<input type="hidden" name="cptch_time" value="1472748870" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='870' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='255' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="89081ca282" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="66"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_7657559"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_7657559', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=870&replytocom=255 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 17:05:04 GMT -->
+</html>

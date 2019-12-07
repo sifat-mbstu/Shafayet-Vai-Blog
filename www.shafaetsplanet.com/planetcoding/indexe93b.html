@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	itemscope 
+	itemtype="http://schema.org/WebSite" 
+	prefix="og: http://ogp.me/ns#" >
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=2295&replytocom=58315 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:26:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>বাইনারি সার্চ – ২ | শাফায়েতের ব্লগ</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="xmlrpc.php">
+
+<title>বাইনারি সার্চ – ২ &#8211; শাফায়েতের ব্লগ</title>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});
+</script>
+<!-- Performance scores of this site is tuned by WP Performance Score Booster plugin v1.6 - http://wordpress.org/plugins/wp-performance-score-booster -->
+
+<!-- All in One SEO Pack 2.3.8 by Michael Torbert of Semper Fi Web Design[224,265] -->
+<meta name="description" itemprop="description" content="আগের লেখায় আমরা বাইনারি সার্চ কিভাবে কাজ করে দেখেছি। এখন একই পদ্ধতি ব্যবহার করে আমরা অন্যরকম কিছু সমস্যা সমাধান করবো। আমরা এখন যেটা শিখবো সেটা বাইসেকশন মেথড" />
+
+<meta name="keywords" itemprop="keywords" content="অ্যালগোরিদম,বাইনারি সার্চ,বাইসেকশন,প্রোগ্রামিং" />
+
+<link rel="canonical" href="indexdfba.html?p=2295" />
+<meta property="og:title" content="বাইনারি সার্চ – ২ | শাফায়েতের ব্লগ" />
+<meta property="og:type" content="activity" />
+<meta property="og:url" content="http://www.shafaetsplanet.com/planetcoding/?p=2295" />
+<meta property="og:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta property="og:site_name" content="শাফায়েতের ব্লগ" />
+<meta property="og:description" content="আগের লেখায় আমরা বাইনারি সার্চ কিভাবে কাজ করে দেখেছি। এখন একই পদ্ধতি ব্যবহার করে আমরা অন্যরকম কিছু সমস্যা সমাধান করবো। আমরা এখন যেটা শিখবো সেটা বাইসেকশন মেথড নামেই বেশি পরিচিত। সহজ একটা সমস্যা সমাধান করতে করতে আমরা বাইসেকশন কিভাবে কাজ করে দেখবো। মনে করো তুমি যে ভাষা ব্যবহার করে প্রোগ্রামিং করছ সেখানে বর্গমূল বের করার জন্য কোনো ফাংশন নাই, তোমাকে নিজে ফাংশন লিখে নিতে হবে। আমরা mysqrt(X) নামের একটা ফাংশন লিখবো যেখানে X সংখ্যাটা পাঠালে সংখ্যাটার বর্গমূল রিটার্ন করবে, X সংখ্যাটা দশমিকযুক্ত হতে পারে, তবে শূণ্যের কম হবে না। আমরা জটিল কোনো গাণিতিক হিসাবে যাবো না বর্গমূল বের করার জন্য, আমরা বাইনারি সার্চ করেই বর্গমূল বের করে ফেলবো! একটু মনে করি আমরা একটা ছোট থেকে বড় সাজানো অ্যারেতে কোনো সংখ্যা খুজে বের করার সময় কি করছিলাম। মাঝখানের সংখ্যাটা যদি বেশি বড় হয় তাহলে ডানের অংশ বাদ দিয়ে দিচ্ছিলাম, বেশি ছোটো হলে বামের অংশটা বাদ দিয়ে দিচ্ছিলাম। বর্গমূল বের করার সময় আমরা জানি যে X এর বর্গমূল অবশ্যই ০ থেকে X এর মধ্যের একটা সংখ্যা হবে। ধরো X=১৫। আমরা প্রথমে ঠিক মাঝের সংখ্যাটা নিবো।" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="বাইনারি সার্চ – ২ | শাফায়েতের ব্লগ" />
+<meta name="twitter:description" content="আগের লেখায় আমরা বাইনারি সার্চ কিভাবে কাজ করে দেখেছি। এখন একই পদ্ধতি ব্যবহার করে আমরা অন্যরকম কিছু সমস্যা সমাধান করবো। আমরা এখন যেটা শিখবো সেটা বাইসেকশন মেথড নামেই বেশি পরিচিত। সহজ একটা সমস্যা সমাধান করতে করতে আমরা বাইসেকশন কিভাবে কাজ করে দেখবো। মনে করো তুমি যে ভাষা ব্যবহার করে প্রোগ্রামিং করছ সেখানে বর্গমূল বের করার জন্য কোনো ফাংশন নাই, তোমাকে নিজে ফাংশন লিখে নিতে হবে। আমরা mysqrt(X) নামের একটা ফাংশন লিখবো যেখানে X সংখ্যাটা পাঠালে সংখ্যাটার বর্গমূল রিটার্ন করবে, X সংখ্যাটা দশমিকযুক্ত হতে পারে, তবে শূণ্যের কম হবে না। আমরা জটিল কোনো গাণিতিক হিসাবে যাবো না বর্গমূল বের করার জন্য, আমরা বাইনারি সার্চ করেই বর্গমূল বের করে ফেলবো! একটু মনে করি আমরা একটা ছোট থেকে বড় সাজানো অ্যারেতে কোনো সংখ্যা খুজে বের করার সময় কি করছিলাম। মাঝখানের সংখ্যাটা যদি বেশি বড় হয় তাহলে ডানের অংশ বাদ দিয়ে দিচ্ছিলাম, বেশি ছোটো হলে বামের অংশটা বাদ দিয়ে দিচ্ছিলাম। বর্গমূল বের করার সময় আমরা জানি যে X এর বর্গমূল অবশ্যই ০ থেকে X এর মধ্যের একটা সংখ্যা হবে। ধরো X=১৫। আমরা প্রথমে ঠিক মাঝের সংখ্যাটা নিবো।" />
+<meta name="twitter:image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<meta itemprop="image" content="http://www.shafaetsplanet.com/planetcoding/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" />
+<!-- /all in one seo pack -->
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Feed" href="indexd784.html?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; Comments Feed" href="indexa6da.html?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="শাফায়েতের ব্লগ &raquo; বাইনারি সার্চ – ২ Comments Feed" href="index5a1a.html?feed=rss2&amp;p=2295" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-includes\/js\/wp-emoji-release.min.js"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='github-badge-css'  href='wp-content/plugins/github-badge/github-badge.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-css'  href='wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-awesome-css'  href='../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-font-opensans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='apss-frontend-css-css'  href='wp-content/plugins/accesspress-social-share/css/frontend.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bbp-default-css'  href='wp-content/plugins/bbpress/templates/default/css/bbpress.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='cptch_stylesheet-css'  href='wp-content/plugins/captcha/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='wp-includes/css/dashicons.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='cptch_desktop_style-css'  href='wp-content/plugins/captcha/css/desktop_style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C600%2C700%2C800%2C900%2C300%2C100%2C200%7COpen+Sans%3A300italic%2C400italic%2C600italic%2C700italic%2C400%2C600%2C700%2C300%7CRoboto+Slab%3A400%2C700%2C300%2C100&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-nav-css'  href='wp-content/themes/accesspress-staple/css/responsive-nav.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-animate-css'  href='wp-content/themes/accesspress-staple/css/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-font-awesome-css'  href='wp-content/themes/accesspress-staple/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-style-css'  href='wp-content/themes/accesspress-staple/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='accesspress-staple-responsive-css'  href='wp-content/themes/accesspress-staple/css/responsive.css' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.2 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','../../www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-20516820-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='wp-includes/js/jquery/jquery.js'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/engine.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.phonetic.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/driver.probhat.js'></script>
+<script type='text/javascript' src='wp-content/plugins/banglkb/js/banglakb.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js'></script>
+<script type='text/javascript' src='../../cdn.mathjax.org/mathjax/latest/MathJax7490.js?config=TeX-AMS-MML_HTMLorMML%2CSafe.js&amp;ver=bcb4227fbb2910e2249be1b5c4e2834a'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/wow.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/main-menu.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.actual.js'></script>
+<link rel='https://api.w.org/' href='index52f0.html?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='বাইনারি সার্চ &#8211; ১' href='indexe6f0.html?p=2279' />
+<link rel='next' title='স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি' href='index96c2.html?p=2316' />
+
+<link rel='shortlink' href='indexdfba.html?p=2295' />
+<meta name='robots' content='noindex,follow' />
+<link rel="alternate" type="application/json+oembed" href="indexee4a.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2295" />
+<link rel="alternate" type="text/xml+oembed" href="indexac7c.html?rest_route=%2Foembed%2F1.0%2Fembed&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2295&amp;format=xml" />
+<meta property="fb:app_id" content="122751631150479"/><script type="text/javascript">
+!function(t,e,s){"use strict";function a(t){t=t||{};var e="https://track.atom-data.io/",s="1.0.1";this.options={endpoint:!!t.endpoint&&t.endpoint.toString()||e,apiVersion:s,auth:t.auth?t.auth:""}}function n(t,e){this.endpoint=t.toString()||"",this.params=e||{},this.headers={contentType:"application/json;charset=UTF-8"},this.xhr=XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP")}function r(t,e,s){this.error=t,this.response=e,this.status=s}t.IronSourceAtom=a,a.prototype.putEvent=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!t.data)return e("Data is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint,t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.putEvents=function(t,e){if(t=t||{},!t.table)return e("Stream is required",null);if(!(t.data&&t.data instanceof Array&&t.data.length))return e("Data (must be not empty array) is required",null);t.apiVersion=this.options.apiVersion,t.auth=this.options.auth;var s=new n(this.options.endpoint+"/bulk",t);return t.method&&"GET"===t.method.toUpperCase()?s.get(e):s.post(e)},a.prototype.health=function(t){var e=new n(this.options.endpoint,{table:"health_check",data:"null"});return e.get(t)},"undefined"!=typeof module&&module.exports&&(module.exports={IronSourceAtom:a,Request:n,Response:r}),n.prototype.post=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e=this.xhr,s=JSON.stringify({data:this.params.data,table:this.params.table,apiVersion:this.params.apiVersion,auth:this.params.auth});e.open("POST.html",this.endpoint,!0),e.setRequestHeader("Content-type",this.headers.contentType),e.setRequestHeader("x-ironsource-atom-sdk-type","js"),e.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),e.onreadystatechange=function(){if(e.readyState===XMLHttpRequest.DONE){var s;e.status>=200&&e.status<400?(s=new r(!1,e.response,e.status),!!t&&t(null,s.data())):(s=new r(!0,e.response,e.status),!!t&&t(s.err(),null))}},e.send(s)},n.prototype.get=function(t){if(!this.params.table||!this.params.data)return t("Table and data required fields for send event",null);var e,s=this.xhr,a=JSON.stringify({table:this.params.table,data:this.params.data,apiVersion:this.params.apiVersion,auth:this.params.auth});try{e=btoa(a)}catch(n){}s.open("GET.html",this.endpoint+"?data="+e,!0),s.setRequestHeader("Content-type",this.headers.contentType),s.setRequestHeader("x-ironsource-atom-sdk-type","js"),s.setRequestHeader("x-ironsource-atom-sdk-version","1.0.1"),s.onreadystatechange=function(){if(s.readyState===XMLHttpRequest.DONE){var e;s.status>=200&&s.status<400?(e=new r(!1,s.response,s.status),!!t&&t(null,e.data())):(e=new r(!0,s.response,s.status),!!t&&t(e.err(),null))}},s.send()},r.prototype.data=function(){return this.error?null:JSON.parse(this.response)},r.prototype.err=function(){return{message:this.response,status:this.status}}}(window,document);
+
+var options = {
+  endpoint: 'https://track.atom-data.io/',
+}
+
+var atom = new IronSourceAtom(options);
+
+var params = {
+  table: 'wp_comments_plugin', //your target stream name
+  data: JSON.stringify({
+    'domain': window.location.hostname,
+    'url': window.location.protocol + "//" + window.location.host + "/" + window.location.pathname,
+    'lang': window.navigator.userLanguage || window.navigator.language,
+    'referrer': document.referrer || '',
+    'pn': 'fcp'
+  }), //String with any data and any structure.
+  method: 'POST' // optional, default "POST"
+}
+
+var callback = function() {};
+
+if ( Math.floor( Math.random() * 100 ) + 1 === 1 ) {
+  atom.putEvent(params, callback);
+}
+</script><script type='text/javascript' src='../../shafaetsplanet.api.oneall.com/socialize/library.js'></script>
+    <style type="text/css" media="screen">
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:hover, div.printfriendly a:visited {
+            text-decoration: none;
+            border: none;
+          }
+    </style>
+           <style type="text/css" media="screen">
+          div.printfriendly {
+            margin: 12px 12px 12px 12px;
+          }
+          div.printfriendly a, div.printfriendly a:link, div.printfriendly a:visited {
+            font-size: 14px;
+            color: #6D9F00;
+            vertical-align: bottom;
+          }
+
+          .printfriendly a:hover {
+            cursor: pointer;
+          }
+
+          .printfriendly a img  {
+            border: none;
+            padding:0;
+            margin-right: 6px;
+            display:inline-block;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+          }
+          .printfriendly a span{
+            vertical-align: bottom;
+          }
+          .pf-alignleft {
+            float: left;
+          }
+          .pf-alignright {
+            float: right;
+          }
+          div.pf-aligncenter {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+          }
+        </style>
+        <style type="text/css" media="print">
+          .printfriendly {
+            display: none;
+          }
+        </style>
+<style type='text/css' media='all'></style>
+
+	<!-- Clean Archives Reloaded v3.2.0 | http://www.viper007bond.com/wordpress-plugins/clean-archives-reloaded/ -->
+	<style type="text/css">.car-collapse .car-yearmonth { cursor: s-resize; } </style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			jQuery(document).ready(function() {
+				jQuery('.car-collapse').find('.car-monthlisting').hide();
+				jQuery('.car-collapse').find('.car-monthlisting:first').show();
+				jQuery('.car-collapse').find('.car-yearmonth').click(function() {
+					jQuery(this).next('ul').slideToggle('fast');
+				});
+				jQuery('.car-collapse').find('.car-toggler').click(function() {
+					if ( 'সবগুলো দেখান' == jQuery(this).text() ) {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').show();
+						jQuery(this).text('সবগুলো লুকান');
+					}
+					else {
+						jQuery(this).parent('.car-container').find('.car-monthlisting').hide();
+						jQuery(this).text('সবগুলো দেখান');
+					}
+					return false;
+				});
+			});
+		/* ]]> */
+	</script>
+
+
+</head>
+
+<body class="single single-post postid-2295 single-format-standard fullwidth header-white right-sidebar">
+<div id="page" class="hfeed site">
+    <div id="outer-wrap">
+        <div id="inner-wrap">            
+                        
+            <header id="masthead" class="site-header  no-classic" role="banner">
+                
+                            <div class="header-social">
+                    <div class="ak-container">
+                    <div class="ak_header_social">
+                        	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+                    </div> 
+                    </div>
+                </div>
+                            
+                <div class="ak-container" id="main-header">
+                    <div class="site-branding logo-left">
+                        <a href="index.html" rel="প্রথম পাতা"> 
+                                                       <h1>শাফায়েতের ব্লগ</h1>
+                            <div class="tagline">প্রোগ্রামিং ও অ্যালগোরিদম টিউটোরিয়াল</div>
+                                                    </a>
+                    </div>
+                    <div class="menu-wrap ">
+                                    
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <button class="menu-toggle">Primary Menu</button>
+                            <div class="clearfix"> </div>
+                                <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                        </nav><!-- #site-navigation -->
+                          
+                    </div>
+
+                    <div class="responsive-header">
+                        <a class="nav-btn" id="nav-open-btn" href="#nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </a>
+                    </div>   
+                </div>
+ 
+            </header><!-- #masthead -->
+
+            <nav id="nav">
+                <div class="block">
+                    <div class="menu-responsive-header-container">
+                        <div class="staple-menu"><ul><li ><a href="index.html">Home</a></li><li class="page_item page-item-2804"><a href="index8974.html?page_id=2804">অ্যালগোরিদম নিয়ে যত লেখা!</a></li><li class="page_item page-item-2"><a href="indexba53.html?page_id=2">আমার সম্পর্কে&#8230;</a></li></ul></div>
+  
+                    </div>
+                    <a class="close-btn" id="nav-close-btn" href="#top"><i class="fa fa-close"> </i> </a>
+                </div>
+            </nav><!-- #site-navigation -->
+
+                        <div id="content" class="site-content">
+            
+                <div class="ak-container">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-2295" class="post-2295 post type-post status-publish format-standard hentry category-programming">
+	<header class="entry-header">
+		<h1 class="main-title"><span>বাইনারি সার্চ – ২</span></h1>		<div class="entry-meta">
+			<span class="posted-on"><a href="indexdfba.html?p=2295" rel="bookmark"><time class="entry-date published" datetime="২০১৫-০৮-১৭T০৩:২৮:৪২+০০:০০">আগস্ট ১৭, ২০১৫</time><time class="updated" datetime="2016-08-13T17:44:23+00:00">August 13, 2016</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="indexcd64.html?author=1">শাফায়েত</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+        		<div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=2295'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%AC%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A6%BF%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%9A%20%E2%80%93%20%E0%A7%A8&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2295&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=2295'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%AC%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A6%BF%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%9A%20%E2%80%93%20%E0%A7%A8&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=2295&amp;summary=%e0%a6%86%e0%a6%97%e0%a7%87%e0%a6%b0%20%e0%a6%b2%e0%a7%87%e0%a6%96%e0%a6%be%e0%a7%9f%20%e0%a6%86%e0%a6%ae%e0%a6%b0%e0%a6%be%20%e0%a6%ac%e0%a6%be%e0%a6%87%e0%a6%a8%e0%a6%be%e0%a6%b0%e0%a6%bf%20%e0%a6%b8%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%9a%20%e0%a6%95%e0%a6%bf%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a7%87%20%e0...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div><div class="pf-content"><p><a href="indexe6f0.html?p=2279">আগের লেখায়</a> আমরা বাইনারি সার্চ কিভাবে কাজ করে দেখেছি। এখন একই পদ্ধতি ব্যবহার করে আমরা অন্যরকম কিছু সমস্যা সমাধান করবো। আমরা এখন যেটা শিখবো সেটা বাইসেকশন মেথড নামেই বেশি পরিচিত।</p>
+<p>সহজ একটা সমস্যা সমাধান করতে করতে আমরা বাইসেকশন কিভাবে কাজ করে দেখবো। মনে করো তুমি যে ভাষা ব্যবহার করে প্রোগ্রামিং করছ সেখানে বর্গমূল বের করার জন্য কোনো ফাংশন নাই, তোমাকে নিজে ফাংশন লিখে নিতে হবে। আমরা mysqrt(X) নামের একটা ফাংশন লিখবো যেখানে X সংখ্যাটা পাঠালে সংখ্যাটার বর্গমূল রিটার্ন করবে, X সংখ্যাটা দশমিকযুক্ত হতে পারে, তবে শূণ্যের কম হবে না।</p>
+<p>আমরা জটিল কোনো গাণিতিক হিসাবে যাবো না বর্গমূল বের করার জন্য, আমরা বাইনারি সার্চ করেই বর্গমূল বের করে ফেলবো!</p>
+<p>একটু মনে করি আমরা একটা ছোট থেকে বড় সাজানো অ্যারেতে কোনো সংখ্যা খুজে বের করার সময় কি করছিলাম। মাঝখানের সংখ্যাটা যদি বেশি বড় হয় তাহলে ডানের অংশ বাদ দিয়ে দিচ্ছিলাম, বেশি ছোটো হলে বামের অংশটা বাদ দিয়ে দিচ্ছিলাম।</p>
+<p>বর্গমূল বের করার সময় আমরা জানি যে X এর বর্গমূল অবশ্যই ০ থেকে X এর মধ্যের একটা সংখ্যা হবে। ধরো X=১৫। আমরা প্রথমে ঠিক মাঝের সংখ্যাটা নিবো। এক্ষেত্রে মাঝের সংখ্যা হলো ৭.৫ যাকে আবার বর্গ করলে পাওয়া যায় ৫৬.২৫ যা ১৫ এর থেকে অনেক বড়। তারমানে ৭.৫ থেকে ১৫ পর্যন্ত বাকি সব সংখ্যার বর্গই ১৫ এর থেকে বড়, এই অংশটা আমরা বাদ দিয়ে দিতে পারি।</p>
+<p>এখন তাহলে আমরা আবার ০ থেকে ৭.৫ এর মধ্যে খুজবো। মাঝের সংখ্যাটা হলো ৩.৭৫ যাকে বর্গ করলে পাই ১৪.০৬২৫ যা ১৫ থেকে ছোটো। তারমানে ০ থেকে ৩.৭৫ পর্যন্ত অংশে বর্গমূল পাবার কোনো সম্ভাবনা নেই। এখন আবার ৩.৭৫ থেকে ৭.৫ এর মাঝে খুজবো।</p>
+<p>পুরো সিমুলেশনটা হাতেকলমে করছি না, আশা করি তুমি বুঝতে পারছো যে বর্গমূল না পাওয়া পর্যন্ত আমরা এভাবেই খুজতে থাকবো। নিচের কোডটা দেখো:</p>
+<p>&nbsp;</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84ac14f25d446631056" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+def mysqrt(X):
+	low=0.0
+	high=X
+	while high-low&gt;.0001:
+		mid=(low+high)/2
+		print low, high, mid, mid*mid
+		if mid*mid&gt;X:
+			high=mid
+		else:
+			low=mid
+
+	print mid,mid*mid
+        return mid
+
+mysqrt(15)</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-2">2</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-4">4</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-6">6</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-8">8</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-10">10</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-12">12</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f25d446631056-14">14</div><div class="crayon-num" data-line="crayon-57c84ac14f25d446631056-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84ac14f25d446631056-1"><span class="crayon-r">def</span><span class="crayon-h"> </span><span class="crayon-e">mysqrt</span><span class="crayon-sy">(</span><span class="crayon-v">X</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-2"><span class="crayon-h">	</span><span class="crayon-v">low</span><span class="crayon-o">=</span><span class="crayon-cn">0.0</span></div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-3"><span class="crayon-h">	</span><span class="crayon-v">high</span><span class="crayon-o">=</span><span class="crayon-i">X</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-4"><span class="crayon-h">	</span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-v">high</span><span class="crayon-o">-</span><span class="crayon-v">low</span><span class="crayon-o">&gt;</span><span class="crayon-sy">.</span><span class="crayon-cn">0001</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-5"><span class="crayon-h">		</span><span class="crayon-v">mid</span><span class="crayon-o">=</span><span class="crayon-sy">(</span><span class="crayon-v">low</span><span class="crayon-o">+</span><span class="crayon-v">high</span><span class="crayon-sy">)</span><span class="crayon-o">/</span><span class="crayon-cn">2</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-6"><span class="crayon-h">		</span><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-v">low</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">high</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-o">*</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-7"><span class="crayon-e">		</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-o">*</span><span class="crayon-v">mid</span><span class="crayon-o">&gt;</span><span class="crayon-v">X</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-8"><span class="crayon-h">			</span><span class="crayon-v">high</span><span class="crayon-o">=</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-9"><span class="crayon-e">		</span><span class="crayon-st">else</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-10"><span class="crayon-h">			</span><span class="crayon-v">low</span><span class="crayon-o">=</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-12"><span class="crayon-e">	</span><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-sy">,</span><span class="crayon-v">mid</span><span class="crayon-o">*</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-13"><span class="crayon-e">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">mid</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f25d446631056-14">&nbsp;</div><div class="crayon-line" id="crayon-57c84ac14f25d446631056-15"><span class="crayon-e">mysqrt</span><span class="crayon-sy">(</span><span class="crayon-cn">15</span><span class="crayon-sy">)</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0058 seconds] -->
+<p>এই কোডটা চালালে দেখবে বর্গমূল আসছে 3.87296676636 যাকে আবার বর্গ করলে পাওয়া যায় 14.9998715733। বুঝতেই পারছো দশমিক সংখ্যার প্রিসিশনের সমস্যার কারণে একদম সঠিক উত্তর পাওয়া যায় নি, কাছাকাছি একটা উত্তর পাওয়া গিয়েছে।  ৪নম্বর লাইনটা খুব গুরুত্বপূর্ণ, এখানে আমরা ঠিক করছি কতক্ষণ আমরা খোজা চালিয়ে যাবো, যত বেশিক্ষণ খুজবো সঠিক উত্তরের তত কাছাকাছি পৌছাতে পারবো। এখানে আমরা high এবং low এর পার্থক্য যতক্ষণ না খুব ছোট হয়ে যাচ্ছে ততক্ষন খুজতেসি। তুমি .0001 এর জায়গায় আরো কোনো ছোটো সংখ্যা বসালে দেখবে আগের থেকে ভালো ফলাফল পাচ্ছো। যেমন .000000001 ব্যবহার করলে বর্গমূল পাবে 3.87298334594 যাকে আবার বর্গ করলে পাওয়া যায় 14.9999999979।</p>
+<p>তুমি চাইলে নির্দিষ্ট করে বলে দিতে পারো বাইসেকশন কয়টা ধাপ পর্যন্ত চলবে। তখন কোডটা হবে এরকম:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-57c84ac14f27d397595384" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Python</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="mouseover" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+def mysqrt(X):
+	low=0.0
+	high=X
+	for step in range(64):
+		mid=(low+high)/2
+		print low, high, mid, mid*mid
+		if mid*mid&gt;X:
+			high=mid
+		else:
+			low=mid
+	
+	print mid,mid*mid
+	return mid
+mysqrt(15)
+x</textarea></div>
+			<div class="crayon-main" style="">
+				<table class="crayon-table">
+					<tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-2">2</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-4">4</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-6">6</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-8">8</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-10">10</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-12">12</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-57c84ac14f27d397595384-14">14</div><div class="crayon-num" data-line="crayon-57c84ac14f27d397595384-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-57c84ac14f27d397595384-1"><span class="crayon-r">def</span><span class="crayon-h"> </span><span class="crayon-e">mysqrt</span><span class="crayon-sy">(</span><span class="crayon-v">X</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-2"><span class="crayon-h">	</span><span class="crayon-v">low</span><span class="crayon-o">=</span><span class="crayon-cn">0.0</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-3"><span class="crayon-h">	</span><span class="crayon-v">high</span><span class="crayon-o">=</span><span class="crayon-i">X</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-4"><span class="crayon-h">	</span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">step </span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-k ">range</span><span class="crayon-sy">(</span><span class="crayon-cn">64</span><span class="crayon-sy">)</span><span class="crayon-o">:</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-5"><span class="crayon-h">		</span><span class="crayon-v">mid</span><span class="crayon-o">=</span><span class="crayon-sy">(</span><span class="crayon-v">low</span><span class="crayon-o">+</span><span class="crayon-v">high</span><span class="crayon-sy">)</span><span class="crayon-o">/</span><span class="crayon-cn">2</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-6"><span class="crayon-h">		</span><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-v">low</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">high</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-o">*</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-7"><span class="crayon-e">		</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-o">*</span><span class="crayon-v">mid</span><span class="crayon-o">&gt;</span><span class="crayon-v">X</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-8"><span class="crayon-h">			</span><span class="crayon-v">high</span><span class="crayon-o">=</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-9"><span class="crayon-e">		</span><span class="crayon-st">else</span><span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-10"><span class="crayon-h">			</span><span class="crayon-v">low</span><span class="crayon-o">=</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-11"><span class="crayon-e">	</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-12"><span class="crayon-e">	</span><span class="crayon-k ">print</span><span class="crayon-h"> </span><span class="crayon-v">mid</span><span class="crayon-sy">,</span><span class="crayon-v">mid</span><span class="crayon-o">*</span><span class="crayon-e">mid</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-13"><span class="crayon-e">	</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">mid</span></div><div class="crayon-line crayon-striped-line" id="crayon-57c84ac14f27d397595384-14"><span class="crayon-e">mysqrt</span><span class="crayon-sy">(</span><span class="crayon-cn">15</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-57c84ac14f27d397595384-15"><span class="crayon-v">x</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0038 seconds] -->
+<p>এবার আমরা high, low এর পার্থক্যের কথা চিন্তা না করেই ৬৪ বার সার্চ করেছি। একটা সংখ্যাকে ৬৪ বার ২দিয়ে ভাগ করা মানে সংখ্যাটাকে প্রচন্ডরকম ছোটো করে ফেলা, তাই তুমি এভাবে সঠিক উত্তরের খুব কাছে পৌছে যাবে। তুমি চাইলে ৬৪ বারের জায়গায় ১০০ বা ২০০ বারও ভাগ করতে পারো আরো ভালো ফলাফলের জন্য, তবে সেক্ষেত্রে কোডের রানটাইমও বেড়ে যাবে।  ধাপসংখ্যা নির্ধারণ করার সময় high-lowদ এর মান কত বড় এবং একই সাথে প্রবলেমের টাইমলিমিটের দিকে লক্ষ্য রাখা উচিত।</p>
+<p>বাইসেকশন ব্যবহার করে জ্যামিতির অনেক সমস্যা সমাধান করা যায়। ধরো তোমাকে নিচের মত একটা ত্রিভুজ দেয়া আছে:</p>
+<p><a href="wp-content/uploads/2015/08/a.png"><img class="aligncenter size-full wp-image-2298" src="wp-content/uploads/2015/08/a.png" alt="a" width="285" height="205" /></a> <b>AB</b>, <b>AC</b> আর <b>BC </b>এর দৈর্ঘ্য তোমাকে দেয়া আছে, আর বলা আছে যে DE আর BC সমান্তরাল। এছাড়া <b>ADE </b>ত্রিভুজ এবং<b> BDEC </b>ট্রাপিজিয়ামের ক্ষেত্রফলের অনুপাত R ও তোমাকে দেয়া আছে। তোমাকে বলতে হবে <strong>AD </strong>এর দৈর্ঘ্য কত?</p>
+<p>এটা আমরা সহজেই বাইসেকশন দিয়ে সমাধান করতে পারি। তুমি অনুমান করে নাও যে AD এর দৈর্ঘ্য হলো x। এখন AD এর দৈর্ঘ্য জানলে তুমি স্কুলে পড়া ত্রিভুজের অনুপাতের নিয়ম (AD/AB=AE/AC=DE/BC) দিয়ে সহজেই AE, EC, DE বের করে ফেলতে পারবে। এখন তুমি বাহুর দৈর্ঘ্য দিয়ে ADE এবং BDEC এর ক্ষেত্রফলও সহজে বের করতে পারবে। ক্ষেত্রফল জানার পর অনুপাত বের করে ফেল। যদি দেখ যে তুমি যে অনুপাতটা পেয়েছো সেটা R এর থেকে ছোটো তারমানে তুমি AD এর যে দৈর্ঘ্য x অনুমান করেছিলে সেটা আসল দৈর্ঘ্য থেকে ছোটো। তাহলে তুমি x থেকে high পর্যন্ত রেঞ্জে আবার খুজতে থাকো। আর যদি দেখো যে তোমার পাওয়া অনুপাতটা R এর থেকে বড় তাহলে 0 থেকে x পর্যন্ত রেঞ্জে খুজতে থাকো। high এর মান শুরুতে কত হবে সেটা চিন্তা করে বের করার কাজ তোমার :)।</p>
+<p>&nbsp;</p>
+<p>বাইসেকশন কখন কাজ করবে কখন করবে না এটা বুঝতে পারা খুবই গুরুত্বপূর্ণ। বর্গমূল বের করা শেখার পর তুমি হয়তো মনে করলে sin(x)+5*log10(x)=5.27 ইকুয়েশনটার সমাধান বাইসেকশন দিয়ে করবে। তুমি অনুমান করলে x=50, তাহলে sin(50)+5*log10(50)=9.26। এখন কি তুমি নিশ্চিত ভাবে বলতে পারো যে উত্তর ৫০ এর বামে আছে? পারবে না, কারণ x এর মান কমলে sin(x)+5*log10(x) এর মান বাড়তেও পারে, কমতেও পারে। x এর বিভিন্ন মানের জন্য গুগলে গ্রাফটা প্লট করলে তুমি এরকম পাবে:</p>
+<p><a href="wp-content/uploads/2015/08/graph.png"><img class="aligncenter wp-image-2299" src="wp-content/uploads/2015/08/graph-1024x608.png" alt="graph" width="613" height="364" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/08/graph-1024x608.png 1024w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/08/graph-300x178.png 300w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/08/graph.png 1061w" sizes="(max-width: 613px) 100vw, 613px" /></a></p>
+<p>এই ইকুয়েশনের ক্ষেত্রে তুমি একটা রেঞ্জের মাঝখানের মান টা নিয়ে কিছু হিসাব-নিকাশ করে বাম বা ডান দিকে অংশ বাতিল করে দিতে পারো না, কারণ তোমার জানার উপায় নাই কোনদিকে তোমার উত্তরটা আছে। বর্গমূলব করার সময় ইকুয়েশনটা ছিল x^2, সেটাকে প্লট করলে পাওয়া যায় এরকম:</p>
+<p><a href="wp-content/uploads/2015/08/graph2.png"><img class="aligncenter wp-image-2300" src="wp-content/uploads/2015/08/graph2-1024x559.png" alt="graph2" width="669" height="365" srcset="http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/08/graph2-1024x559.png 1024w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/08/graph2-300x164.png 300w, http://www.shafaetsplanet.com/planetcoding/wp-content/uploads/2015/08/graph2.png 1040w" sizes="(max-width: 669px) 100vw, 669px" /></a></p>
+<p>এক্ষেত্রে বাইসেকশন কাজ করেছে কারণ তুমি সহজেই বাম বা ডানের অংশ ফেলে দিতে পেরেছো।</p>
+<p>প্রবলেম সলভ করার সময় প্লট বের করা কোনো দরকার নেই, এটা শুধু মাত্র তোমাকে বুঝাতে দেখিয়েছি। তুমি নিশ্চিত হতে পারো যে মাঝখানের মানটা দেখে  কোনো একটা অংশ বাতিল করে দেয়া যাবে শুধুমাত্র তখনই বাইসেকশন কাজ করবে। যেমন log(x)+x^2=y এই ইকুয়েশন বাইসেকশন দিয়ে সমাধান করতে পারবে কারণ x এর মান বাড়ার সাথে সাথে y সবসময় বাড়বে, কিন্তু tan(x)+x^2=y এটা বাইসেকশন দিয়ে সমাধান করতে পারবে না।</p>
+<p>এবার বাইসেকশন দিয়ে একটা <a href="index20ee.html?tag=%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%BE%E0%A6%AB">গ্রাফের</a> প্রবলেম সমাধান করি। তোমাকে একটা গ্রাফ দেয়া আছে এরকম:</p>
+<p><img class=" aligncenter" src="../../www.comp.dit.ie/rlawlor/Alg_DS/labs_files/image001.gif" alt="" width="293" height="257" /></p>
+<p>&nbsp;</p>
+<p>প্রতিটি এজ একেকটা রাস্তা যার একটা করে ওয়েট আছে। এখন তুমি A থেকে G তে যেতে চাও এমন ভাবে যেন সেই পথে সর্বোচ্চ ওয়েট এর মান যতটা সম্ভব কম হয়। যেমন A-&gt;D-&gt;F-&gt;G পথে সর্বোচ্চ ওয়েট ১১, আবার A-&gt;B-&gt;E-&gt;G পথে সর্বোচ্চ ওয়েট ৯।</p>
+<p>এটা সহজেই বাইসেকশন দিয়ে সমাধান করা সম্ভব। এক্ষেত্রে শুরুতে high=15 কারণ কোনো এজের ওয়েট ১৫ এর থেকে বেশি না, low=০ আর mid=৭। এখন তুমি ৭ এর বড় সবগুলো এজকে গ্রাফ থেকে বাদ দিয়ে দাও আর দেখো যে A থেকে G তে যাওয়ার কোনো রাস্তা আছে নাকি। যদি না থাকে তাহলে ৭ এর বামে উত্তর থাকা সম্ভব না, বামের অংশ বাতিল করে আবার খুজতে থাকো। এক্ষেত্রে বাইসেকশন কাজ করবে কারণ মাঝের মান টা দেখে তুমি বাম বা ডানের অংশ বাতিল করে দিতে পারছো। (এই সমস্যাটা বাইসেকশনের বদলে <a href="index0f1e.html?p=1500">ডায়াক্সট্রা</a> অ্যালগোরিদমকে কিছুটা পরিবর্তন করেও সমাধান করা সম্ভব।)</p>
+<p>অনুশীলনের জন্য সমস্যা:</p>
+<p><a title="http://www.lightoj.com/volume_showproblem.php?problem=1076" href="Triangle%20partitioning.html">http://www.lightoj.com/volume_showproblem.php?problem=1043</a></p>
+<p><a href="http://www.lightoj.com/volume_showproblem.php?problem=1076" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://www.lightoj.com/volume_showproblem.php?problem=1076', 'http://www.lightoj.com/volume_showproblem.php?problem=1076');" title="Get the containers">http://www.lightoj.com/volume_showproblem.php?problem=1076</a></p>
+<p><a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989', 'https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989');">https://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=35&amp;category=116&amp;page=show_problem&amp;problem=989</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="printfriendly pf-aligncenter"><a href="#" rel="nofollow" onclick="window.print(); return false;" class="noslimstat"><img style="border:none;-webkit-box-shadow:none; box-shadow:none;" src="../../cdn.printfriendly.com/pf-button-both.gif" alt="Print Friendly" /></a></div></div><!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ --><h3>ফেসবুকে মন্তব্য</h3><p><fb:comments-count href=indexdfba.html?p=2295></fb:comments-count> comments</p><div class="fb-comments" data-href="http://www.shafaetsplanet.com/planetcoding/?p=2295" data-num-posts="10" data-width="450" data-colorscheme="light"></div><p>Powered by <a href="http://peadig.com/wordpress-plugins/facebook-comments/">Facebook Comments</a></p><div class='apss-social-share apss-theme-4 clearfix'>
+
+
+				<div class='apss-facebook apss-single-icon'>
+					<a rel='nofollow'  title="Share on Facebook" target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http://www.shafaetsplanet.com/planetcoding/?p=2295'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-facebook'></i>
+							<span class='apss-social-text'>Share on Facebook</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-twitter apss-single-icon'>
+					<a rel='nofollow'  title="Share on Twitter" target='_blank' href="https://twitter.com/intent/tweet?text=%E0%A6%AC%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A6%BF%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%9A%20%E2%80%93%20%E0%A7%A8&amp;url=http%3A%2F%2Fwww.shafaetsplanet.com%2Fplanetcoding%2F%3Fp%3D2295&amp;">
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-twitter'></i>
+							<span class='apss-social-text'>Share on Twitter</span><span class='apss-share'>Tweet</span>
+						</div>
+											</a>
+				</div>
+								<div class='apss-google-plus apss-single-icon'>
+					<a rel='nofollow'  title="Share on Google Plus" target='_blank' href='https://plus.google.com/share?url=http://www.shafaetsplanet.com/planetcoding/?p=2295'>
+						<div class='apss-icon-block clearfix'>
+							<i class='fa fa-google-plus'></i>
+							<span class='apss-social-text'>Share on Google Plus</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				
+				<div class='apss-linkedin apss-single-icon'>
+					<a rel='nofollow'  title="Share on LinkedIn" target='_blank' href='http://www.linkedin.com/shareArticle?mini=true&amp;title=%E0%A6%AC%E0%A6%BE%E0%A6%87%E0%A6%A8%E0%A6%BE%E0%A6%B0%E0%A6%BF%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%9A%20%E2%80%93%20%E0%A7%A8&amp;url=http://www.shafaetsplanet.com/planetcoding/?p=2295&amp;summary=%e0%a6%86%e0%a6%97%e0%a7%87%e0%a6%b0%20%e0%a6%b2%e0%a7%87%e0%a6%96%e0%a6%be%e0%a7%9f%20%e0%a6%86%e0%a6%ae%e0%a6%b0%e0%a6%be%20%e0%a6%ac%e0%a6%be%e0%a6%87%e0%a6%a8%e0%a6%be%e0%a6%b0%e0%a6%bf%20%e0%a6%b8%e0%a6%be%e0%a6%b0%e0%a7%8d%e0%a6%9a%20%e0%a6%95%e0%a6%bf%e0%a6%ad%e0%a6%be%e0%a6%ac%e0%a7%87%20%e0...'>
+						<div class='apss-icon-block clearfix'><i class='fa fa-linkedin'></i>
+							<span class='apss-social-text'>Share on LinkedIn</span>
+							<span class='apss-share'>Share</span>
+						</div>
+											</a>
+				</div>
+				</div>			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="cat-links">Posted in <a href="indexb31a.html?cat=1" rel="category">প্রোগ্রামিং</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+				<nav class="navigation post-navigation clearfix" role="navigation">
+		<h1 class="screen-reader-text">Post navigation</h1>
+		<div class="nav-links">
+			<div class="nav-previous"><a href="indexe6f0.html?p=2279" rel="prev"><span class="meta-nav">&larr;</span>&nbsp;বাইনারি সার্চ &#8211; ১</a></div><div class="nav-next"><a href="index96c2.html?p=2316" rel="next">স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি&nbsp;<span class="meta-nav">&rarr;</span></a></div>		</div><!-- .nav-links -->
+	</nav><!-- .navigation -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			2 thoughts on &ldquo;<span>বাইনারি সার্চ – ২</span>&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-58315" class="comment even thread-even depth-1">
+			<article id="div-comment-58315" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/e33c7c825656e7520b24ca6fe19b2f86?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/e33c7c825656e7520b24ca6fe19b2f86?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn"><a href='http://facebook/' rel='external nofollow' class='url'>sakib</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexdfba.html?p=2295#comment-58315">
+							<time datetime="২০১৫-১০-১৫T১৮:৫০:০৫+০০:০০">
+								অক্টোবর ১৫, ২০১৫ at ৬:৫০ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>If we omit every edge less than or greater than mid value then how come we&#8217;ll be able to determine as there is a mixture of edges greater or less than 7?</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='indexe93b.html?p=2295&amp;replytocom=58315#respond' onclick='return addComment.moveForm( "div-comment-58315", "58315", "respond", "2295" )' aria-label='Reply to sakib'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		<li id="comment-58316" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-58316" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='http://2.gravatar.com/avatar/e33c7c825656e7520b24ca6fe19b2f86?s=32&amp;d=monsterid&amp;r=g' srcset='http://2.gravatar.com/avatar/e33c7c825656e7520b24ca6fe19b2f86?s=64&amp;d=monsterid&amp;r=g 2x' class='avatar avatar-32 photo' height='32' width='32' />						<b class="fn">sakib</b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="indexdfba.html?p=2295#comment-58316">
+							<time datetime="২০১৫-১০-১৫T১৮:৫৪:৫২+০০:০০">
+								অক্টোবর ১৫, ২০১৫ at ৬:৫৪ pm							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>i&#8217;ve realised it&#8230;&#8230;..sorry for the unnecessary question that i asked&#8230;&#8230;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='index0f4f.html?p=2295&amp;replytocom=58316#respond' onclick='return addComment.moveForm( "div-comment-58316", "58316", "respond", "2295" )' aria-label='Reply to sakib'>Reply</a></div>			</article><!-- .comment-body -->
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply to <a href="#comment-58315">sakib</a> <small><a rel="nofollow" id="cancel-comment-reply-link" href="indexdfba.html?p=2295#respond">Cancel reply</a></small></h3>				<form action="http://www.shafaetsplanet.com/planetcoding/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+					 <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_label" style="margin-bottom: 3px;"><label>Connect with:</label></div>
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_3074214"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_3074214', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=comments")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="cptch_block"><br /><script class="cptch_to_remove">
+				(function( timeout ) {
+					setTimeout(
+						function() {
+							var notice = document.getElementById("cptch_time_limit_notice_36");
+							if ( notice )
+								notice.style.display = "block";
+						},
+						timeout
+					);
+				})(120000);
+			</script>
+			<span id="cptch_time_limit_notice_36" class="cptch_time_limit_notice cptch_to_remove">Time limit is exhausted. Please reload CAPTCHA.</span><span class="cptch_wrap">
+				<label class="cptch_label" for="cptch_input">
+					<span class="cptch_span"><input id="cptch_input_36" class="cptch_input " type="text" autocomplete="off" name="cptch_number" value="" maxlength="2" size="2" aria-required="true" required="required" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;" /></span>
+					<span class="cptch_span">&nbsp;&times;&nbsp;</span>
+					<span class="cptch_span">2</span>
+					<span class="cptch_span">&nbsp;=&nbsp;</span>
+					<span class="cptch_span">eighteen</span>
+					<input type="hidden" name="cptch_result" value="nwo=" />
+					<input type="hidden" name="cptch_time" value="1472744128" />
+					<input type="hidden" value="Version: 4.2.2" />
+				</label><span class="cptch_reload_button_wrap hide-if-no-js">
+					<noscript>
+						<style type="text/css">
+							.hide-if-no-js {
+								display: none !important;
+							}
+						</style>
+					</noscript>
+					<span class="cptch_reload_button dashicons dashicons-update"></span>
+				</span></span></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='2295' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='58315' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e9be3116b5" /></p>
+    <p class="comment-form-comment"><input type='button' value='phonetic' onclick="banglakb_public_comment(phonetic);"></input>
+    <input type='button' value='probhat' onclick="banglakb_public_comment(probhat);"></input>
+    <input type='button' value='english' onclick='banglakb_toggle();'></input>
+    </p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="205"/></p>				</form>
+					</div><!-- #respond -->
+		
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+    <div id="secondary-right" class="widget-area right-sidebar sidebar">
+        			<aside id="oa_social_login-2" class="widget widget_oa_social_login"><h3 class="widget-title"><span>সাবস্ক্রাইব</span></h2> <!-- OneAll.com / Social Login for WordPress / v5.0 -->
+<div class="oneall_social_login">
+ <div class="oneall_social_login_providers" id="oneall_social_login_providers_2980819"></div>
+ <script type="text/javascript">
+  oneall.api.plugins.social_login.build('oneall_social_login_providers_2980819', {
+   'providers': ['facebook','github','yahoo'], 
+   'callback_uri': (window.location.href + ((window.location.href.split('?')[1] ? '&amp;': '?') + "oa_social_login_source=widget")), 
+   'css_theme_uri': 'http://public.oneallcdn.com/css/api/socialize/themes/wordpress/default.css' 
+  });
+ </script>
+</div></aside><aside id="text-8" class="widget widget_text"><h3 class="widget-title"><span>আমার সম্পর্কে</span></h2>			<div class="textwidget">শাফায়েত, সফটওয়্যার ইঞ্জিনিয়ার @ <a href="http://hackerrank.com/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://hackerrank.com/', '');"><img class="aligncenter  wp-image-2187" style="display: inline;" src="wp-content/uploads/2010/12/hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc.png" alt="hackerranklogo_green-f525139abeb8869d17bcd7c49e5cffbc" width="100" height="29" /></a>
+ <a href="indexba53.html?page_id=2" TARGET="_blank" title='আমার সম্পর্কে' >(বিস্তারিত...)</a>
+<br><br>
+
+<img style="float:left" src=../../iconshow.me/media/images/social/simple-icons/png/32/android.png><p>Now mobile friendly!</p>
+<p style="clear:both" ></p>
+
+<a href=http://blogmap.herokuapp.com/ > <font size=7 color=993333>ব্লগ মানচিত্র</font></a>
+<br><br>
+
+<span style="color: #382110">Goodreads Book Self:</span><br/><a href="https://www.goodreads.com/review/list/22517129?shelf=read" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.goodreads.com/review/list/22517129?shelf=read', '');" title="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)"><img border="0" alt="Shafaet Ashraf's book recommendations, liked quotes, book clubs, book trivia, book lists (read shelf)" src="../../www.goodreads.com/images/badge/badge1.jpg"></a>
+<br><br>
+
+
+<font size=4 color=993333>প্রোগ্রামিং কনটেস্ট এবং অ‍্যালগোরিদম</font><br>
+<font size='4' color=#323166>অনুপ্রেরণা(৩):</font>
+<br>
+<a href=index7979.html?p=1437>কেন আমি প্রোগ্রামিং শিখবো?</a><br>
+
+<a href=indexe38d.html?p=1639>কম্পিউটার বিজ্ঞান কেন পড়বো?</a><br>
+
+<a href=indexa7ea.html?p=1400> প্রোগ্রামিং কনটেস্ট এবং অনলাইন জাজে হাতেখড়ি</a><br>
+<br>
+<font size='4' color=#323166>অ্যালগোরিদম বেসিক(৫):</font>
+<br>
+<a href=index1de6.html?p=1313> বিগ "O" নোটেশন</a><br>
+<a href=index3515.html?p=1642> কমপ্লেক্সিটি ক্লাস(P-NP, টুরিং মেশিন ইত‍্যাদি)</a><br>
+<a href=indexe6f0.html?p=2279>বাইনারি সার্চ - ১</a><br>
+<a href=indexdfba.html?p=2295>বাইনারি সার্চ - ২(বাইসেকশন)</a><font color=red></font><br>
+<a href=planetcoding/indexac3e.html?p=2822>ফ্লয়েড সাইকেল ফাইন্ডিং অ্যালগোরিদম</a><font color=red>(নতুন)</font><br>
+<br>
+
+
+
+<font size='4' color=#323166>গ্রাফ থিওরি(১৮):</font>
+<br>
+<a href=indexdc22.html?p=143> গ্রাফ থিওরিতে হাতেখড়ি</a><br>
+<a href=index48fd.html?p=184>অ্যাডজেসেন্সি ম্যাট্রিক্স</a><br>
+<a href=index0114.html?p=211>অ্যাডজেসেন্সি লিস্ট</a><br>
+<a href=index1d45.html?p=604>ব্রেথড ফার্স্ট সার্চ (বিএফএস)</a><br>
+<a href=index820c.html?p=692>মিনিমাম স্প্যানিং ট্রি ১ (প্রিমস অ্যালগোরিদম)</a><br>
+<a href=indexee96.html?p=825>মিনিমাম স্প্যানিং ট্রি ২ (ক্রুসকাল অ্যালগোরিদম)</a><br>
+<a href=indexab1b.html?p=848>টপোলজিকাল সর্ট</a><br>
+<a href=index236f.html?p=973>ডেপথ ফার্স্ট সার্চ এবং আবারো টপোলোজিকাল সর্ট</a><br>
+<a href=index0f1e.html?p=1500>ডায়াক্সট্রা</a><br>
+<a href=index8e9f.html?p=1927>ফ্লয়েড ওয়ার্শল</a><br>
+<a href=indexa318.html?p=2044
+>বেলম‍্যান ফোর্ড</a>
+<br>
+<a href=indexe264.html?p=2504
+>আর্টিকুলেশন পয়েন্ট এবং ব্রিজ</a>
+<br>
+<a href=index30a1.html?p=2531
+>স্ট্রংলি কানেক্টেড কম্পোনেন্ট</a>
+<br>
+
+<a href=indexc292.html?p=2195
+>ম্যাক্সিমাম ফ্লো-১</a>
+<br>
+<a href=indexba06.html?p=2231
+>ম্যাক্সিমাম ফ্লো-২</a>
+<br>
+<a href=index9aa6.html?p=1187>স্টেবল ম্যারেজ প্রবলেম</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার</a><br>
+<a href=index1b7d.html?p=521>ট্রি এর ডায়ামিটার নির্ণয়</a><br>
+<a href=indexa748.html?p=2781>লংগেস্ট পাথ প্রবলেম</a><font color=red>(নতুন)</font><br>
+<br>
+
+<font size='4' color=#323166>অ্যালগোরিদম গেম থিওরি(৩):</font>
+
+<br>
+<a href=index4d18.html?p=2325>গেম থিওরি-১</a><br>
+<a href=index0a1d.html?p=2608>গেম থিওরি-২</a><br>
+<a href=index7736.html?p=2714>গেম থিওরি-৩</a><font color=red>(নতুন)</font><br>
+
+<br>
+<font size='4' color=#323166>ডাইনামিক প্রোগ্রামিং(৮):</font>
+<br>
+<a href=indexb703.html?p=1022>শুরুর কথা</a><br>
+<a href=index4b2e.html?p=1072>ডিপি 'স্টেট', NcR, ০-১ ন্যাপস্যাক</a><br>
+<a href=index2f10.html?p=1158>কয়েন চেঞ্জ, রক ক্লাইম্বিং</a><br>
+<a href=index2b78.html?p=1211> ডিপি সলিউশন প্রিন্ট করা এবং LIS</a><br>
+<a href=indexcd8b.html?p=1357>বিটমাস্ক ডিপি</a><br>
+<a href=index01e4.html?p=582>মিনিমাম ভারটেক্স কভার(গ্রাফ+ডিপি)</a><br>
+<a href=index13c2.html?p=1862>লংগেস্ট কমন সাবসিকোয়েন্স(LCS)</a><br>
+<a href=index5e30.html?p=1885>ম‍্যাট্রিক্স চেইন মাল্টিপ্লিকেশন</a><br>
+
+
+<font size='4' color=#323166>ব্যাকট্র্যাকিং(১):</font>
+<br>
+
+<a href=index80a2.html?p=1266> ব্যকট্র্যাকিং বেসিক এবং পারমুটেশন জেনারেটর</a><br>
+<br>
+
+<font size='4' color=#323166>ডাটা স্ট্রাকচার(৯):</font>
+<br>
+<a href=index8b69.html?p=2689>লিংকড লিস্ট</a><br>
+<a href=indexeeae.html?p=2342>স্ট্যাক</a><br>
+<a href=indexa2f3.html?p=763>ডিসজয়েন্ট সেট(ইউনিয়ন ফাইন্ড)</a><br>
+<a href=indexad79.html?p=1679>ট্রাই(প্রিফিক্স ট্রি/রেডিক্স ট্রি)</a><br>
+<a href=indexd81c.html?p=1557>সেগমেন্ট ট্রি-১</a><br>
+<a href=index5dd3.html?p=1591>সেগমেন্ট ট্রি-২(লেজি প্রপাগেশন)</a><br>
+<a href=indexe129.html?p=1388>অ্যারে কমপ্রেশন/ম্যাপিং</a><br>
+<a href=index5c9a.html?p=1831>লোয়েস্ট কমন অ্যানসেস্টর</a><br>
+<a href=indexdf2c.html?p=1961>বাইনারি ইনডেক্সড ট্রি</a><br>
+<br>
+
+
+
+<font size='4' color=#323166>নাম্বার থিওরি/গণিত(৪):</font>
+<br>
+
+<a href=indexb648.html?p=936>মডুলার অ্যারিথমেটিক</a><br>
+<a href=index5a14.html?p=624>প্রাইম জেনারেটর (Sieve of Eratosthenes)</a><br>
+<a href=indexc3f0.html?p=855>বিটওয়াইজ সিভ</a><br>
+<a href=index2b8b.html?p=600>ডিরেঞ্জমেন্ট</a><br>
+
+<br>
+<font size=4 color=323166>অন্যান্য(৩) :</font><br>
+<a href=index9a20.html?p=1448>ডিরেকশন অ্যারে</a><br>
+<a href=index17bd.html?p=1756>মিট ইন দ্যা মিডল</a><font color=red></font>
+<br>
+<a href=index96c2.html?p=2316>স্লাইডিং রেঞ্জ মিনিমাম কুয়েরি</a><font color=red></font><br>
+
+<br>
+<font size=4 color=993333>কোয়ান্টাম কম্পিউটার(২)</font><br>
+
+<a href=index8c2a.html?p=2130>
+কোয়ান্টাম কম্পিউটার কী?</a><br>
+<a href=indexbb9e.html?p=2135>
+কোয়ান্টাম কম্পিউটারের শক্তি এবং সীমাবদ্ধতা</a><br>
+
+
+
+
+
+
+
+
+</div>
+		</aside>		    </div>
+    </div>
+	
+			</div><!-- #content -->
+
+			<footer id="colophon" class="site-footer" role="contentinfo">
+		        		         
+				<div class="site-info">
+					<div id="bottom-footer">
+        				<div class="ak-container">
+        					<div class="copyright">
+                                AccessPress Staple        		                <span class="free-credit"> | WordPress Theme:  <a href="#" target="_blank">AccessPress Staple</a> by <a href="#" target="_blank">AccessPress Themes</a></span>
+        					</div>
+        		                    		            <div class="ak_footer_social">
+        		              	<div class="social-icons">
+		
+				<a href="https://twitter.com/shafaet90" class="twitter" data-title="Twitter" target="_blank"><i class="fa fa-twitter"></i><span></span></a>
+		
+		
+		
+		
+				<a href="https://www.linkedin.com/in/shafaetcsedu" class="linkedin" data-title="Linkedin" target="_blank"><i class="fa fa-linkedin"></i><span></span></a>
+		
+		
+		
+		
+				
+		
+		
+				<a href="http://github.com/Shafaet" class="github" data-title="github" target="_blank"><i class="fa fa-github"></i><span></span></a>
+		
+				
+		    </div>
+        		            </div>
+        		                    				</div>
+				    </div>
+				</div><!-- .site-info -->
+			</footer><!-- #colophon -->
+		</div> <!-- #inner wrap -->
+	</div> <!-- #outer-wrap -->
+</div><!-- #page -->
+<div id="ak-top"><i class="fa fa-angle-up"></i>top</div>
+      <script type="text/javascript">
+
+          var pfHeaderImgUrl = '';
+          var pfHeaderTagline = '';
+          var pfdisableClickToDel = '0';
+          var pfHideImages = '0';
+          var pfImageDisplayStyle = 'right';
+          var pfDisableEmail = '0';
+          var pfDisablePDF = '0';
+          var pfDisablePrint = '0';
+          var pfCustomCSS = '';
+      (function() {
+            var e = document.createElement('script'); e.type="text/javascript";
+        if('https:' == document.location.protocol) {
+        js='../../d3nekkt1lmmhms.cloudfront.net/printfriendly.js';
+        }
+        else{
+        js='../../cdn.printfriendly.com/printfriendly.js';
+        }
+            e.src = js;
+            document.getElementsByTagName('head')[0].appendChild(e);
+        })();
+      </script>
+<script type='text/javascript' src='wp-content/plugins/akismet/_inc/form.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var frontend_ajax_object = {"ajax_url":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","ajax_nonce":"bce27210a7"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/accesspress-social-share/js/frontend.js'></script>
+<script type='text/javascript' src='wp-content/plugins/bbpress/templates/default/js/editor.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.bxslider.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/jquery.counterup.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/waypoint.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/skip-link-focus-fix.js'></script>
+<script type='text/javascript' src='wp-content/themes/accesspress-staple/js/custom.js'></script>
+<script type='text/javascript' src='wp-includes/js/comment-reply.min.js'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min.js'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cptch_vars = {"nonce":"f21e404995","ajaxurl":"http:\/\/www.shafaetsplanet.com\/planetcoding\/wp-admin\/admin-ajax.php","enlarge":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/captcha/js/front_end_script.js'></script>
+<!-- Facebook Comments Plugin for WordPress: http://peadig.com/wordpress-plugins/facebook-comments/ -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "../../connect.facebook.net/en_US/sdk.js#xfbml=1&appId=122751631150479&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+
+<!-- Mirrored from www.shafaetsplanet.com/planetcoding/?p=2295&replytocom=58315 by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 Sep 2016 16:26:34 GMT -->
+</html>
